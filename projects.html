@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Data Science Gallery - Suyash Anil Babad</title>
+    <meta name="description" content="Exploratory Data Analysis and Machine Learning Project Gallery.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Suyash.</a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="theme-toggle" id="theme-toggle">
+                <div class="toggle-icon"></div>
+            </div>
+
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Gallery Hero Section -->
+        <section class="gallery-hero">
+            <div class="hero-content" style="flex-direction: column; text-align: center;">
+                <h1 class="hero-title" style="font-size: 4rem;">Data Science Gallery</h1>
+                <p class="hero-subtitle">Exploring data through a creative lens. A showcase of my EDA and ML works.</p>
+                <div class="hero-buttons">
+                    <a href="#gallery" class="btn btn-primary">View Gallery</a>
+                    <a href="index.html" class="btn btn-secondary">Back to Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="eda">Exploratory Data Analysis</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- EDA Project Card -->
+                <div class="gallery-card" data-category="eda">
+                    <div class="gallery-img-container">
+                        <img src="eda_project.png" alt="EDA Dashboard Visualization" />
+                    </div>
+                    <div class="gallery-card-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">Seaborn</span>
+                        </div>
+                        <h3>E-Commerce Sales Insights (EDA)</h3>
+                        <p class="project-summary">A deep dive into customer purchasing behavior to uncover revenue-driving trends and seasonal patterns.</p>
+                        
+                        <!-- Expandable Detailed Report -->
+                        <div class="detailed-report">
+                            <h4 class="report-subtitle">Dataset Overview</h4>
+                            <p>Analyzed 50,000+ transaction records containing customer demographics, product categories, and order timestamps over a 2-year period.</p>
+                            
+                            <h4 class="report-subtitle">Key Insights Extracted</h4>
+                            <ul class="report-list">
+                                <li><strong>Seasonality:</strong> Sales peak by 45% during the holiday season (Nov-Dec), primarily driven by electronics and apparel.</li>
+                                <li><strong>Customer Segmentation:</strong> 20% of top customers contribute to 65% of total revenue.</li>
+                                <li><strong>Cart Abandonment:</strong> Higher shipping costs directly correlate with a 30% drop-off rate in the final checkout step.</li>
+                            </ul>
+
+                            <h4 class="report-subtitle">Conclusions Drawn</h4>
+                            <p>The business should implement targeted marketing for the top 20% tier and consider threshold-based free shipping to reduce cart abandonment.</p>
+                        </div>
+
+                        <div class="gallery-actions">
+                            <button class="btn btn-secondary toggle-report-btn">View Full Report</button>
+                            <a href="https://github.com/suyash2356/EDA-Project" target="_blank" class="btn btn-primary">View Code on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML Project Card -->
+                <div class="gallery-card" data-category="ml">
+                    <div class="gallery-img-container">
+                        <img src="ml_project.png" alt="Machine Learning Metrics Dashboard" />
+                    </div>
+                    <div class="gallery-card-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">XGBoost</span>
+                            <span class="tag">Imbalanced-Learn</span>
+                        </div>
+                        <h3>Customer Churn Prediction (ML)</h3>
+                        <p class="project-summary">Predictive modeling to identify at-risk customers in a telecom dataset before they cancel their subscriptions.</p>
+                        
+                        <!-- Expandable Detailed Report -->
+                        <div class="detailed-report">
+                            <h4 class="report-subtitle">Data Insights & Preprocessing</h4>
+                            <p>The dataset contained significant class imbalance (only 18% churned). Applied SMOTE to oversample the minority class and prevent model bias towards the majority class. Monthly charges and tenure were heavily correlated with churn.</p>
+
+                            <h4 class="report-subtitle">Model Selection & Rationale</h4>
+                            <p>Started with Logistic Regression as a baseline. Evaluated Random Forest and XGBoost. Chose <strong>XGBoost</strong> due to its superior handling of non-linear relationships and built-in regularization, which prevented overfitting on this structured dataset.</p>
+                            
+                            <h4 class="report-subtitle">Performance Metrics</h4>
+                            <ul class="report-list">
+                                <li><strong>Accuracy:</strong> 86.5%</li>
+                                <li><strong>Precision:</strong> 79.2% (Minimizing false positives for costly retention offers)</li>
+                                <li><strong>Recall:</strong> 82.1% (Crucial for identifying true churners)</li>
+                                <li><strong>F1-Score:</strong> 80.6%</li>
+                                <li><strong>AUC-ROC:</strong> 0.91</li>
+                            </ul>
+                        </div>
+
+                        <div class="gallery-actions">
+                            <button class="btn btn-secondary toggle-report-btn">View Full Report</button>
+                            <a href="#" target="_blank" class="btn btn-primary">View Code on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Suyash Babad. All Rights Reserved.</p>
+    </footer>
+
+    <a href="#" class="back-to-top">&#8593;</a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Gallery filtering logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+
+            // Handle URL Parameters for filtering
+            const urlParams = new URLSearchParams(window.location.search);
+            const filterParam = urlParams.get('filter');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Expandable Report Logic
+            const toggleBtns = document.querySelectorAll('.toggle-report-btn');
+            toggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const report = this.closest('.gallery-card-content').querySelector('.detailed-report');
+                    report.classList.toggle('expanded');
+                    
+                    if (report.classList.contains('expanded')) {
+                        this.textContent = 'Hide Report';
+                    } else {
+                        this.textContent = 'View Full Report';
+                    }
+                });
+            });
+
+            // Trigger filter if param is present
+            if (filterParam) {
+                const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
+                if (targetBtn) {
+                    targetBtn.click();
+                    // Optional: Scroll to gallery after a tiny delay
+                    setTimeout(() => {
+                        const gallerySection = document.getElementById('gallery');
+                        if (gallerySection) {
+                            gallerySection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
