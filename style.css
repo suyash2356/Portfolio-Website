@@ -115,7 +115,7 @@ section {
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 999;
+    z-index: 9999;
     opacity: 0;
     transition: 0.2s ease;
 }
@@ -157,7 +157,7 @@ section {
     width: 100%;
     padding: 10px 0;
     transition: 0.3s ease;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .header.scrolled {
@@ -872,7 +872,7 @@ body.light-mode .social-links img {
     .menu-icon {
         display: block;
         position: relative;
-        z-index: 999;
+        z-index: 9999;
     }
 
     .contact-container {
