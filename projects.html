@@ -91,39 +91,62 @@
         <!-- Portfolio Content -->
         <section id="gallery" class="portfolio-content">
             
-            <aside class="advanced-filters">
-                <h3>Advanced Filters</h3>
-                <div class="filter-group">
-                    <input type="text" id="search-input" placeholder="Search projects..." />
-                </div>
-                <div class="filter-group">
-                    <h4>Category</h4>
-                    <div class="category-buttons">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="eda">EDA</button>
-                        <button class="filter-btn" data-filter="ml">ML</button>
-                        <button class="filter-btn" data-filter="dl">DL</button>
-                    </div>
-                </div>
-                <div class="filter-group">
-                    <h4>Topic</h4>
-                    <select id="topic-filter">
-                        <option value="all">All Topics</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <h4>Algorithms</h4>
-                    <select id="algo-filter">
-                        <option value="all">All Algorithms</option>
-                    </select>
-                </div>
-            </aside>
-
-            <div class="portfolio-grid-container">
-                <div id="projects-container" class="advanced-grid">
-                    <!-- Projects injected here -->
+            <div class="project-tabs-container">
+                <div class="project-tabs">
+                    <button class="tab-btn active" data-tab="eda">EDA</button>
+                    <button class="tab-btn" data-tab="ml">Machine Learning</button>
+                    <button class="tab-btn" data-tab="dl">Deep Learning</button>
                 </div>
             </div>
+
+            <!-- Tab Content: EDA -->
+            <div class="tab-content active" id="tab-eda">
+                <div class="horizontal-filters">
+                    <input type="text" class="search-input" data-target="eda" placeholder="Search EDA projects..." />
+                    <div class="range-filter">
+                        <label>Dataset Size: <span class="range-value" id="range-val-eda">All</span></label>
+                        <div class="dual-slider-container">
+                            <div class="slider-track" id="slider-track-eda"></div>
+                            <input type="range" class="dataset-slider-min" data-target="eda" min="0" max="100" value="0" step="1" />
+                            <input type="range" class="dataset-slider-max" data-target="eda" min="0" max="100" value="100" step="1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="advanced-grid" id="grid-eda"></div>
+            </div>
+
+            <!-- Tab Content: ML -->
+            <div class="tab-content" id="tab-ml">
+                <div class="horizontal-filters">
+                    <input type="text" class="search-input" data-target="ml" placeholder="Search ML projects..." />
+                    <div class="range-filter">
+                        <label>Dataset Size: <span class="range-value" id="range-val-ml">All</span></label>
+                        <div class="dual-slider-container">
+                            <div class="slider-track" id="slider-track-ml"></div>
+                            <input type="range" class="dataset-slider-min" data-target="ml" min="0" max="100" value="0" step="1" />
+                            <input type="range" class="dataset-slider-max" data-target="ml" min="0" max="100" value="100" step="1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="advanced-grid" id="grid-ml"></div>
+            </div>
+
+            <!-- Tab Content: DL -->
+            <div class="tab-content" id="tab-dl">
+                <div class="horizontal-filters">
+                    <input type="text" class="search-input" data-target="dl" placeholder="Search DL projects..." />
+                    <div class="range-filter">
+                        <label>Dataset Size: <span class="range-value" id="range-val-dl">All</span></label>
+                        <div class="dual-slider-container">
+                            <div class="slider-track" id="slider-track-dl"></div>
+                            <input type="range" class="dataset-slider-min" data-target="dl" min="0" max="100" value="0" step="1" />
+                            <input type="range" class="dataset-slider-max" data-target="dl" min="0" max="100" value="100" step="1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="advanced-grid" id="grid-dl"></div>
+            </div>
+
         </section>
 
         <!-- Project Modal -->
@@ -150,57 +173,59 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const projectsContainer = document.getElementById('projects-container');
-            const searchInput = document.getElementById('search-input');
-            const topicFilter = document.getElementById('topic-filter');
-            const algoFilter = document.getElementById('algo-filter');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            // Populate Filters and Stats
-            function initDashboard() {
-                let topics = new Set();
-                let algorithms = new Set();
-                let counts = { total: 0, eda: 0, ml: 0, dl: 0 };
+            // Helper to parse dataset size to number
+            function parseDatasetSize(sizeStr, category) {
+                if (!sizeStr) return 0;
+                let str = sizeStr.toLowerCase();
+                let num = parseFloat(str.replace(/[^0-9.]/g, ''));
+                if (isNaN(num)) return 0;
+                
+                let firstToken = str.split(' ')[0]; // Only check the number part for multipliers (e.g., "150+", "16k+")
+                
+                if (category === 'dl') {
+                    // Internal unit for DL is MB
+                    if (firstToken.includes('gb')) return num * 1024;
+                    if (firstToken.includes('tb')) return num * 1024 * 1024;
+                    if (firstToken.includes('kb')) return num / 1024;
+                    return num; // Default to MB if just a number or 'mb'
+                } else {
+                    // Internal unit for EDA/ML is rows
+                    if (firstToken.includes('k')) num *= 1000;
+                    if (firstToken.includes('m')) num *= 1000000;
+                    return num;
+                }
+            }
 
+            // Prepare project objects with raw dataset value
+            myProjects.forEach(p => {
+                p.datasetValue = parseDatasetSize(p.datasetSize, p.category);
+            });
+
+            // Initialize Stats
+            function initDashboard() {
+                let counts = { total: 0, eda: 0, ml: 0, dl: 0 };
                 myProjects.forEach(p => {
                     counts.total++;
                     if (counts[p.category] !== undefined) counts[p.category]++;
-                    if (p.topic) topics.add(p.topic);
-                    if (p.algorithms) p.algorithms.forEach(a => algorithms.add(a));
                 });
-
-                // Update Stats
                 document.getElementById('stat-total').innerText = counts.total;
                 document.getElementById('stat-eda').innerText = counts.eda;
                 document.getElementById('stat-ml').innerText = counts.ml;
                 document.getElementById('stat-dl').innerText = counts.dl;
-
-                // Populate Selects
-                topics.forEach(t => {
-                    const opt = document.createElement('option');
-                    opt.value = t; opt.innerText = t;
-                    topicFilter.appendChild(opt);
-                });
-                algorithms.forEach(a => {
-                    const opt = document.createElement('option');
-                    opt.value = a; opt.innerText = a;
-                    algoFilter.appendChild(opt);
-                });
             }
 
-            // (Removed fake renderHeatmap function)
-
-            // Render Projects Grid
-            function renderProjects(projects) {
-                projectsContainer.innerHTML = ''; 
+            // Render projects to specific container
+            function renderProjects(projects, containerId) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = ''; 
                 if(projects.length === 0) {
-                    projectsContainer.innerHTML = '<p>No projects match your filters.</p>';
+                    container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--secondary-text-color);">No projects match your filters.</p>';
                     return;
                 }
                 
                 projects.forEach(project => {
                     const tagsHTML = project.tags.slice(0,3).map(tag => `<span class="tag compact-tag">${tag}</span>`).join('');
-                    const mainImage = project.images[0] || 'placeholder.png';
+                    const mainImage = project.images && project.images[0] ? project.images[0] : 'placeholder.png';
                     
                     const cardHTML = `
                         <div class="compact-card" data-id="${project.id}">
@@ -212,44 +237,170 @@
                             </div>
                         </div>
                     `;
-                    projectsContainer.innerHTML += cardHTML;
+                    container.innerHTML += cardHTML;
                 });
 
-                // Attach Modal Events
-                document.querySelectorAll('.compact-card').forEach(card => {
+                // Re-attach Modal Events
+                document.querySelectorAll(`#${containerId} .compact-card`).forEach(card => {
                     card.addEventListener('click', () => openModal(card.getAttribute('data-id')));
                 });
             }
 
-            // Filtering Logic
-            function applyFilters() {
-                const searchVal = searchInput.value.toLowerCase();
-                const topicVal = topicFilter.value;
-                const algoVal = algoFilter.value;
-                const categoryVal = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            // Set up sliders min/max dynamically per category
+            const categories = ['eda', 'ml', 'dl'];
+            const filterState = {
+                eda: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 },
+                ml: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 },
+                dl: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 }
+            };
+
+            categories.forEach(cat => {
+                const catProjects = myProjects.filter(p => p.category === cat);
+                let maxVal = 0;
+                catProjects.forEach(p => {
+                    if (p.datasetValue > maxVal) maxVal = p.datasetValue;
+                });
+                
+                // Ensure maxVal is at least 1 to avoid slider issues if tab is empty
+                if (maxVal === 0) maxVal = 1;
+                
+                filterState[cat].maxDataVal = maxVal;
+                filterState[cat].minRange = 0;
+                filterState[cat].maxRange = maxVal; // Default to max
+                
+                const sliderMin = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
+                const sliderMax = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
+                if (sliderMin && sliderMax) {
+                    sliderMin.max = maxVal;
+                    sliderMax.max = maxVal;
+                    sliderMin.value = 0;
+                    sliderMax.value = maxVal;
+                    
+                    updateSliderTrack(cat);
+                    updateSliderLabel(cat);
+                }
+            });
+
+            function formatNumber(num, cat) {
+                if (cat === 'dl') {
+                    if (num >= 1024) {
+                        return (num / 1024).toFixed(1) + ' GB';
+                    }
+                    return Math.round(num) + ' MB';
+                }
+                return num.toLocaleString();
+            }
+
+            function updateSliderTrack(cat) {
+                const sliderMin = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
+                const sliderMax = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
+                const track = document.getElementById(`slider-track-${cat}`);
+                if(!sliderMin || !sliderMax || !track) return;
+                
+                const minVal = parseInt(sliderMin.value, 10);
+                const maxVal = parseInt(sliderMax.value, 10);
+                const maxAllowed = parseInt(sliderMin.max, 10);
+                
+                const percent1 = (minVal / maxAllowed) * 100;
+                const percent2 = (maxVal / maxAllowed) * 100;
+                
+                track.style.left = percent1 + "%";
+                track.style.width = (percent2 - percent1) + "%";
+            }
+
+            function updateSliderLabel(cat) {
+                const label = document.getElementById(`range-val-${cat}`);
+                if (!label) return;
+                
+                const minVal = filterState[cat].minRange;
+                const maxVal = filterState[cat].maxRange;
+                
+                if (minVal === 0 && maxVal >= filterState[cat].maxDataVal) {
+                    label.innerText = 'All';
+                } else {
+                    label.innerText = `${formatNumber(minVal, cat)} - ${formatNumber(maxVal, cat)}`;
+                }
+            }
+
+            // Apply Filters for a specific category
+            function applyFilters(cat) {
+                const searchVal = filterState[cat].search.toLowerCase();
+                const minVal = filterState[cat].minRange;
+                const maxVal = filterState[cat].maxRange;
 
                 const filtered = myProjects.filter(p => {
+                    if (p.category !== cat) return false;
                     const matchSearch = p.title.toLowerCase().includes(searchVal) || p.summary.toLowerCase().includes(searchVal);
-                    const matchTopic = topicVal === 'all' || p.topic === topicVal;
-                    const matchAlgo = algoVal === 'all' || (p.algorithms && p.algorithms.includes(algoVal));
-                    const matchCategory = categoryVal === 'all' || p.category === categoryVal;
-                    
-                    return matchSearch && matchTopic && matchAlgo && matchCategory;
+                    // For range: check both lower and upper bounds
+                    const matchUpper = maxVal >= filterState[cat].maxDataVal ? true : (p.datasetValue <= maxVal);
+                    const matchLower = p.datasetValue >= minVal;
+                    return matchSearch && matchUpper && matchLower;
                 });
 
-                renderProjects(filtered);
+                renderProjects(filtered, `grid-${cat}`);
             }
 
             // Event Listeners for Filters
-            searchInput.addEventListener('input', applyFilters);
-            topicFilter.addEventListener('change', applyFilters);
-            algoFilter.addEventListener('change', applyFilters);
-            
-            filterBtns.forEach(btn => {
+            document.querySelectorAll('.search-input').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    const cat = e.target.getAttribute('data-target');
+                    filterState[cat].search = e.target.value;
+                    applyFilters(cat);
+                });
+            });
+
+            document.querySelectorAll('.dataset-slider-min').forEach(slider => {
+                slider.addEventListener('input', (e) => {
+                    const cat = e.target.getAttribute('data-target');
+                    const maxSlider = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
+                    let minVal = parseInt(e.target.value, 10);
+                    let maxVal = parseInt(maxSlider.value, 10);
+                    
+                    if (minVal >= maxVal) {
+                        e.target.value = maxVal - (e.target.max * 0.01);
+                        minVal = parseInt(e.target.value, 10);
+                    }
+                    
+                    filterState[cat].minRange = minVal;
+                    updateSliderTrack(cat);
+                    updateSliderLabel(cat);
+                    applyFilters(cat);
+                });
+            });
+
+            document.querySelectorAll('.dataset-slider-max').forEach(slider => {
+                slider.addEventListener('input', (e) => {
+                    const cat = e.target.getAttribute('data-target');
+                    const minSlider = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
+                    let maxVal = parseInt(e.target.value, 10);
+                    let minVal = parseInt(minSlider.value, 10);
+                    
+                    if (maxVal <= minVal) {
+                        e.target.value = minVal + (e.target.max * 0.01);
+                        maxVal = parseInt(e.target.value, 10);
+                    }
+                    
+                    filterState[cat].maxRange = maxVal;
+                    updateSliderTrack(cat);
+                    updateSliderLabel(cat);
+                    applyFilters(cat);
+                });
+            });
+
+            // Tab Switching Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Remove active from all
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active to clicked
                     btn.classList.add('active');
-                    applyFilters();
+                    const targetCat = btn.getAttribute('data-tab');
+                    document.getElementById(`tab-${targetCat}`).classList.add('active');
                 });
             });
 
@@ -297,23 +448,14 @@
                 }
             });
 
-            // Init Dashboard
+            // Initialize Dashboard & Projects
             initDashboard();
+            categories.forEach(cat => applyFilters(cat));
             
             // Init Real GitHub Heatmap
-            GitHubCalendar("#github-heatmap", "suyash2356", { responsive: true, tooltips: true });
-            
-            // URL Param Filter Init
-            const urlParams = new URLSearchParams(window.location.search);
-            const filterParam = urlParams.get('filter');
-            if (filterParam) {
-                const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
-                if (targetBtn) {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    targetBtn.classList.add('active');
-                }
+            if (typeof GitHubCalendar !== 'undefined') {
+                GitHubCalendar("#github-heatmap", "suyash2356", { responsive: true, tooltips: true });
             }
-            applyFilters();
         });
     </script>
 </body>

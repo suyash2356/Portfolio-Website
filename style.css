@@ -979,51 +979,162 @@ body.light-mode .social-links img {
 .heatmap-cell.level-3 { background: rgba(0, 245, 255, 1); }
 
 .portfolio-content {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    max-width: 1200px;
+    display: block;
+    max-width: 1300px;
     margin: 0 auto;
 }
-.advanced-filters {
-    flex: 0 0 250px;
+
+.project-tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.project-tabs {
+    display: inline-flex;
     background: var(--glass-bg);
-    padding: 25px;
-    border-radius: 15px;
     border: 1px solid var(--border-color);
-    text-align: left;
+    border-radius: 50px;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.filter-group {
-    margin-bottom: 25px;
-}
-.filter-group h4 {
-    margin-bottom: 10px;
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 30px;
     color: var(--secondary-text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
-.filter-group input, .filter-group select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.horizontal-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.horizontal-filters .search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 20px;
+    border-radius: 10px;
     background: rgba(0,0,0,0.2);
     border: 1px solid var(--border-color);
     color: var(--primary-text-color);
     font-family: var(--font-body);
 }
-.filter-group select option {
-    background: var(--background-color);
-}
-.category-buttons {
+
+.horizontal-filters .range-filter {
+    flex: 0 0 350px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
 }
-.category-buttons .filter-btn {
-    padding: 6px 12px;
+
+.horizontal-filters .range-filter label {
     font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    display: flex;
+    justify-content: space-between;
 }
 
-.portfolio-grid-container {
-    flex: 1;
+.horizontal-filters .range-filter .range-value {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.dual-slider-container {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.slider-track {
+    position: absolute;
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dataset-slider-min, .dataset-slider-max {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    top: 0;
+    left: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    pointer-events: none;
+    z-index: 2;
+    margin: 0;
+    outline: none;
+}
+
+.dataset-slider-min::-webkit-slider-thumb, .dataset-slider-max::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent-color);
+    pointer-events: auto;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(0); /* Ensure no vertical shift */
+}
+
+.dataset-slider-min::-moz-range-thumb, .dataset-slider-max::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent-color);
+    pointer-events: auto;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
 }
 .advanced-grid {
     display: grid;
@@ -1121,11 +1232,13 @@ body.light-mode .social-links img {
 }
 
 @media (max-width: 768px) {
-    .portfolio-content {
+    .horizontal-filters {
         flex-direction: column;
+        align-items: stretch;
     }
-    .advanced-filters {
-        width: 100%;
+    .horizontal-filters .range-filter {
+        flex: 1;
+        flex-basis: auto;
     }
 }
 
