@@ -11,7 +11,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis", "Trend Analysis"],
         datasetSize: "150+ AI models",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\ai companies 2.png"
+            "eda/IMG-20260519-WA0003.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA"],
         summary: "An exploratory analysis of AI companies and their models to uncover trends in model performance, popularity of AI domains, and technological progress over time.",
@@ -52,7 +52,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis", "Correlation Analysis"],
         datasetSize: "5000+ records",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\heart stroke.png"
+            "eda/IMG-20260519-WA0000.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "Healthcare"],
         summary: "A healthcare data analysis project focused on identifying major risk factors associated with stroke occurrence using demographic and medical attributes.",
@@ -90,7 +90,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis"],
         datasetSize: "1000 house listings",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\house price.png"
+            "eda/IMG-20260519-WA0006.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "EDA", "Visualization"],
         summary: "An exploratory analysis of housing market data to identify how area, location, and furnishing type influence property prices.",
@@ -128,7 +128,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis", "Performance Analysis"],
         datasetSize: "1000 player records",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\ipl players 2.png"
+            "eda/IMG-20260519-WA0005.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "Sports Analytics"],
         summary: "A sports analytics project analyzing cricket player performance metrics such as runs, wickets, batting average, and strike rate.",
@@ -167,7 +167,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis", "Trend Analysis"],
         datasetSize: "16k+ reported cases",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\india rape cases.png"
+            "eda/IMG-20260519-WA0001.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "Data Analysis"],
         summary: "A social data analysis project exploring demographic and geographic trends in reported rape cases across different states in India.",
@@ -198,15 +198,15 @@ const myProjects = [
 
 
     {
-        id: "retail-sales-analysis",
+        id: "telco-customer-churn-analysis",
         category: "eda",
-        title: "Retail Store Sales Analysis (2020)",
+        title: "Telco Customer Churn Analysis (2020)",
         date: "2025-02-18",
-        topic: "Retail Analytics",
+        topic: "Telecom Analytics",
         algorithms: ["Statistical Analysis", "Trend Analysis"],
         datasetSize: "1000 transactions",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\tel customer churn.png"
+            "eda/IMG-20260519-WA0002.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "EDA", "Business Analytics"],
         summary: "A retail analytics project analyzing product sales, category performance, and seasonal trends in customer purchasing behavior during 2020.",
@@ -246,7 +246,7 @@ const myProjects = [
         algorithms: ["Statistical Analysis", "Correlation Analysis"],
         datasetSize: "891 passenger records",
         images: [
-            "E:\Portfolio\SuyashBabad\eda\titanic survival.png"
+            "eda/IMG-20260519-WA0004.jpg"
         ],
         tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA"],
         summary: "An exploratory analysis of Titanic passenger data to identify demographic and socioeconomic factors influencing survival rates.",
@@ -273,36 +273,6 @@ const myProjects = [
         <p>The analysis demonstrates that demographic and socioeconomic factors strongly influenced survival outcomes during the Titanic disaster. Passenger class, gender, and age were among the most significant determinants of survival probability.</p>
     `,
         githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(Titanic%20Survival%20Analysis).ipynb"
-    },
-
-    {
-        id: "ecommerce-eda",
-        category: "eda",
-        title: "E-Commerce Sales Insights (EDA)",
-        date: "2024-02-15", // Used for the contribution heatmap
-        topic: "E-Commerce",
-        algorithms: ["Statistical Analysis"],
-        datasetSize: "50k+ records",
-        images: [
-            "eda_project.png"
-        ],
-        tags: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-        summary: "A deep dive into customer purchasing behavior to uncover revenue-driving trends and seasonal patterns.",
-        detailedReport: `
-            <h4 class="report-subtitle">Dataset Overview</h4>
-            <p>Analyzed 50,000+ transaction records containing customer demographics, product categories, and order timestamps over a 2-year period.</p>
-            
-            <h4 class="report-subtitle">Key Insights Extracted</h4>
-            <ul class="report-list">
-                <li><strong>Seasonality:</strong> Sales peak by 45% during the holiday season (Nov-Dec), primarily driven by electronics and apparel.</li>
-                <li><strong>Customer Segmentation:</strong> 20% of top customers contribute to 65% of total revenue.</li>
-                <li><strong>Cart Abandonment:</strong> Higher shipping costs directly correlate with a 30% drop-off rate in the final checkout step.</li>
-            </ul>
-
-            <h4 class="report-subtitle">Conclusions Drawn</h4>
-            <p>The business should implement targeted marketing for the top 20% tier and consider threshold-based free shipping to reduce cart abandonment.</p>
-        `,
-        githubLink: "https://github.com/suyash2356/EDA-Project"
     },
     {
         id: "customer-churn-ml",
