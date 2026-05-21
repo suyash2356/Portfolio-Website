@@ -14,9 +14,9 @@ const myProjects = [
             "Correlation Analysis",
             "Trend Analysis"
         ],
-        datasetSize: "7.7 Million+ accident records",
+        datasetSize: "7,728,394 accident records",
         images: [
-            "eda/us-accidents-analysis.png"
+            "eda/us accidents.jpeg"
         ],
         tags: [
             "Python",
@@ -58,7 +58,7 @@ const myProjects = [
         <p>The analysis revealed that accident occurrence and severity are strongly influenced by traffic congestion, weather conditions, road infrastructure, and time-based driving patterns. The project provides valuable insights for accident hotspot detection and forms a strong foundation for future machine learning-based accident severity prediction systems.</p>
     `,
 
-        githubLink: "YOUR_GITHUB_NOTEBOOK_LINK"
+        githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(US%20Accidents%20Analysis).ipynb"
     },
     {
         id: "ai-companies-eda",
