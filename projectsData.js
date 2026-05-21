@@ -3,6 +3,64 @@
 
 const myProjects = [
     {
+        id: "us-accidents-eda",
+        category: "eda",
+        title: "US Accidents Exploratory Data Analysis",
+        date: "2026-05-21",
+        topic: "Road Safety & Traffic Analysis",
+        algorithms: [
+            "Exploratory Data Analysis",
+            "Statistical Analysis",
+            "Correlation Analysis",
+            "Trend Analysis"
+        ],
+        datasetSize: "7.7 Million+ accident records",
+        images: [
+            "eda/us-accidents-analysis.png"
+        ],
+        tags: [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Seaborn",
+            "EDA",
+            "Data Cleaning",
+            "Feature Engineering"
+        ],
+        summary: "Performed a complete exploratory data analysis on a large-scale US Accidents dataset to identify accident hotspots, weather impacts, traffic patterns, severity factors, and time-based accident trends using statistical analysis and visual storytelling.",
+
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The dataset contains over 7.7 million US accident records with information related to weather conditions, traffic infrastructure, location, time, visibility, and accident severity.</p>
+
+        <h4 class="report-subtitle">Analysis Performed</h4>
+        <ul class="report-list">
+            <li>Performed data cleaning by handling missing values, duplicate records, datatype corrections, and outlier treatment.</li>
+            <li>Conducted univariate, bivariate, and multivariate analysis to understand accident trends and feature relationships.</li>
+            <li>Created visualizations for accident hotspots, weather conditions, severity distribution, traffic patterns, and time-based trends.</li>
+            <li>Performed correlation analysis on weather-related numerical features.</li>
+            <li>Applied feature engineering on datetime and weather-related features for improved analysis.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights Extracted</h4>
+        <ul class="report-list">
+            <li><strong>Accident Hotspots:</strong> California recorded the highest number of accidents, followed by Florida and Texas.</li>
+            <li><strong>Rush Hour Impact:</strong> Accident frequency peaked during morning and evening office rush hours.</li>
+            <li><strong>Weather Influence:</strong> Most accidents occurred during fair and cloudy weather conditions.</li>
+            <li><strong>Road Infrastructure:</strong> Traffic signals and crossings were the most common road features involved in accidents.</li>
+            <li><strong>Seasonal Trends:</strong> Winter months showed increased accident occurrences compared to summer months.</li>
+            <li><strong>Severity Analysis:</strong> Severity level 2 accidents dominated the dataset.</li>
+            <li><strong>Visibility & Humidity:</strong> Higher humidity was associated with lower visibility conditions.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The analysis revealed that accident occurrence and severity are strongly influenced by traffic congestion, weather conditions, road infrastructure, and time-based driving patterns. The project provides valuable insights for accident hotspot detection and forms a strong foundation for future machine learning-based accident severity prediction systems.</p>
+    `,
+
+        githubLink: "YOUR_GITHUB_NOTEBOOK_LINK"
+    },
+    {
         id: "ai-companies-eda",
         category: "eda",
         title: "AI Companies & Model Performance Analysis",
