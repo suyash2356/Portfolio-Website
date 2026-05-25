@@ -639,31 +639,150 @@ const myProjects = [
 
     //DL Projects
     {
-        id: "dl-project-template",
+        id: "binary-classification-sigmoid",
         category: "dl",
-        title: "Image Classification API (DL)",
-        date: "2024-05-01",
-        topic: "Healthcare",
-        algorithms: ["CNN", "ResNet50"],
-        datasetSize: "5GB Image Data",
+        title: "Binary Classification using Sigmoid Activation Function",
+        date: "2025-05-01",
+        topic: "Neural Networks",
+        algorithms: ["Neural Network", "Gradient Descent", "Sigmoid Activation"],
+        datasetSize: "1000 samples",
         images: [
-            "your_dl_image.png"
+            "dl/binary_classification.png"
         ],
-        tags: ["Python", "TensorFlow", "Keras"],
-        summary: "Your Deep Learning project summary goes here.",
+        tags: ["Python", "NumPy", "Deep Learning", "Neural Networks", "Classification"],
+        summary: "A foundational deep learning project implementing binary classification using the sigmoid activation function, forward propagation, backpropagation, and gradient descent optimization.",
         detailedReport: `
-            <h4 class="report-subtitle">Dataset Overview</h4>
-            <p>Describe your dataset and preprocessing steps here.</p>
-            
-            <h4 class="report-subtitle">Model Architecture</h4>
-            <p>Describe your Neural Network architecture (e.g. CNN, RNN) here.</p>
-            
-            <h4 class="report-subtitle">Results</h4>
-            <ul class="report-list">
-                <li><strong>Accuracy:</strong> 95%</li>
-                <li><strong>Loss:</strong> 0.05</li>
-            </ul>
-        `,
-        githubLink: "#"
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The project focuses on building a binary classification model from scratch using neural network fundamentals. The implementation demonstrates the complete workflow of forward propagation, backward propagation, and weight optimization using gradient descent.</p>
+
+        <h4 class="report-subtitle">Implementation Workflow</h4>
+        <ul class="report-list">
+            <li>Loaded the dataset and performed train-test splitting for model evaluation.</li>
+            <li>Applied feature scaling using standardization to normalize input features.</li>
+            <li>Implemented the <strong>Sigmoid Activation Function</strong> for binary probability prediction.</li>
+            <li>Performed forward propagation to compute predictions.</li>
+            <li>Implemented backward propagation to calculate gradients and optimize weights.</li>
+            <li>Updated weights iteratively using gradient descent optimization.</li>
+            <li>Evaluated model performance using classification metrics.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance</h4>
+        <ul class="report-list">
+            <li><strong>Training Accuracy:</strong> 98.90%</li>
+            <li><strong>Testing Accuracy:</strong> 98.25%</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <ul class="report-list">
+            <li><strong>Strong Generalization:</strong> Minimal gap between training and testing accuracy indicated low overfitting.</li>
+            <li><strong>Optimization Effectiveness:</strong> Gradient descent successfully minimized classification error during training.</li>
+            <li><strong>Neural Network Fundamentals:</strong> The project provided practical understanding of activation functions, propagation techniques, and optimization methods.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The project successfully demonstrated the implementation of binary classification using neural network fundamentals and sigmoid activation. With testing accuracy above 98%, the model effectively learned decision boundaries while providing a strong foundation for understanding deep learning optimization techniques.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Binary_Classification_Using_Sigmoid_DL.ipynb"
+    },
+    {
+        id: "digit-recognition-cnn",
+        category: "dl",
+        title: "Handwritten Digit Recognition using CNN",
+        date: "2025-04-24",
+        topic: "Computer Vision",
+        algorithms: ["Convolutional Neural Networks (CNN)"],
+        datasetSize: "60,000 MNIST images",
+        images: [
+            "dl/minst_digit_recognition.png"
+        ],
+        tags: ["Python", "TensorFlow", "Keras", "CNN", "Deep Learning", "Computer Vision"],
+        summary: "A deep learning computer vision project focused on recognizing handwritten digits from the MNIST dataset using a Convolutional Neural Network (CNN) architecture.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized the MNIST handwritten digit dataset containing 60,000 grayscale images of digits ranging from 0 to 9. Each image had a resolution of 28x28 pixels and was used for multi-class image classification.</p>
+
+        <h4 class="report-subtitle">CNN Architecture</h4>
+        <ul class="report-list">
+            <li><strong>Input Layer:</strong> 28x28 grayscale images.</li>
+            <li><strong>Convolutional Layer 1:</strong> 32 filters with 3x3 kernel and ReLU activation.</li>
+            <li><strong>Max Pooling Layer 1:</strong> Pool size of 2x2.</li>
+            <li><strong>Convolutional Layer 2:</strong> 64 filters with 3x3 kernel and ReLU activation.</li>
+            <li><strong>Max Pooling Layer 2:</strong> Pool size of 2x2.</li>
+            <li><strong>Flatten Layer:</strong> Converted feature maps into a one-dimensional vector.</li>
+            <li><strong>Fully Connected Layer:</strong> 128 neurons with ReLU activation.</li>
+            <li><strong>Output Layer:</strong> 10 neurons with softmax activation for digit classification.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Training Configuration</h4>
+        <ul class="report-list">
+            <li><strong>Loss Function:</strong> Sparse Categorical Cross-Entropy</li>
+            <li><strong>Optimizer:</strong> Adam</li>
+            <li><strong>Batch Size:</strong> 128</li>
+            <li><strong>Epochs:</strong> 10</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance</h4>
+        <ul class="report-list">
+            <li><strong>Training Accuracy:</strong> 99.2%</li>
+            <li><strong>Validation Accuracy:</strong> 98.5%</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <p>The CNN architecture successfully learned spatial patterns and edge features from handwritten digit images, achieving highly accurate classification performance. The model demonstrated strong generalization capability with minimal overfitting between training and validation accuracy.</p>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The project demonstrates the effectiveness of Convolutional Neural Networks in image recognition tasks. With validation accuracy exceeding 98%, the model achieved reliable handwritten digit classification and highlights the strength of CNN architectures in computer vision applications.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/digit_recognition_DL.ipynb"
+    },
+    {
+        id: "skin-cancer-detection-dl",
+        category: "dl",
+        title: "Skin Cancer Detection using Deep Learning",
+        date: "2025-04-18",
+        topic: "Healthcare AI",
+        algorithms: ["EfficientNetB0", "Convolutional Neural Networks (CNN)"],
+        datasetSize: "10,015 medical images",
+        images: [
+            "dl/skin_cancer_detection.png"
+        ],
+        tags: ["Python", "TensorFlow", "Keras", "Deep Learning", "Computer Vision", "EfficientNet"],
+        summary: "A deep learning computer vision project focused on detecting multiple categories of skin cancer using EfficientNetB0 and medical image classification techniques.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized a medical imaging dataset containing 10,015 dermatoscopic skin lesion images across multiple skin cancer categories. The objective was to classify images into their respective diagnostic classes using deep learning techniques.</p>
+
+        <h4 class="report-subtitle">Model Development Pipeline</h4>
+        <ul class="report-list">
+            <li>Applied one-hot encoding for multi-class label representation.</li>
+            <li>Performed train-test splitting for model training and evaluation.</li>
+            <li>Initialized model weights and configured image preprocessing pipelines.</li>
+            <li>Used <strong>ImageDataGenerator</strong> for image augmentation and improved generalization.</li>
+            <li>Implemented <strong>EfficientNetB0</strong> as the primary deep learning architecture.</li>
+            <li>Compiled, trained, and evaluated the deep learning model on the medical image dataset.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Evaluation Metrics</h4>
+        <ul class="report-list">
+            <li><strong>Overall Accuracy:</strong> 72%</li>
+            <li><strong>Macro Average F1-Score:</strong> 0.45</li>
+            <li><strong>Weighted Average F1-Score:</strong> 0.71</li>
+        </ul>
+
+        <h4 class="report-subtitle">Class-wise Performance Highlights</h4>
+        <ul class="report-list">
+            <li><strong>NV Class:</strong> Best performing category with precision of 0.85 and recall of 0.88.</li>
+            <li><strong>MEL & BKL:</strong> Achieved moderate classification performance.</li>
+            <li><strong>AKIEC & DF:</strong> Lower precision and recall indicated difficulty in identifying minority classes accurately.</li>
+            <li><strong>Class Imbalance:</strong> Performance variation across categories suggested imbalance within the dataset.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <p>The EfficientNetB0 architecture demonstrated strong capability in medical image classification, particularly for dominant skin lesion categories. However, rare classes showed weaker predictive performance due to limited training samples and class imbalance challenges.</p>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The model achieved promising results with an overall accuracy of 72% in multi-class skin cancer detection. While the system performed well on common lesion types, additional improvements such as advanced augmentation strategies, larger balanced datasets, and further hyperparameter tuning could significantly improve minority class detection and overall diagnostic reliability.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/skin_cancer_detection_dl.ipynb"
     }
 ];

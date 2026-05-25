@@ -176,24 +176,20 @@
             // Helper to parse dataset size to number
             function parseDatasetSize(sizeStr, category) {
                 if (!sizeStr) return 0;
-                let str = sizeStr.toLowerCase();
-                let num = parseFloat(str.replace(/[^0-9.]/g, ''));
+                let str = sizeStr.toLowerCase().trim();
+                let tokens = str.split(/\s+/);
+                let firstToken = tokens[0]; // Only check the first token (e.g., "150+", "16k+", "700000")
+                let num = parseFloat(firstToken.replace(/[^0-9.]/g, ''));
                 if (isNaN(num)) return 0;
                 
-                let firstToken = str.split(' ')[0]; // Only check the number part for multipliers (e.g., "150+", "16k+")
-                
-                if (category === 'dl') {
-                    // Internal unit for DL is MB
-                    if (firstToken.includes('gb')) return num * 1024;
-                    if (firstToken.includes('tb')) return num * 1024 * 1024;
-                    if (firstToken.includes('kb')) return num / 1024;
-                    return num; // Default to MB if just a number or 'mb'
-                } else {
-                    // Internal unit for EDA/ML is rows
-                    if (firstToken.includes('k')) num *= 1000;
-                    if (firstToken.includes('m')) num *= 1000000;
-                    return num;
+                if (firstToken.includes('k')) {
+                    num *= 1000;
+                } else if (firstToken.includes('m')) {
+                    num *= 1000000;
+                } else if (firstToken.endsWith('l') || firstToken.includes('lakh') || (tokens.length > 1 && tokens[1].startsWith('lakh'))) {
+                    num *= 100000;
                 }
+                return num;
             }
 
             // Prepare project objects with raw dataset value
@@ -227,9 +223,16 @@
                     const tagsHTML = project.tags.slice(0,3).map(tag => `<span class="tag compact-tag">${tag}</span>`).join('');
                     const mainImage = project.images && project.images[0] ? project.images[0] : 'placeholder.png';
                     
+                    let mediaHTML = '';
+                    if (mainImage.endsWith('.mp4') || mainImage.endsWith('.webm') || mainImage.endsWith('.ogg')) {
+                        mediaHTML = `<video src="${mainImage}" class="compact-card-img" autoplay loop muted playsinline></video>`;
+                    } else {
+                        mediaHTML = `<img src="${mainImage}" alt="${project.title}" class="compact-card-img" />`;
+                    }
+                    
                     const cardHTML = `
                         <div class="compact-card" data-id="${project.id}">
-                            <img src="${mainImage}" alt="${project.title}" class="compact-card-img" />
+                            ${mediaHTML}
                             <div class="compact-card-body">
                                 <h4>${project.title}</h4>
                                 <p class="dataset-info">${project.datasetSize ? '📦 ' + project.datasetSize : ''}</p>
@@ -282,12 +285,6 @@
             });
 
             function formatNumber(num, cat) {
-                if (cat === 'dl') {
-                    if (num >= 1024) {
-                        return (num / 1024).toFixed(1) + ' GB';
-                    }
-                    return Math.round(num) + ' MB';
-                }
                 return num.toLocaleString();
             }
 
@@ -413,7 +410,12 @@
                 const project = myProjects.find(p => p.id === projectId);
                 if(!project) return;
 
-                const imagesHTML = project.images.map(img => `<img src="${img}" alt="${project.title}" />`).join('');
+                const imagesHTML = project.images.map(img => {
+                    if (img.endsWith('.mp4') || img.endsWith('.webm') || img.endsWith('.ogg')) {
+                        return `<video src="${img}" controls autoplay loop muted playsinline></video>`;
+                    }
+                    return `<img src="${img}" alt="${project.title}" />`;
+                }).join('');
                 const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
                 modalBody.innerHTML = `
