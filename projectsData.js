@@ -635,6 +635,594 @@ const myProjects = [
     `,
         githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Anomaly%20Detection/credit_card_fraud_detection_using_anomaly_detection.ipynb"
     },
+    {
+        id: "covid19-anomaly-detection",
+        category: "ml",
+        title: "COVID-19 Anomaly Detection using Unsupervised Machine Learning",
+        date: "2025-05-08",
+        topic: "Healthcare Analytics",
+        algorithms: ["Isolation Forest", "K-Means", "DBSCAN", "LOF", "One-Class SVM", "Gaussian Anomaly Detection"],
+        datasetSize: "316,800 records, 27 features",
+        images: [
+            "ml/covid-19 prediction.jpg    "
+        ],
+        tags: ["Python", "Scikit-Learn", "Anomaly Detection", "PCA", "Healthcare", "Unsupervised Learning"],
+        summary: "A large-scale unsupervised machine learning project focused on identifying unusual patient patterns in COVID-19 symptom data through advanced feature engineering, dimensionality reduction, and anomaly detection techniques.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized a cleaned and one-hot encoded COVID-19 dataset containing 316,800 patient records and 27 original features related to symptoms, demographics, contact history, and disease severity. The objective was to identify unusual patient profiles using unsupervised anomaly detection methods.</p>
+
+        <h4 class="report-subtitle">Exploratory Data Analysis</h4>
+        <ul class="report-list">
+            <li>Explored symptom frequencies, severity distributions, age groups, and contact history patterns.</li>
+            <li>Generated symptom correlation heatmaps to identify relationships among clinical indicators.</li>
+            <li>Created and analyzed symptom-count distributions across the patient population.</li>
+            <li>Identified potential unusual symptom and severity combinations for anomaly investigation.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Feature Engineering & Preprocessing</h4>
+        <p>Several domain-driven features were engineered to improve anomaly detection performance:</p>
+
+        <ul class="report-list">
+            <li>Symptoms_Count</li>
+            <li>Respiratory_Score</li>
+            <li>Nasal_Score</li>
+            <li>Digestive_Score</li>
+            <li>Exposure_Risk</li>
+            <li>High_Risk_Age</li>
+            <li>Severity_Score</li>
+            <li>Risk_Score</li>
+        </ul>
+
+        <p>Selected features were standardized using <strong>StandardScaler</strong>, followed by <strong>PCA</strong> for dimensionality reduction, visualization, and anomaly analysis.</p>
+
+        <h4 class="report-subtitle">Anomaly Detection Models</h4>
+        <p>Multiple unsupervised anomaly detection algorithms were implemented and compared:</p>
+
+        <ul class="report-list">
+            <li><strong>Isolation Forest</strong></li>
+            <li><strong>K-Means Clustering</strong></li>
+            <li><strong>DBSCAN</strong></li>
+            <li><strong>Local Outlier Factor (LOF)</strong></li>
+            <li><strong>One-Class SVM</strong></li>
+            <li><strong>Gaussian Anomaly Detection</strong></li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Comparison</h4>
+        <ul class="report-list">
+            <li><strong>Isolation Forest:</strong> 9,500 anomalies detected</li>
+            <li><strong>K-Means:</strong> 9,360 anomalies detected</li>
+            <li><strong>DBSCAN:</strong> 0 anomalies detected</li>
+            <li><strong>LOF:</strong> 8,520 anomalies detected</li>
+            <li><strong>One-Class SVM:</strong> 17,620 anomalies detected</li>
+            <li><strong>Gaussian Anomaly Detection:</strong> 9,480 anomalies detected</li>
+        </ul>
+
+        <h4 class="report-subtitle">Final Model Selection</h4>
+        <p><strong>Isolation Forest</strong> was selected as the final model due to its consistent anomaly detection performance, scalability on high-dimensional data, robustness, and balanced results when compared with Gaussian and clustering-based approaches.</p>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <ul class="report-list">
+            <li>Patient distribution remained relatively balanced across age groups, severity levels, and exposure histories.</li>
+            <li>Respiratory symptoms exhibited moderate positive correlations.</li>
+            <li>Most patients reported between 3 and 5 symptoms.</li>
+            <li>Rare symptom-severity combinations were successfully identified as potential anomalies.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project demonstrates how unsupervised machine learning can effectively identify unusual patient patterns within large-scale healthcare datasets. Through extensive feature engineering and model comparison, Isolation Forest emerged as the most reliable anomaly detection approach, providing scalable and interpretable results for COVID-19 patient analysis.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Anomaly%20Detection/Covid-19%20anomaly%20detection%20using%20unsupervised%20ML.ipynb"
+    },
+    {
+        id: "hiring-trend-prediction",
+        category: "ml",
+        title: "Hiring Trend Prediction using Tree-Based Ensemble Models",
+        date: "2025-05-15",
+        topic: "HR Analytics",
+        algorithms: ["Decision Tree", "Random Forest", "XGBoost", "SMOTE"],
+        datasetSize: "Company Hiring Dataset",
+        images: [
+            "ml/hiring trend.jpg"
+        ],
+        tags: ["Python", "Scikit-Learn", "XGBoost", "SMOTE", "Classification", "HR Analytics"],
+        summary: "A machine learning classification project focused on predicting organizational hiring trends using company, workforce, financial, AI adoption, and market-related factors through tree-based ensemble models.",
+        detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to predict hiring trends using organizational, economic, and workforce-related variables. Multiple tree-based machine learning models were developed and compared to identify the most effective approach for classification.</p>
+
+        <h4 class="report-subtitle">Data Preprocessing & Feature Engineering</h4>
+        <ul class="report-list">
+            <li>Performed data cleaning and preprocessing.</li>
+            <li>Removed irrelevant identifiers such as <strong>record_id</strong>.</li>
+            <li>Applied one-hot encoding for categorical features.</li>
+            <li>Used label encoding for the target variable <strong>hiring_trend</strong>.</li>
+            <li>Performed train-test splitting for model evaluation.</li>
+            <li>Applied <strong>SMOTE</strong> to address class imbalance.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Models Evaluated</h4>
+        <ul class="report-list">
+            <li><strong>Decision Tree Classifier</strong> – Baseline model for comparison.</li>
+            <li><strong>Random Forest Classifier</strong> – Ensemble approach using multiple decision trees.</li>
+            <li><strong>XGBoost Classifier</strong> – Gradient boosting model with sequential error correction.</li>
+            <li><strong>XGBoost + SMOTE</strong> – Combined boosting and class balancing for improved performance.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance Comparison</h4>
+        <ul class="report-list">
+            <li><strong>Decision Tree:</strong> 72.6% Accuracy</li>
+            <li><strong>Random Forest:</strong> 71.8% Accuracy</li>
+            <li><strong>XGBoost:</strong> 74.7% Accuracy</li>
+            <li><strong>XGBoost + SMOTE:</strong> 75.0% Accuracy</li>
+        </ul>
+
+        <h4 class="report-subtitle">Evaluation Metrics</h4>
+        <ul class="report-list">
+            <li>Accuracy Score</li>
+            <li>Confusion Matrix</li>
+            <li>Precision</li>
+            <li>Recall</li>
+            <li>F1-Score</li>
+            <li>Feature Importance Analysis</li>
+        </ul>
+
+        <h4 class="report-subtitle">Important Features Identified</h4>
+        <ul class="report-list">
+            <li><strong>market_condition_Recession</strong></li>
+            <li><strong>open_roles</strong></li>
+            <li><strong>layoff_percentage</strong></li>
+            <li><strong>ai_adoption_level</strong></li>
+        </ul>
+
+        <h4 class="report-subtitle">Final Model Selection</h4>
+        <p><strong>XGBoost + SMOTE</strong> was selected as the final model due to its superior classification performance, improved minority class prediction, and balanced learning across target classes.</p>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The analysis revealed that AI adoption, workforce reductions, and broader market conditions are strong indicators of hiring behavior. XGBoost outperformed traditional tree-based methods through boosting-based learning, while SMOTE improved class balance and minority class detection. The combination of ensemble learning and imbalance handling resulted in the most robust hiring trend prediction model.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Decsion%20Tree/tech_layoof_due_to_AI_automation.ipynb"
+    },
+    {
+        id: "wild-animal-image-clustering",
+        category: "ml",
+        title: "Wild Animal Image Clustering using CNN Features, PCA & K-Means",
+        date: "2025-05-22",
+        topic: "Computer Vision",
+        algorithms: ["ResNet50", "PCA", "K-Means Clustering"],
+        datasetSize: "4,738 images",
+        images: [
+            "ml/wild animal classification.jpg"
+        ],
+        tags: ["Python", "TensorFlow", "Computer Vision", "K-Means", "PCA", "Unsupervised Learning"],
+        summary: "An unsupervised computer vision project that leverages deep CNN feature extraction, dimensionality reduction, and clustering techniques to automatically group wild animal species without using image labels.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized an animal image dataset containing 4,738 RGB images of wild animals including tigers, lions, leopards, snow leopards, cheetahs, wolves, foxes, and related species. All images were processed at a resolution of 512 × 512 pixels.</p>
+
+        <h4 class="report-subtitle">Image Processing Pipeline</h4>
+        <ul class="report-list">
+            <li>Loaded and validated the image dataset.</li>
+            <li>Verified image quality, dimensions, and removed corrupted files.</li>
+            <li>Extracted high-level visual features using a pretrained <strong>ResNet50</strong> convolutional neural network.</li>
+            <li>Generated a feature matrix of shape <strong>(4738, 2048)</strong>.</li>
+            <li>Applied <strong>PCA</strong> for dimensionality reduction and computational efficiency.</li>
+            <li>Selected <strong>172 principal components</strong>, preserving approximately 90% of total variance.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Clustering Methodology</h4>
+        <p>The optimal number of clusters was explored using the <strong>Elbow Method</strong> and <strong>Silhouette Score Analysis</strong>. K-Means clustering models were trained with multiple K values and evaluated based on cluster quality and visual interpretability.</p>
+
+        <h4 class="report-subtitle">Model Components</h4>
+        <ul class="report-list">
+            <li><strong>ResNet50</strong> – Deep CNN feature extraction.</li>
+            <li><strong>PCA</strong> – Dimensionality reduction and variance preservation.</li>
+            <li><strong>K-Means Clustering</strong> – Unsupervised image grouping.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Clustering Results</h4>
+        <ul class="report-list">
+            <li><strong>K = 4:</strong> Silhouette Score = 0.2507</li>
+            <li><strong>K = 8:</strong> Silhouette Score = 0.2407</li>
+        </ul>
+
+        <p><strong>Cluster Interpretation (K = 4):</strong></p>
+        <ul class="report-list">
+            <li>Canines</li>
+            <li>Tigers</li>
+            <li>Lions</li>
+            <li>Spotted Big Cats</li>
+        </ul>
+
+        <p><strong>Cluster Interpretation (K = 8):</strong></p>
+        <ul class="report-list">
+            <li>Tigers</li>
+            <li>Cheetahs</li>
+            <li>Leopards</li>
+            <li>Snow Leopards</li>
+            <li>Wolves</li>
+            <li>Foxes</li>
+            <li>Male Lions</li>
+            <li>Lionesses / Cubs</li>
+        </ul>
+
+        <h4 class="report-subtitle">Final Model Selection</h4>
+        <p><strong>K = 8</strong> was selected as the final clustering solution. Although K = 4 achieved a slightly higher silhouette score, K = 8 produced more meaningful species-level separation and richer visual cluster interpretation.</p>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project demonstrates a complete unsupervised image clustering workflow using deep learning feature extraction and clustering algorithms. By combining ResNet50, PCA, and K-Means, the system successfully discovered meaningful animal groupings without requiring labeled data, showcasing the power of representation learning in computer vision tasks.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/K-%20Mean%20Clustering/animal%20classifiction%20using%20clustering.ipynb"
+    },
+    {
+        id: "teen-depression-prediction",
+        category: "ml",
+        title: "Teen Social Media Depression Prediction using Logistic Regression",
+        date: "2025-05-28",
+        topic: "Mental Health Analytics",
+        algorithms: ["Logistic Regression"],
+        datasetSize: "3,700 records, 13+ features",
+        images: [
+            "ml/teen depression.jpg"
+        ],
+        tags: ["Python", "Scikit-Learn", "Logistic Regression", "Feature Engineering", "Classification", "Healthcare Analytics"],
+        summary: "A machine learning classification project that predicts depression risk among teenagers using social media usage patterns, lifestyle indicators, and psychological factors through Logistic Regression.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project combined two teen social media datasets containing 3,700 samples and more than 13 engineered features. The target variable was <strong>depression_label</strong>, representing whether a teenager exhibited signs of depression.</p>
+
+        <h4 class="report-subtitle">Data Preparation & Feature Engineering</h4>
+        <ul class="report-list">
+            <li>Combined multiple datasets and resolved feature mismatches.</li>
+            <li>Performed exploratory data analysis (EDA) to understand behavioral and mental health patterns.</li>
+            <li>Analyzed feature correlations and variable distributions.</li>
+            <li>Created domain-specific engineered features including:</li>
+            <ul>
+                <li>Sleep Deficiency</li>
+                <li>Mental Pressure</li>
+                <li>High Screen Time</li>
+            </ul>
+            <li>Applied One-Hot Encoding for categorical variables.</li>
+            <li>Performed feature scaling using <strong>StandardScaler</strong>.</li>
+            <li>Split the dataset into training and testing subsets.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Development</h4>
+        <p>A <strong>Logistic Regression</strong> classifier was trained to predict depression risk based on behavioral, academic, and social media-related features. The model was selected due to the reasonably linear relationships observed within the dataset.</p>
+
+        <h4 class="report-subtitle">Performance Metrics</h4>
+        <ul class="report-list">
+            <li><strong>Accuracy:</strong> 90.67%</li>
+            <li><strong>Precision:</strong> 87%</li>
+            <li><strong>Recall:</strong> 86%</li>
+            <li><strong>F1-Score:</strong> 86%</li>
+            <li><strong>ROC-AUC:</strong> 0.975</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights Extracted</h4>
+        <ul class="report-list">
+            <li><strong>Stress & Anxiety:</strong> Higher stress and anxiety levels significantly increased depression probability.</li>
+            <li><strong>Social Media Usage:</strong> Increased screen time and social media engagement were associated with higher depression risk.</li>
+            <li><strong>Sleep Patterns:</strong> Reduced sleep duration emerged as a strong indicator of mental health concerns.</li>
+            <li><strong>Academic Impact:</strong> Poor academic performance showed a measurable relationship with depression risk.</li>
+            <li><strong>Model Effectiveness:</strong> Logistic Regression successfully captured behavioral and psychological patterns within the dataset.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Evaluation</h4>
+        <p>The confusion matrix showed strong classification performance with very few false predictions. Additionally, the ROC curve demonstrated excellent class separation, indicating the model's ability to distinguish between depressed and non-depressed individuals effectively.</p>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The Logistic Regression model achieved strong predictive performance with balanced precision, recall, and F1-score values. The project highlights how social media behavior, sleep habits, stress, and anxiety can be leveraged to identify depression risk among teenagers. It also demonstrates a complete machine learning workflow including data preprocessing, feature engineering, model training, and evaluation.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Logistic%20Regression/depression_classification_due_to_social_media_on_teens.ipynb"
+    },
+    {
+        id: "book-recommendation-knn",
+        category: "ml",
+        title: "Book Recommendation System using Collaborative Filtering & KNN",
+        date: "2025-06-01",
+        topic: "Recommendation Systems",
+        algorithms: ["K-Nearest Neighbors (KNN)", "Collaborative Filtering", "Cosine Similarity"],
+        datasetSize: "1.1M+ ratings, 271k books, 278k users",
+        images: [
+            "ml/book recommendation using collaborative.jpg"
+        ],
+        tags: ["Python", "Pandas", "Scikit-Learn", "KNN", "Recommendation System", "Collaborative Filtering"],
+        summary: "A large-scale recommendation system that leverages collaborative filtering and K-Nearest Neighbors (KNN) to generate personalized book recommendations based on user rating behavior.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized the Book-Crossing dataset, consisting of over 271,000 books, 278,000 users, and approximately 1.15 million book ratings. The objective was to recommend books by identifying users with similar reading preferences.</p>
+
+        <h4 class="report-subtitle">Data Analysis & Preprocessing</h4>
+        <ul class="report-list">
+            <li>Loaded and analyzed books, users, and ratings datasets.</li>
+            <li>Studied rating distributions and user engagement patterns.</li>
+            <li>Prepared and merged datasets for collaborative filtering analysis.</li>
+            <li>Constructed a user-item interaction matrix representing user ratings across books.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Recommendation Methodology</h4>
+        <p>The recommendation engine was built using <strong>User-Based Collaborative Filtering</strong> combined with the <strong>K-Nearest Neighbors (KNN)</strong> algorithm.</p>
+
+        <ul class="report-list">
+            <li>Calculated user similarity using <strong>Cosine Similarity</strong>.</li>
+            <li>Identified nearest neighbors with similar reading preferences.</li>
+            <li>Predicted ratings for unseen books based on neighbor ratings.</li>
+            <li>Generated personalized recommendations by ranking predicted ratings.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Components</h4>
+        <ul class="report-list">
+            <li><strong>K-Nearest Neighbors (KNN)</strong></li>
+            <li><strong>Collaborative Filtering</strong></li>
+            <li><strong>Cosine Similarity</strong></li>
+            <li><strong>User-Item Matrix Representation</strong></li>
+        </ul>
+
+        <h4 class="report-subtitle">Sample Recommendation Results</h4>
+        <p>For the book <strong>"Table For Two"</strong>, the system generated the following similar recommendations:</p>
+
+        <ul class="report-list">
+            <li>Truly, Madly Manhattan (Distance: 0.444)</li>
+            <li>Summer Pleasures (Distance: 0.513)</li>
+            <li>Engaging The Enemy (Distance: 0.534)</li>
+            <li>Face the Fire (Three Sisters Island Trilogy) (Distance: 0.565)</li>
+            <li>The Villa (Distance: 0.571)</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <ul class="report-list">
+            <li>User preference patterns can effectively drive personalized recommendations.</li>
+            <li>Cosine similarity successfully identified readers with similar rating behavior.</li>
+            <li>KNN provided an intuitive and interpretable recommendation framework.</li>
+            <li>Collaborative filtering enabled recommendations without requiring book content information.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project demonstrates the effectiveness of collaborative filtering techniques for personalized recommendation systems. By combining KNN and cosine similarity, the model successfully identified similar users and generated relevant book suggestions. The approach highlights how user interaction data alone can be leveraged to build scalable recommendation engines for large datasets.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Recommended%20System/book_recommendation_using_collaborative_filtering.ipynb"
+    },
+    {
+        id: "book-recommendation-pearson",
+        category: "ml",
+        title: "Book Recommendation System using Pearson Correlation",
+        date: "2025-06-02",
+        topic: "Recommendation Systems",
+        algorithms: ["Collaborative Filtering", "Pearson Correlation"],
+        datasetSize: "1.1M+ ratings, 271k books, 278k users",
+        images: [
+            "ml/book recommendation perason correlation.jpg"
+        ],
+        tags: ["Python", "Pandas", "Collaborative Filtering", "Recommendation System", "Pearson Correlation"],
+        summary: "A collaborative filtering recommendation system that leverages Pearson Correlation to identify users with similar reading preferences and generate personalized book recommendations.",
+        detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The project utilized the Book-Crossing dataset consisting of 271,360 books, 278,858 users, and approximately 1.15 million book ratings. The objective was to recommend books by analyzing similarities in user rating behavior.</p>
+
+        <h4 class="report-subtitle">Data Analysis & Preparation</h4>
+        <ul class="report-list">
+            <li>Loaded and analyzed books, users, and ratings datasets.</li>
+            <li>Explored rating distributions and user engagement patterns.</li>
+            <li>Prepared user-book interaction data for collaborative filtering.</li>
+            <li>Examined average rating trends before implementing similarity-based recommendations.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Recommendation Methodology</h4>
+        <p>The recommendation engine was developed using a <strong>User-Based Collaborative Filtering</strong> approach powered by <strong>Pearson Correlation</strong>.</p>
+
+        <ul class="report-list">
+            <li>Generated initial recommendations using average book ratings.</li>
+            <li>Calculated Pearson Correlation coefficients between users to measure similarity in reading preferences.</li>
+            <li>Identified users with highly correlated rating behavior.</li>
+            <li>Predicted book preferences based on ratings provided by similar users.</li>
+            <li>Generated personalized recommendations for the target user.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Components</h4>
+        <ul class="report-list">
+            <li><strong>User-Based Collaborative Filtering</strong></li>
+            <li><strong>Pearson Correlation Similarity</strong></li>
+            <li><strong>User-Item Rating Matrix</strong></li>
+        </ul>
+
+        <h4 class="report-subtitle">Recommendation Results</h4>
+        <p>For the target user/book profile <strong>"Table For Two"</strong>, the system generated the following recommended books:</p>
+
+        <ul class="report-list">
+            <li>The Lovely Bones: A Novel</li>
+            <li>The Nanny Diaries: A Novel</li>
+            <li>The Pilot's Wife: A Novel</li>
+            <li>1st to Die: A Novel</li>
+            <li>Where the Heart Is (Oprah's Book Club)</li>
+            <li>The Book of Ruth (Oprah's Book Club)</li>
+            <li>Fahrenheit 451</li>
+            <li>The Poisonwood Bible: A Novel</li>
+            <li>The Reader</li>
+            <li>Angela's Ashes: A Memoir</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <ul class="report-list">
+            <li>Pearson Correlation effectively captured similarities in user rating patterns.</li>
+            <li>Users with comparable reading preferences contributed to more personalized recommendations.</li>
+            <li>The recommendation engine was able to discover relevant books beyond simple popularity-based suggestions.</li>
+            <li>Collaborative filtering successfully leveraged historical user interactions without requiring book content features.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project demonstrates how Pearson Correlation can be applied in collaborative filtering systems to generate personalized book recommendations. By identifying users with similar preferences, the model was able to recommend relevant titles and showcase the effectiveness of user-based recommendation techniques on large-scale rating datasets.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Recommended%20System/book_recommendation_using_pearson_correlation.ipynb"
+    },
+    {
+        id: "skill-metric-content-recommender",
+        category: "ml",
+        title: "Skill-Metric Content-Based Resource Recommendation System",
+        date: "2025-06-03",
+        topic: "Recommendation Systems",
+        algorithms: ["TF-IDF", "Cosine Similarity", "Sentence Transformers"],
+        datasetSize: "816 resources, 2,019 interactions",
+        images: [
+            "ml/skill metrics.jpg"
+        ],
+        tags: ["Python", "NLP", "Recommendation Systems", "TF-IDF", "Sentence Transformers", "Cosine Similarity"],
+        summary: "A production-ready content-based recommendation engine developed for Skill-Metric that recommends relevant learning resources using resource metadata, weighted TF-IDF representations, and similarity-based retrieval techniques.",
+        detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to build a personalized content-based recommendation system for Skill-Metric capable of recommending relevant learning resources based on resource content, educational metadata, and skill relationships.</p>
+
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The recommendation system was built using a curated educational resource dataset and user interaction history.</p>
+
+        <ul class="report-list">
+            <li><strong>Total Resources:</strong> 816</li>
+            <li><strong>Total Features:</strong> 37</li>
+            <li><strong>Users:</strong> 16</li>
+            <li><strong>Resources with Interactions:</strong> 607</li>
+            <li><strong>Total Interactions:</strong> 2,019</li>
+        </ul>
+
+        <p><strong>Key Resource Features:</strong></p>
+
+        <ul class="report-list">
+            <li>Title</li>
+            <li>Description</li>
+            <li>Domain</li>
+            <li>Subdomain</li>
+            <li>Difficulty Level</li>
+            <li>Related Skills</li>
+            <li>Learning Outcomes</li>
+            <li>Resource Type</li>
+        </ul>
+
+        <h4 class="report-subtitle">Data Preprocessing</h4>
+        <ul class="report-list">
+            <li>Performed missing value analysis and duplicate detection.</li>
+            <li>Selected high-impact recommendation features.</li>
+            <li>Applied text cleaning and normalization.</li>
+            <li>Cleaned skill and learning outcome fields.</li>
+            <li>Created a weighted combined text representation for recommendation modeling.</li>
+        </ul>
+
+        <p><strong>Feature Weighting Strategy:</strong></p>
+
+        <ul class="report-list">
+            <li>Title × 3</li>
+            <li>Subdomain × 3</li>
+            <li>Domain × 2</li>
+            <li>Related Skills × 2</li>
+            <li>Learning Outcomes × 1</li>
+            <li>Description × 1</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Development</h4>
+
+        <p><strong>Model 1 (Final Production Model)</strong></p>
+
+        <ul class="report-list">
+            <li>Weighted TF-IDF Vectorization</li>
+            <li>Cosine Similarity</li>
+            <li>Top-N Resource Recommendation Generation</li>
+        </ul>
+
+        <p><strong>Recommendation Pipeline:</strong></p>
+
+        <p>
+        Resource Metadata
+        → TF-IDF Vectorization
+        → Cosine Similarity Matrix
+        → Top-N Resource Recommendations
+        </p>
+
+        <p><strong>Model 2 (Experimental Benchmark)</strong></p>
+
+        <ul class="report-list">
+            <li>Sentence Transformers (all-MiniLM-L6-v2)</li>
+            <li>Cosine Similarity</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Evaluation</h4>
+
+        <table class="report-table">
+            <tr>
+                <th>Metric</th>
+                <th>TF-IDF</th>
+                <th>Embeddings</th>
+            </tr>
+            <tr>
+                <td>Coverage</td>
+                <td>94.49%</td>
+                <td>94.85%</td>
+            </tr>
+            <tr>
+                <td>Diversity</td>
+                <td>0.678</td>
+                <td>0.460</td>
+            </tr>
+            <tr>
+                <td>Precision@10</td>
+                <td>0.318</td>
+                <td>0.320</td>
+            </tr>
+        </table>
+
+        <h4 class="report-subtitle">Final Model Selection</h4>
+        <p><strong>Weighted TF-IDF + Cosine Similarity</strong> was selected as the production model.</p>
+
+        <p><strong>Selection Reasons:</strong></p>
+
+        <ul class="report-list">
+            <li>Nearly identical Precision@10 performance compared to embeddings.</li>
+            <li>Significantly higher recommendation diversity.</li>
+            <li>Faster training and inference speed.</li>
+            <li>Lower computational requirements.</li>
+            <li>Simpler deployment and long-term maintenance.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Findings</h4>
+
+        <ul class="report-list">
+            <li>Resource metadata contains strong predictive recommendation signals.</li>
+            <li>Weighted TF-IDF performs exceptionally well on structured educational content.</li>
+            <li>Transformer embeddings provided minimal performance gains for the current dataset size.</li>
+            <li>Content-based recommendations effectively matched domains, subdomains, and skill relationships.</li>
+            <li>The system is production-ready and suitable as the baseline recommendation engine for Skill-Metric.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Future Roadmap</h4>
+
+        <ul class="report-list">
+            <li>✓ Content-Based Recommendation System (Completed)</li>
+            <li>Generate Synthetic Users</li>
+            <li>Build Collaborative Filtering Models</li>
+            <li>Develop Hybrid Recommendation Systems</li>
+            <li>Create Learning Path Recommendation Engine</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>A production-ready content-based recommendation system was successfully developed for Skill-Metric using Weighted TF-IDF and Cosine Similarity. The model achieved <strong>94.49% coverage</strong>, <strong>0.678 diversity</strong>, and <strong>0.318 Precision@10</strong>, delivering strong recommendation quality while maintaining scalability, interpretability, and deployment simplicity. The system establishes a solid foundation for future collaborative and hybrid recommendation architectures.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Recommended%20System/Content_based_recommendation_model_using_tf-idf.ipynb"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //DL Projects
