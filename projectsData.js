@@ -1382,7 +1382,7 @@ const myProjects = [
         algorithms: ["EfficientNetB0", "Convolutional Neural Networks (CNN)"],
         datasetSize: "20,000+ crop images",
         images: [
-            "dl/plant_disease_prediction.png"
+            "dl/Screenshot 2026-06-18 230255.png"
         ],
         tags: ["Python", "TensorFlow", "Keras", "Deep Learning", "Computer Vision", "EfficientNet", "Agriculture"],
         summary: "A deep learning-based computer vision system designed to identify and classify plant diseases from crop images using EfficientNetB0 and transfer learning techniques, achieving high classification accuracy across multiple disease categories.",
