@@ -1372,5 +1372,68 @@ const myProjects = [
         <p>The model achieved promising results with an overall accuracy of 72% in multi-class skin cancer detection. While the system performed well on common lesion types, additional improvements such as advanced augmentation strategies, larger balanced datasets, and further hyperparameter tuning could significantly improve minority class detection and overall diagnostic reliability.</p>
     `,
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/skin_cancer_detection_dl.ipynb"
+    },
+    {
+        id: "plant-disease-detection-dl",
+        category: "dl",
+        title: "Plant Disease Detection using Deep Learning",
+        date: "2025-06-05",
+        topic: "Agricultural AI",
+        algorithms: ["EfficientNetB0", "Convolutional Neural Networks (CNN)"],
+        datasetSize: "20,000+ crop images",
+        images: [
+            "dl/plant_disease_prediction.png"
+        ],
+        tags: ["Python", "TensorFlow", "Keras", "Deep Learning", "Computer Vision", "EfficientNet", "Agriculture"],
+        summary: "A deep learning-based computer vision system designed to identify and classify plant diseases from crop images using EfficientNetB0 and transfer learning techniques, achieving high classification accuracy across multiple disease categories.",
+        detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to develop an automated plant disease detection system capable of identifying crop diseases from leaf images. The solution leverages deep learning and transfer learning techniques to support early disease diagnosis and improve agricultural productivity.</p>
+
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The model was trained on a dataset containing more than 20,000 images of various crops and plant disease categories. Images were preprocessed and resized to a standard input size before training.</p>
+
+        <h4 class="report-subtitle">Model Architecture</h4>
+        <p>The system was built using <strong>EfficientNetB0</strong> as the feature extraction backbone, followed by custom classification layers.</p>
+
+        <ul class="report-list">
+            <li><strong>Input Layer:</strong> 224 × 224 RGB images.</li>
+            <li><strong>Feature Extractor:</strong> Pretrained EfficientNetB0 network.</li>
+            <li><strong>Global Average Pooling:</strong> Reduced spatial feature dimensions.</li>
+            <li><strong>Batch Normalization:</strong> Improved training stability and convergence.</li>
+            <li><strong>Dropout Layers:</strong> Reduced overfitting and improved generalization.</li>
+            <li><strong>Dense Layer:</strong> 256 neurons for feature learning and classification.</li>
+            <li><strong>Output Layer:</strong> 15-class Softmax classifier.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Architecture Summary</h4>
+        <ul class="report-list">
+            <li><strong>EfficientNetB0 Parameters:</strong> 4,049,571</li>
+            <li><strong>Dense Layer Parameters:</strong> 327,936</li>
+            <li><strong>Output Layer Parameters:</strong> 3,855</li>
+            <li><strong>Total Classes:</strong> 15 Plant Disease Categories</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance</h4>
+        <ul class="report-list">
+            <li><strong>Accuracy:</strong> 95%</li>
+            <li><strong>Precision:</strong> 0.94</li>
+            <li><strong>Recall:</strong> 0.96</li>
+            <li><strong>F1-Score:</strong> 0.95</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights</h4>
+        <ul class="report-list">
+            <li>Transfer learning with EfficientNetB0 significantly improved classification performance.</li>
+            <li>The model demonstrated strong generalization across multiple crop and disease categories.</li>
+            <li>High recall indicates effective identification of diseased plants, reducing the likelihood of missed detections.</li>
+            <li>Balanced precision and recall resulted in a robust overall F1-score.</li>
+            <li>The architecture successfully extracted complex visual disease patterns from plant leaf images.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>The Plant Disease Detection system achieved excellent classification performance with 95% accuracy and strong precision-recall balance. By leveraging EfficientNetB0 and deep learning-based feature extraction, the model effectively identified multiple plant diseases from crop images, making it a promising solution for smart agriculture, crop monitoring, and AI-assisted farming applications.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Plant%20disease%20prediction.ipynb"
     }
 ];
