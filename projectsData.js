@@ -1435,5 +1435,72 @@ const myProjects = [
         <p>The Plant Disease Detection system achieved excellent classification performance with 95% accuracy and strong precision-recall balance. By leveraging EfficientNetB0 and deep learning-based feature extraction, the model effectively identified multiple plant diseases from crop images, making it a promising solution for smart agriculture, crop monitoring, and AI-assisted farming applications.</p>
     `,
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Plant%20disease%20prediction.ipynb"
+    },
+    {
+        id: "hand-sign-classification-tensorflow",
+        category: "dl",
+        title: "Multiclass Hand Sign Classification using TensorFlow",
+        date: "2025-06-08",
+        topic: "Computer Vision",
+        algorithms: ["Deep Neural Network (DNN)", "TensorFlow"],
+        datasetSize: "64×64 RGB hand sign images (6 classes)",
+        images: [
+            "dl/finger sign recognition.png"
+        ],
+        tags: ["Python", "TensorFlow", "Deep Learning", "Neural Networks", "Computer Vision", "Image Classification"],
+        summary: "A multiclass image classification project that implements a fully connected deep neural network in TensorFlow to recognize hand sign gestures across six categories while demonstrating the complete deep learning training pipeline from scratch.",
+        detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to build a multiclass image classification model using TensorFlow capable of recognizing hand sign images belonging to six different categories. The implementation focused on understanding the complete deep learning workflow rather than using pretrained models.</p>
+
+        <h4 class="report-subtitle">Model Architecture</h4>
+        <ul class="report-list">
+            <li><strong>Input Layer:</strong> 12,288 features (64 × 64 × 3 RGB images).</li>
+            <li><strong>Hidden Layer 1:</strong> 25 neurons with ReLU activation.</li>
+            <li><strong>Hidden Layer 2:</strong> 12 neurons with ReLU activation.</li>
+            <li><strong>Output Layer:</strong> 6 neurons (Logits) for multiclass prediction.</li>
+            <li><strong>Optimizer:</strong> Adam</li>
+            <li><strong>Loss Function:</strong> Categorical Cross-Entropy (from_logits=True)</li>
+        </ul>
+
+        <h4 class="report-subtitle">Training Pipeline</h4>
+        <ul class="report-list">
+            <li>Applied one-hot encoding for multiclass labels.</li>
+            <li>Initialized network weights using Xavier (Glorot) initialization.</li>
+            <li>Implemented forward propagation using TensorFlow operations.</li>
+            <li>Computed gradients automatically using <strong>GradientTape</strong>.</li>
+            <li>Trained the model using mini-batch gradient descent with the Adam optimizer.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance</h4>
+        <ul class="report-list">
+            <li><strong>Training Accuracy:</strong> 75.37%</li>
+            <li><strong>Test Accuracy:</strong> 69.17%</li>
+            <li><strong>Final Loss (Cost):</strong> 0.744</li>
+        </ul>
+
+        <h4 class="report-subtitle">Training Observations</h4>
+        <ul class="report-list">
+            <li>The training cost consistently decreased from <strong>1.83</strong> to <strong>0.74</strong>, indicating effective learning.</li>
+            <li>Training and testing accuracy improved steadily throughout the optimization process.</li>
+            <li>The relatively small gap between training and testing accuracy suggests good generalization with only mild overfitting.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Learnings</h4>
+        <ul class="report-list">
+            <li>TensorFlow tensors and variables</li>
+            <li>Forward propagation implementation</li>
+            <li>Xavier (Glorot) weight initialization</li>
+            <li>One-hot encoding for multiclass classification</li>
+            <li>Automatic differentiation using GradientTape</li>
+            <li>Mini-batch gradient descent</li>
+            <li>Adam optimization algorithm</li>
+            <li>Multiclass classification using categorical cross-entropy</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project successfully implemented a complete multiclass image classification pipeline using TensorFlow. The deep neural network learned meaningful visual representations and achieved <strong>75.37% training accuracy</strong> and <strong>69.17% test accuracy</strong>. More importantly, it provided a strong practical understanding of TensorFlow fundamentals, neural network implementation, optimization, and multiclass classification, forming a solid foundation for advanced computer vision models such as Convolutional Neural Networks (CNNs).</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/hand_sign_recognition_using_tensorflow.ipynb"
     }
 ];
