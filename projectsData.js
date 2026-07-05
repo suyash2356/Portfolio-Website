@@ -3,6 +3,60 @@
 
 const myProjects = [
     {
+    id: "sentinel2-crop-classification-eda",
+    category: "eda",
+    title: "Sentinel-2 Crop Classification Dataset Analysis",
+    date: "2025-06-10",
+    topic: "Remote Sensing",
+    algorithms: ["Statistical Analysis", "Principal Component Analysis (PCA)"],
+    datasetSize: "122k+ samples, 585 features",
+    images: [
+        "eda\brizecrop eda.png"
+    ],
+    tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA", "Remote Sensing", "Sentinel-2"],
+    summary: "A comprehensive exploratory data analysis of a large-scale Sentinel-2 satellite dataset to understand crop distributions, spectral signatures, temporal trends, and feature relationships before machine learning model development.",
+    detailedReport: `
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <p>The dataset contains <strong>122,614 satellite observations</strong> with <strong>585 features</strong> representing 45 observation timestamps across 13 Sentinel-2 spectral bands. The objective is multiclass crop classification across nine crop categories using multi-temporal remote sensing data.</p>
+
+        <h4 class="report-subtitle">Data Quality Assessment</h4>
+        <ul class="report-list">
+            <li><strong>Missing Values:</strong> None detected.</li>
+            <li><strong>Duplicate Records:</strong> None detected.</li>
+            <li><strong>Data Type:</strong> float32</li>
+            <li><strong>Memory Usage:</strong> Approximately 273.6 MB.</li>
+            <li>The dataset required no additional cleaning and was ready for model development.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Exploratory Data Analysis</h4>
+        <ul class="report-list">
+            <li>Analyzed feature statistics and value distributions across all Sentinel-2 bands.</li>
+            <li>Studied class distribution and identified severe class imbalance.</li>
+            <li>Examined spectral reflectance across all 13 satellite bands.</li>
+            <li>Investigated temporal changes over 45 observation dates.</li>
+            <li>Performed correlation analysis to understand temporal feature relationships.</li>
+            <li>Applied Principal Component Analysis (PCA) for low-dimensional visualization.</li>
+            <li>Analyzed feature variance and outlier behavior.</li>
+            <li>Compared spectral signatures among crop classes.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Insights Extracted</h4>
+        <ul class="report-list">
+            <li><strong>Class Imbalance:</strong> Classes 3, 7, and 8 dominate the dataset, whereas classes 4, 5, and 6 contain very few samples, presenting a significant classification challenge.</li>
+            <li><strong>Spectral Information:</strong> Different Sentinel-2 bands capture distinct vegetation, soil, and moisture characteristics, indicating varying predictive importance across bands.</li>
+            <li><strong>Temporal Dynamics:</strong> Reflectance values change noticeably across the 45 observation dates, successfully capturing seasonal crop growth patterns.</li>
+            <li><strong>Stable Feature Distribution:</strong> Most features exhibit consistent distributions with only a small number of genuine satellite outliers.</li>
+            <li><strong>Feature Correlation:</strong> Measurements from nearby observation dates show stronger correlations than distant timestamps, demonstrating meaningful temporal evolution.</li>
+            <li><strong>PCA Analysis:</strong> Considerable overlap between crop classes indicates that simple linear separation is insufficient and machine learning models are required.</li>
+            <li><strong>Spectral Signatures:</strong> Individual crop types display distinct temporal spectral responses, providing strong discriminative information for classification.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusions Drawn</h4>
+        <p>The exploratory analysis confirms that the Sentinel-2 dataset is clean, information-rich, and highly suitable for crop classification tasks. Multi-temporal satellite observations combined with multiple spectral bands provide valuable information describing crop growth throughout the season. Although the dataset presents a significant class imbalance challenge, the observed temporal patterns and unique spectral signatures suggest that tree-based machine learning models such as Random Forest can effectively learn meaningful crop classification patterns from the available features.</p>
+    `,
+    githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(BreizhCrops%20Data).ipynb"
+},
+    {
         id: "us-accidents-eda",
         category: "eda",
         title: "US Accidents Exploratory Data Analysis",
