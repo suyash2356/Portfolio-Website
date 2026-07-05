@@ -11,7 +11,7 @@ const myProjects = [
     algorithms: ["Statistical Analysis", "Principal Component Analysis (PCA)"],
     datasetSize: "122k+ samples, 585 features",
     images: [
-        "eda\brizecrop eda.png"
+        "eda/brizecrop eda.png"
     ],
     tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA", "Remote Sensing", "Sentinel-2"],
     summary: "A comprehensive exploratory data analysis of a large-scale Sentinel-2 satellite dataset to understand crop distributions, spectral signatures, temporal trends, and feature relationships before machine learning model development.",
