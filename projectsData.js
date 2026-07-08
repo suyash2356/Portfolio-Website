@@ -1692,6 +1692,9 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>This project successfully developed an end-to-end crop classification pipeline using multi-temporal Sentinel-2 satellite observations. Classical machine learning models established strong baselines, with XGBoost achieving <strong>78.28% accuracy</strong>. By leveraging temporal dependencies directly through a two-layer LSTM network, the deep learning approach further improved performance to <strong>79.61% accuracy</strong>, making it the best-performing model in the project. The work demonstrates the importance of temporal modeling in remote sensing applications and provides a solid foundation for future research in crop monitoring, moisture stress detection, and intelligent irrigation advisory systems.</p>
     `,
-    githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
+    githubLink:{
+        dl : "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb",
+        ml : "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Decsion%20Tree/crop_classification_using_random_forest.ipynb"
+    }
 }
 ];
