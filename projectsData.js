@@ -1556,5 +1556,142 @@ const myProjects = [
         <p>This project successfully implemented a complete multiclass image classification pipeline using TensorFlow. The deep neural network learned meaningful visual representations and achieved <strong>75.37% training accuracy</strong> and <strong>69.17% test accuracy</strong>. More importantly, it provided a strong practical understanding of TensorFlow fundamentals, neural network implementation, optimization, and multiclass classification, forming a solid foundation for advanced computer vision models such as Convolutional Neural Networks (CNNs).</p>
     `,
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/hand_sign_recognition_using_tensorflow.ipynb"
-    }
+    },
+    {
+    id: "crop-type-classification-sentinel2",
+    category: "dl",
+    title: "Crop Type Classification using Multi-Temporal Sentinel-2 Data",
+    date: "2025-06-15",
+    topic: "Remote Sensing & Agricultural AI",
+    algorithms: ["Random Forest", "XGBoost", "LSTM"],
+    datasetSize: "122,614 samples, 585 features",
+    images: [
+        "dl/crop classification brieze dataset.png"
+    ],
+    tags: ["Python", "PyTorch", "XGBoost", "LSTM", "Remote Sensing", "Deep Learning", "Satellite Imagery"],
+    summary: "An end-to-end crop classification project using multi-temporal Sentinel-2 satellite observations. The project compares classical machine learning models with a deep learning LSTM architecture, demonstrating the effectiveness of sequential modeling for agricultural remote sensing data.",
+    detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to develop a complete crop type classification pipeline using multi-temporal Sentinel-2 satellite observations. Multiple machine learning and deep learning models were implemented and compared to identify the most effective approach for recognizing crop types from seasonal spectral data.</p>
+
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <ul class="report-list">
+            <li><strong>Dataset:</strong> BreizhCrops (FRH04)</li>
+            <li><strong>Satellite:</strong> Sentinel-2</li>
+            <li><strong>Total Samples:</strong> 122,614 agricultural fields</li>
+            <li><strong>Features:</strong> 585 (45 timestamps × 13 spectral bands)</li>
+            <li><strong>Target Classes:</strong> 9 crop types</li>
+            <li><strong>Memory Usage:</strong> ~274 MB</li>
+        </ul>
+
+        <h4 class="report-subtitle">Data Analysis & Preprocessing</h4>
+        <ul class="report-list">
+            <li>Performed extensive exploratory data analysis on satellite observations.</li>
+            <li>Verified dataset quality with no missing values or duplicate records.</li>
+            <li>Analyzed crop class imbalance, spectral band behavior, and temporal trends.</li>
+            <li>Studied spectral signatures, feature variance, PCA visualization, and correlation patterns.</li>
+            <li>Prepared sequential satellite observations for both classical ML and LSTM-based deep learning models.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Models Evaluated</h4>
+
+        <p><strong>Classical Machine Learning</strong></p>
+
+        <ul class="report-list">
+            <li>Random Forest (Baseline)</li>
+            <li>Random Forest (GridSearchCV)</li>
+            <li>Random Forest with Balanced Class Weights</li>
+            <li>XGBoost (GPU Accelerated)</li>
+            <li>XGBoost with RandomizedSearchCV</li>
+        </ul>
+
+        <p><strong>Deep Learning Model</strong></p>
+
+        <ul class="report-list">
+            <li>Two-layer LSTM Network for sequential satellite time-series classification.</li>
+        </ul>
+
+        <h4 class="report-subtitle">LSTM Architecture</h4>
+
+        <ul class="report-list">
+            <li><strong>Input:</strong> 45 temporal observations × 13 Sentinel-2 spectral bands.</li>
+            <li><strong>LSTM:</strong> 2 layers, 128 hidden units, dropout = 0.3.</li>
+            <li><strong>Fully Connected Layer:</strong> 128 → 64 neurons.</li>
+            <li><strong>Activation:</strong> ReLU</li>
+            <li><strong>Dropout:</strong> 0.3</li>
+            <li><strong>Output Layer:</strong> 9 crop classes.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Model Performance Comparison</h4>
+
+        <table class="report-table">
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+            </tr>
+            <tr>
+                <td>Random Forest (Baseline)</td>
+                <td>71.06%</td>
+            </tr>
+            <tr>
+                <td>Random Forest (Grid Search)</td>
+                <td>71.19%</td>
+            </tr>
+            <tr>
+                <td>Random Forest (Balanced)</td>
+                <td>70.13%</td>
+            </tr>
+            <tr>
+                <td>XGBoost</td>
+                <td>78.28%</td>
+            </tr>
+            <tr>
+                <td>XGBoost (Random Search)</td>
+                <td>78.28%</td>
+            </tr>
+            <tr>
+                <td><strong>LSTM (Deep Learning)</strong></td>
+                <td><strong>79.61%</strong></td>
+            </tr>
+        </table>
+
+        <h4 class="report-subtitle">Evaluation Metrics</h4>
+
+        <ul class="report-list">
+            <li>Accuracy</li>
+            <li>Precision</li>
+            <li>Recall</li>
+            <li>F1-Score</li>
+            <li>Confusion Matrix</li>
+            <li>Feature Importance (Machine Learning Models)</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Findings</h4>
+
+        <ul class="report-list">
+            <li>Satellite spectral signatures contain sufficient information for distinguishing multiple crop types.</li>
+            <li>Temporal observations significantly improve crop recognition compared to single-date measurements.</li>
+            <li>XGBoost substantially outperformed Random Forest, improving accuracy by more than 7 percentage points.</li>
+            <li>The LSTM model achieved the highest classification accuracy by directly learning temporal dependencies from sequential Sentinel-2 observations.</li>
+            <li>Hyperparameter tuning and class balancing produced only marginal improvements compared to model architecture selection.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Learnings</h4>
+
+        <ul class="report-list">
+            <li>Working with multi-temporal Sentinel-2 satellite data.</li>
+            <li>Large-scale exploratory data analysis.</li>
+            <li>Feature engineering and preprocessing for remote sensing.</li>
+            <li>Random Forest and XGBoost classification.</li>
+            <li>GPU-accelerated model training.</li>
+            <li>Hyperparameter optimization using GridSearchCV and RandomizedSearchCV.</li>
+            <li>Sequential deep learning using LSTM networks.</li>
+            <li>Performance evaluation and model comparison.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project successfully developed an end-to-end crop classification pipeline using multi-temporal Sentinel-2 satellite observations. Classical machine learning models established strong baselines, with XGBoost achieving <strong>78.28% accuracy</strong>. By leveraging temporal dependencies directly through a two-layer LSTM network, the deep learning approach further improved performance to <strong>79.61% accuracy</strong>, making it the best-performing model in the project. The work demonstrates the importance of temporal modeling in remote sensing applications and provides a solid foundation for future research in crop monitoring, moisture stress detection, and intelligent irrigation advisory systems.</p>
+    `,
+    githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
+}
 ];
