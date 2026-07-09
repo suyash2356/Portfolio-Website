@@ -773,7 +773,7 @@ body.light-mode .social-links img {
 }
 
 .detailed-report.expanded {
-    max-height: 1000px;
+    max-height: none;
     opacity: 1;
     margin-bottom: 30px;
     border-top: 1px solid var(--border-color);
@@ -1199,9 +1199,15 @@ body.light-mode .social-links img {
     border: 1px solid var(--border-color);
     width: 90%;
     max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
     border-radius: 20px;
     position: relative;
     text-align: left;
+}
+.modal-content .gallery-img-container {
+    height: auto;
+    max-height: 400px;
 }
 .close-modal {
     color: #aaa;
