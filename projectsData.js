@@ -3,19 +3,19 @@
 
 const myProjects = [
     {
-    id: "sentinel2-crop-classification-eda",
-    category: "eda",
-    title: "Sentinel-2 Crop Classification Dataset Analysis",
-    date: "2025-06-10",
-    topic: "Remote Sensing",
-    algorithms: ["Statistical Analysis", "Principal Component Analysis (PCA)"],
-    datasetSize: "122k+ samples, 585 features",
-    images: [
-        "eda/brizecrop eda.png"
-    ],
-    tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA", "Remote Sensing", "Sentinel-2"],
-    summary: "A comprehensive exploratory data analysis of a large-scale Sentinel-2 satellite dataset to understand crop distributions, spectral signatures, temporal trends, and feature relationships before machine learning model development.",
-    detailedReport: `
+        id: "sentinel2-crop-classification-eda",
+        category: "eda",
+        title: "Sentinel-2 Crop Classification Dataset Analysis",
+        date: "2025-06-10",
+        topic: "Remote Sensing",
+        algorithms: ["Statistical Analysis", "Principal Component Analysis (PCA)"],
+        datasetSize: "122k+ samples, 585 features",
+        images: [
+            "eda/brizecrop eda.png"
+        ],
+        tags: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA", "Remote Sensing", "Sentinel-2"],
+        summary: "A comprehensive exploratory data analysis of a large-scale Sentinel-2 satellite dataset to understand crop distributions, spectral signatures, temporal trends, and feature relationships before machine learning model development.",
+        detailedReport: `
         <h4 class="report-subtitle">Dataset Overview</h4>
         <p>The dataset contains <strong>122,614 satellite observations</strong> with <strong>585 features</strong> representing 45 observation timestamps across 13 Sentinel-2 spectral bands. The objective is multiclass crop classification across nine crop categories using multi-temporal remote sensing data.</p>
 
@@ -54,8 +54,8 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusions Drawn</h4>
         <p>The exploratory analysis confirms that the Sentinel-2 dataset is clean, information-rich, and highly suitable for crop classification tasks. Multi-temporal satellite observations combined with multiple spectral bands provide valuable information describing crop growth throughout the season. Although the dataset presents a significant class imbalance challenge, the observed temporal patterns and unique spectral signatures suggest that tree-based machine learning models such as Random Forest can effectively learn meaningful crop classification patterns from the available features.</p>
     `,
-    githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(BreizhCrops%20Data).ipynb"
-},
+        githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(BreizhCrops%20Data).ipynb"
+    },
     {
         id: "us-accidents-eda",
         category: "eda",
@@ -1259,6 +1259,119 @@ const myProjects = [
     `,
         githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Recommended%20System/Content_based_recommendation_model_using_tf-idf.ipynb"
     },
+    {
+        id: "insurance-charges-prediction-numpy-nn",
+        category: "ml",
+        title: "Insurance Charges Prediction using Neural Network from Scratch",
+        date: "2025-06-20",
+        topic: "Regression",
+        algorithms: ["Linear Regression", "Ridge Regression", "Lasso Regression", "Neural Network"],
+        datasetSize: "1,338 samples, 8 features",
+        images: [
+            "ml/Screenshot 2026-07-09 120133.png"
+        ],
+        tags: ["Python", "NumPy", "Machine Learning", "Deep Learning", "Neural Network", "Regression"],
+        summary: "A complete regression project comparing classical machine learning algorithms with a neural network implemented entirely from scratch using NumPy. The project demonstrates forward propagation, backpropagation, gradient descent optimization, and neural network implementation without deep learning libraries.",
+        detailedReport: `
+        <h4 class="report-subtitle">Project Overview</h4>
+        <p>The objective of this project was to predict medical insurance charges using both classical regression algorithms and a fully custom neural network implemented from scratch using NumPy. The project focuses on understanding the mathematical foundations of neural networks while comparing their performance against traditional machine learning models.</p>
+
+        <h4 class="report-subtitle">Dataset Overview</h4>
+        <ul class="report-list">
+            <li><strong>Dataset:</strong> Medical Insurance Charges Dataset</li>
+            <li><strong>Total Samples:</strong> 1,338</li>
+            <li><strong>Features:</strong> 8</li>
+            <li><strong>Target Variable:</strong> Insurance Charges</li>
+            <li><strong>Problem Type:</strong> Regression</li>
+        </ul>
+
+        <h4 class="report-subtitle">Project Workflow</h4>
+        <ul class="report-list">
+            <li>Performed data exploration and preprocessing.</li>
+            <li>Applied One-Hot Encoding for categorical variables.</li>
+            <li>Separated input features and target variable.</li>
+            <li>Split the dataset into training and testing sets.</li>
+            <li>Applied StandardScaler to normalize input features.</li>
+            <li>Implemented and compared multiple regression models.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Models Evaluated</h4>
+        <table class="report-table">
+            <tr>
+                <th>Model</th>
+                <th>R² Score</th>
+            </tr>
+            <tr>
+                <td>Linear Regression (NumPy - Gradient Descent)</td>
+                <td>0.8069</td>
+            </tr>
+            <tr>
+                <td>Linear Regression (Normal Equation)</td>
+                <td>0.8069</td>
+            </tr>
+            <tr>
+                <td>Scikit-learn Linear Regression</td>
+                <td>0.8069</td>
+            </tr>
+            <tr>
+                <td>Ridge Regression</td>
+                <td>≈ 0.806</td>
+            </tr>
+            <tr>
+                <td>Lasso Regression</td>
+                <td>≈ 0.805</td>
+            </tr>
+            <tr>
+                <td><strong>Neural Network (NumPy)</strong></td>
+                <td><strong>0.8835</strong></td>
+            </tr>
+            <tr>
+                <td>Scikit-learn MLPRegressor</td>
+                <td>0.8850</td>
+            </tr>
+        </table>
+
+        <h4 class="report-subtitle">Neural Network Architecture</h4>
+        <ul class="report-list">
+            <li><strong>Input Layer:</strong> 8 neurons</li>
+            <li><strong>Hidden Layer 1:</strong> 16 neurons (Leaky ReLU)</li>
+            <li><strong>Hidden Layer 2:</strong> 8 neurons (Leaky ReLU)</li>
+            <li><strong>Output Layer:</strong> 1 neuron (Linear Activation)</li>
+        </ul>
+
+        <h4 class="report-subtitle">Implemented from Scratch</h4>
+        <ul class="report-list">
+            <li>He Weight Initialization</li>
+            <li>Forward Propagation</li>
+            <li>Mean Squared Error (MSE) Loss</li>
+            <li>Backpropagation</li>
+            <li>Gradient Descent Optimization</li>
+            <li>Leaky ReLU Activation</li>
+            <li>Parameter Updates</li>
+            <li>Prediction and R² Evaluation</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Challenges Solved</h4>
+        <ul class="report-list">
+            <li>Eliminated exploding gradients by scaling the target variable.</li>
+            <li>Resolved the Dead ReLU problem using Leaky ReLU activation.</li>
+            <li>Fixed activation function and derivative mismatch during backpropagation.</li>
+            <li>Optimized learning rate and weight initialization for stable convergence.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Key Findings</h4>
+        <ul class="report-list">
+            <li>Classical linear models explained approximately 80.7% of the variance in insurance charges.</li>
+            <li>The custom neural network significantly improved prediction accuracy over linear regression.</li>
+            <li>The NumPy implementation achieved performance nearly identical to Scikit-learn's MLPRegressor.</li>
+            <li>Proper initialization and activation functions were critical for successful neural network training.</li>
+        </ul>
+
+        <h4 class="report-subtitle">Conclusion</h4>
+        <p>This project successfully demonstrates both classical machine learning and deep learning approaches for regression. The neural network implemented entirely from scratch using NumPy achieved an <strong>R² score of 0.8835</strong>, closely matching <strong>Scikit-learn's MLPRegressor (0.8850)</strong>. Beyond predictive performance, the project showcases a complete understanding of neural network mathematics, including forward propagation, backpropagation, gradient descent optimization, and weight updates without relying on deep learning frameworks.</p>
+    `,
+        githubLink: "https://github.com/suyash2356/Machine-Learning-Projects/blob/main/Linear%20Regression/insurance_price_prediction_using_all_linear_reg_model.ipynb"
+    },
 
 
 
@@ -1558,19 +1671,19 @@ const myProjects = [
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/hand_sign_recognition_using_tensorflow.ipynb"
     },
     {
-    id: "crop-type-classification-sentinel2",
-    category: "dl",
-    title: "Crop Type Classification using Multi-Temporal Sentinel-2 Data",
-    date: "2025-06-15",
-    topic: "Remote Sensing & Agricultural AI",
-    algorithms: ["Random Forest", "XGBoost", "LSTM"],
-    datasetSize: "122,614 samples, 585 features",
-    images: [
-        "dl/crop classification brieze dataset.png"
-    ],
-    tags: ["Python", "PyTorch", "XGBoost", "LSTM", "Remote Sensing", "Deep Learning", "Satellite Imagery"],
-    summary: "An end-to-end crop classification project using multi-temporal Sentinel-2 satellite observations. The project compares classical machine learning models with a deep learning LSTM architecture, demonstrating the effectiveness of sequential modeling for agricultural remote sensing data.",
-    detailedReport: `
+        id: "crop-type-classification-sentinel2",
+        category: "dl",
+        title: "Crop Type Classification using Multi-Temporal Sentinel-2 Data",
+        date: "2025-06-15",
+        topic: "Remote Sensing & Agricultural AI",
+        algorithms: ["Random Forest", "XGBoost", "LSTM"],
+        datasetSize: "122,614 samples, 585 features",
+        images: [
+            "dl/crop classification brieze dataset.png"
+        ],
+        tags: ["Python", "PyTorch", "XGBoost", "LSTM", "Remote Sensing", "Deep Learning", "Satellite Imagery"],
+        summary: "An end-to-end crop classification project using multi-temporal Sentinel-2 satellite observations. The project compares classical machine learning models with a deep learning LSTM architecture, demonstrating the effectiveness of sequential modeling for agricultural remote sensing data.",
+        detailedReport: `
         <h4 class="report-subtitle">Project Overview</h4>
         <p>The objective of this project was to develop a complete crop type classification pipeline using multi-temporal Sentinel-2 satellite observations. Multiple machine learning and deep learning models were implemented and compared to identify the most effective approach for recognizing crop types from seasonal spectral data.</p>
 
@@ -1699,7 +1812,7 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>This project successfully developed an end-to-end crop classification pipeline using multi-temporal Sentinel-2 satellite observations. Classical machine learning models established strong baselines, with XGBoost achieving <strong>78.28% accuracy</strong>. By leveraging temporal dependencies directly through a two-layer LSTM network, the deep learning approach further improved performance to <strong>79.61% accuracy</strong>, making it the best-performing model in the project. The work demonstrates the importance of temporal modeling in remote sensing applications and provides a solid foundation for future research in crop monitoring, moisture stress detection, and intelligent irrigation advisory systems.</p>
     `,
-    githubLink:"https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
-        
-}
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
+
+    }
 ];
