@@ -1814,5 +1814,152 @@ const myProjects = [
     `,
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
 
-    }
+    },
+
+    {
+  id: "object-aware-media-editing-yolo",
+  category: "dl",
+  title: "Object-Aware Image & Video Editing using YOLO",
+  date: "2026-08-20",
+  topic: "Computer Vision & Object Detection",
+  algorithms: [
+    "YOLO11",
+    "Object Detection",
+    "Instance Segmentation",
+    "ByteTrack Object Tracking"
+  ],
+  datasetSize: "COCO dataset subset with 80 object classes",
+  images: [
+    "dl/Screenshot 2026-08-20 144425.png"
+  ],
+  tags: [
+    "Python",
+    "PyTorch",
+    "Ultralytics",
+    "YOLO",
+    "Object Detection",
+    "Instance Segmentation",
+    "Object Tracking",
+    "Computer Vision",
+    "Image Processing",
+    "Video Processing",
+    "OpenCV",
+    "Streamlit"
+  ],
+  summary: "An end-to-end computer vision project that uses YOLO-based object detection and instance segmentation to build a practical object-aware media editing system. The project progresses from YOLO fundamentals and custom object detection to segmentation, object-specific image editing, video tracking, and a local Streamlit interface for interactive use.",
+  "detailedReport": `
+    <h4 class="report-subtitle">Project Overview</h4>
+    <p>The objective of this project was to move beyond basic YOLO object detection and build a practical computer vision system that can understand objects in images and videos and perform object-specific editing operations.</p>
+
+    <p>The project was developed progressively through multiple stages, covering YOLO fundamentals, custom object detection, general-purpose object segmentation, object-aware image editing, video tracking, and finally a simple local web interface for using the complete system.</p>
+
+    <h4 class="report-subtitle">Stage 1 — YOLO Fundamentals</h4>
+    <ul class="report-list">
+      <li>Learned the basic object detection pipeline using YOLO.</li>
+      <li>Understood bounding boxes, confidence scores, and class predictions.</li>
+      <li>Explored the complete flow from image input to detected objects.</li>
+    </ul>
+
+    <h4 class="report-subtitle">Stage 2 — Custom Object Detection</h4>
+    <p>A custom object detection workflow was developed to understand training YOLO on application-specific classes rather than relying only on pretrained COCO classes.</p>
+
+    <h4 class="report-subtitle">Stage 3 — General Object Detection Model</h4>
+    <p>A YOLO object detection model was trained using an 80-class COCO subset containing common everyday objects.</p>
+
+    <ul class="report-list">
+      <li><strong>Classes:</strong> 80 COCO object categories</li>
+      <li><strong>Training Images:</strong> 9,985</li>
+      <li><strong>Validation Images:</strong> 1,997</li>
+      <li><strong>Model:</strong> YOLO-based object detector</li>
+      <li><strong>Saved Model:</strong> best.pt</li>
+    </ul>
+
+    <h4 class="report-subtitle">Stage 3 — Model Performance</h4>
+    <ul class="report-list">
+      <li><strong>Best mAP50-95:</strong> 0.41361</li>
+      <li><strong>Best mAP50:</strong> 0.575</li>
+      <li><strong>Best Precision:</strong> 0.67097</li>
+      <li><strong>Best Recall:</strong> 0.52513</li>
+      <li><strong>Best F1-Score:</strong> 0.58916</li>
+    </ul>
+
+    <h4 class="report-subtitle">Stage 4 — Instance Segmentation</h4>
+    <p>The project was extended from bounding-box detection to pixel-level object segmentation using a pretrained YOLO11n segmentation model. This enabled the system to identify the exact pixels belonging to detected objects.</p>
+
+    <ul class="report-list">
+      <li>Object detection with class and confidence information.</li>
+      <li>Pixel-level instance segmentation masks.</li>
+      <li>Transparent object extraction.</li>
+      <li>Object-specific cropping.</li>
+      <li>Object-specific blurring.</li>
+      <li>Object highlighting.</li>
+    </ul>
+
+    <p>The segmentation pipeline was practically validated using common COCO objects. For example, a cat was detected with approximately 0.905 confidence and successfully converted into a pixel-level mask for extraction, blurring, and highlighting operations.</p>
+
+    <h4 class="report-subtitle">Stage 5 — Video Processing & Tracking</h4>
+    <p>The system was extended to video by combining YOLO segmentation with ByteTrack object tracking. Objects can be detected and tracked across consecutive video frames while applying object-specific processing.</p>
+
+    <ul class="report-list">
+      <li><strong>Object Tracking:</strong> Maintains object identities across video frames.</li>
+      <li><strong>Object Blur:</strong> Automatically blurs selected object classes throughout a video.</li>
+      <li><strong>Object Highlight:</strong> Highlights selected objects while reducing the visibility of the background.</li>
+      <li><strong>Tracked Visualization:</strong> Displays detected objects and tracking information.</li>
+    </ul>
+
+    <p>A practical example demonstrated automatic blurring of people throughout a video while leaving the surrounding environment relatively unaffected.</p>
+
+    <h4 class="report-subtitle">Stage 6 — Interactive Application</h4>
+    <p>A local Streamlit-based web interface was developed to make the trained models and processing functions easier to use without directly interacting with the underlying Python functions.</p>
+
+    <p>The interface provides separate workflows for images and videos.</p>
+
+    <ul class="report-list">
+      <li><strong>Image Input:</strong> Upload an image and select a detected object.</li>
+      <li><strong>Image Operations:</strong> Detect, blur, highlight, extract, and crop objects.</li>
+      <li><strong>Video Input:</strong> Upload a video for object-aware processing.</li>
+      <li><strong>Video Operations:</strong> Track, blur, and highlight selected object classes.</li>
+      <li><strong>Adjustable Confidence:</strong> Allows users to control detection sensitivity.</li>
+      <li><strong>Inference Resolution:</strong> Provides a configurable speed-versus-quality trade-off.</li>
+      <li><strong>GPU Acceleration:</strong> Uses CUDA when an NVIDIA GPU is available.</li>
+      <li><strong>Download:</strong> Processed images and videos can be saved locally.</li>
+    </ul>
+
+    <h4 class="report-subtitle">System Architecture</h4>
+    <p>The final system follows an object-aware media processing pipeline:</p>
+
+    <ul class="report-list">
+      <li><strong>Image:</strong> Image → YOLO Segmentation → Object → Mask → Editing Operation → Output Image</li>
+      <li><strong>Video:</strong> Video → YOLO Segmentation → Object Tracking → Object Mask → Editing Operation → Output Video</li>
+    </ul>
+
+    <h4 class="report-subtitle">Key Applications</h4>
+    <ul class="report-list">
+      <li>Privacy-oriented video editing through automatic object/person blurring.</li>
+      <li>Creating transparent object cutouts for presentations and graphic design.</li>
+      <li>Highlighting specific objects in educational or college presentations.</li>
+      <li>Object-aware image preprocessing.</li>
+      <li>Object-focused video analysis and visualization.</li>
+      <li>Reusable computer vision experimentation platform.</li>
+    </ul>
+
+    <h4 class="report-subtitle">Key Learnings</h4>
+    <ul class="report-list">
+      <li>YOLO object detection fundamentals.</li>
+      <li>Bounding boxes, confidence scores, and class predictions.</li>
+      <li>Training and evaluating custom YOLO detection models.</li>
+      <li>Precision, recall, F1-score, mAP50, and mAP50-95.</li>
+      <li>Instance segmentation and pixel-level masks.</li>
+      <li>Object-aware image processing using OpenCV.</li>
+      <li>Object tracking using ByteTrack.</li>
+      <li>Video processing with OpenCV.</li>
+      <li>GPU-accelerated inference using CUDA.</li>
+      <li>Building a practical local AI application with Streamlit.</li>
+    </ul>
+
+    <h4 class="report-subtitle">Conclusion</h4>
+    <p>This project developed an end-to-end object-aware media processing system rather than stopping at basic object detection. Starting from YOLO fundamentals, the project progressed through object detection, instance segmentation, image editing, video tracking, and interactive application development. The final system demonstrates how object detection and segmentation can be transformed into practical tools for image and video editing, including object extraction, highlighting, privacy blurring, and tracked video processing.</p>
+  `,
+  githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Object%20detection%20%26%20segmentation/Notebooks/object_ware_editing_segmentation.ipynb"
+}
 ];
