@@ -1538,8 +1538,13 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>The model achieved promising results with an overall accuracy of 72% in multi-class skin cancer detection. While the system performed well on common lesion types, additional improvements such as advanced augmentation strategies, larger balanced datasets, and further hyperparameter tuning could significantly improve minority class detection and overall diagnostic reliability.</p>
     `,
-        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/skin_cancer_detection_dl.ipynb"
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/CNN/Skin%20Cancer%20Detection%20Using%20Transfer%20Learning"
     },
+
+
+
+
+
     {
         id: "plant-disease-detection-dl",
         category: "dl",
@@ -1601,8 +1606,12 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>The Plant Disease Detection system achieved excellent classification performance with 95% accuracy and strong precision-recall balance. By leveraging EfficientNetB0 and deep learning-based feature extraction, the model effectively identified multiple plant diseases from crop images, making it a promising solution for smart agriculture, crop monitoring, and AI-assisted farming applications.</p>
     `,
-        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Plant%20disease%20prediction.ipynb"
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/ANN/Plant%20Disease%20Prediction"
     },
+
+
+
+
     {
         id: "hand-sign-classification-tensorflow",
         category: "dl",
@@ -1668,8 +1677,12 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>This project successfully implemented a complete multiclass image classification pipeline using TensorFlow. The deep neural network learned meaningful visual representations and achieved <strong>75.37% training accuracy</strong> and <strong>69.17% test accuracy</strong>. More importantly, it provided a strong practical understanding of TensorFlow fundamentals, neural network implementation, optimization, and multiclass classification, forming a solid foundation for advanced computer vision models such as Convolutional Neural Networks (CNNs).</p>
     `,
-        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/hand_sign_recognition_using_tensorflow.ipynb"
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/ANN/hand_sign_recognition_using_tensorflow.ipynb"
     },
+
+
+
+
     {
         id: "crop-type-classification-sentinel2",
         category: "dl",
@@ -1812,9 +1825,13 @@ const myProjects = [
         <h4 class="report-subtitle">Conclusion</h4>
         <p>This project successfully developed an end-to-end crop classification pipeline using multi-temporal Sentinel-2 satellite observations. Classical machine learning models established strong baselines, with XGBoost achieving <strong>78.28% accuracy</strong>. By leveraging temporal dependencies directly through a two-layer LSTM network, the deep learning approach further improved performance to <strong>79.61% accuracy</strong>, making it the best-performing model in the project. The work demonstrates the importance of temporal modeling in remote sensing applications and provides a solid foundation for future research in crop monitoring, moisture stress detection, and intelligent irrigation advisory systems.</p>
     `,
-        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/Deep%20Learning/Neural%20network/crop_classification_using_lstm.ipynb"
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/LSTM/Crop%20Classification"
 
     },
+
+
+
+
 
     {
         id: "object-aware-media-editing-yolo",
@@ -1962,6 +1979,11 @@ const myProjects = [
   `,
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Object%20detection%20%26%20segmentation/Notebooks/object_ware_editing_segmentation.ipynb"
     },
+
+
+
+
+
 
     {
         id: "cnn-face-recognition-yunet-resnet50",
@@ -2376,5 +2398,312 @@ const myProjects = [
   `,
 
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/CNN/Face%20Recognition%20Model"
+    },
+
+
+
+
+
+    {
+        id: "fashion-mnist-ann-cnn-vgg16",
+        category: "dl",
+        title: "Fashion-MNIST Image Classification using ANN, CNN & VGG16",
+        date: "2026-08-XX",
+        topic: "Deep Learning & Image Classification",
+
+        algorithms: [
+            "Artificial Neural Network (ANN)",
+            "Convolutional Neural Network (CNN)",
+            "VGG16",
+            "Transfer Learning",
+            "Image Classification"
+        ],
+
+        datasetSize: "Fashion-MNIST subset with approximately 6,000 images across 10 classes",
+
+        images: [
+            "dl/fashion mnist.png"
+        ],
+
+        tags: [
+            "Python",
+            "PyTorch",
+            "Deep Learning",
+            "ANN",
+            "CNN",
+            "VGG16",
+            "Transfer Learning",
+            "Fashion-MNIST",
+            "Image Classification",
+            "Computer Vision",
+            "Neural Networks",
+            "Convolutional Neural Networks",
+            "TorchVision",
+            "Model Evaluation"
+        ],
+
+        summary: "A comparative deep learning image-classification project developed using PyTorch on a subset of the Fashion-MNIST dataset. The project progressively implements a fully connected ANN baseline, a custom CNN with BatchNorm and Dropout, and a pretrained VGG16 transfer-learning model. The experiment demonstrates how preserving spatial information with CNNs and leveraging pretrained visual features can improve image classification performance.",
+
+        "detailedReport": `
+    <h4 class="report-subtitle">Project Overview</h4>
+
+    <p>The objective of this project was to understand the progression of deep learning approaches for image classification by implementing and comparing three different neural network architectures using the Fashion-MNIST dataset.</p>
+
+    <p>The project starts with a basic Artificial Neural Network (ANN) as a baseline, progresses to a custom Convolutional Neural Network (CNN) capable of learning spatial and local visual patterns, and finally applies transfer learning using a pretrained VGG16 architecture.</p>
+
+    <p>All models were implemented using PyTorch, allowing the complete training and evaluation pipeline to be developed within a consistent deep learning framework.</p>
+
+
+    <h4 class="report-subtitle">Dataset</h4>
+
+    <p>Fashion-MNIST was used as the image classification dataset. The experiment used a smaller subset of the original dataset to provide a manageable environment for training and comparing different architectures.</p>
+
+    <ul class="report-list">
+      <li><strong>Dataset:</strong> Fashion-MNIST</li>
+      <li><strong>Task:</strong> Image Classification</li>
+      <li><strong>Dataset Size:</strong> Approximately 6,000 images</li>
+      <li><strong>Number of Classes:</strong> 10</li>
+      <li><strong>Image Resolution:</strong> 28 × 28 pixels</li>
+      <li><strong>Channels:</strong> 1 (Grayscale)</li>
+      <li><strong>Framework:</strong> PyTorch</li>
+    </ul>
+
+    <p>The dataset contains grayscale images belonging to ten different categories of fashion-related objects. The compact 28 × 28 image format makes Fashion-MNIST suitable for experimenting with fundamental neural network and CNN architectures.</p>
+
+
+    <h4 class="report-subtitle">Stage 1 — ANN Baseline</h4>
+
+    <p>The first model was a fully connected Artificial Neural Network used as the baseline for the experiment.</p>
+
+    <p>Since a fully connected network expects a one-dimensional feature vector, each 28 × 28 grayscale image was flattened before being passed into the network.</p>
+
+    <ul class="report-list">
+      <li><strong>Original Input:</strong> 1 × 28 × 28</li>
+      <li><strong>Flattened Input:</strong> 784 features</li>
+      <li><strong>Output Classes:</strong> 10</li>
+    </ul>
+
+    <p>The architecture was:</p>
+
+    <ul class="report-list">
+      <li>784 input features</li>
+      <li>Linear layer: 784 → 128</li>
+      <li>ReLU activation</li>
+      <li>Linear layer: 128 → 64</li>
+      <li>ReLU activation</li>
+      <li>Linear layer: 64 → 10</li>
+    </ul>
+
+    <p>The ANN achieved a <strong>test accuracy of 84.17%</strong> and served as the baseline against which the CNN and transfer-learning approaches were compared.</p>
+
+
+    <h4 class="report-subtitle">Stage 1 — ANN Architecture</h4>
+
+    <p>The complete ANN architecture can be represented as:</p>
+
+    <ul class="report-list">
+      <li><strong>Input:</strong> 784</li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 784 → 128</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 128 → 64</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 64 → 10</li>
+      <li>↓</li>
+      <li><strong>10-Class Prediction</strong></li>
+    </ul>
+
+    <p>Although the ANN provides a strong baseline, flattening the image removes the explicit two-dimensional spatial structure before the network processes the data.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — Custom CNN</h4>
+
+    <p>The second model was a custom Convolutional Neural Network designed specifically to preserve and learn spatial information from the 28 × 28 images.</p>
+
+    <p>Unlike the ANN, the CNN processes the image using convolutional filters before flattening the learned feature maps. Batch Normalization was used to improve training behavior, while Max Pooling progressively reduced the spatial dimensions.</p>
+
+    <p>The architecture was:</p>
+
+    <ul class="report-list">
+      <li><strong>Input:</strong> 1 × 28 × 28</li>
+      <li>↓</li>
+      <li><strong>Conv2d:</strong> 1 → 32, kernel 3 × 3</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>BatchNorm</strong></li>
+      <li>↓</li>
+      <li><strong>MaxPool:</strong> 2 × 2</li>
+      <li>↓</li>
+      <li><strong>Conv2d:</strong> 32 → 64, kernel 3 × 3</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>BatchNorm</strong></li>
+      <li>↓</li>
+      <li><strong>MaxPool:</strong> 2 × 2</li>
+      <li>↓</li>
+      <li><strong>Flatten</strong></li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 3136 → 128</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>Dropout:</strong> 0.4</li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 128 → 64</li>
+      <li>↓</li>
+      <li><strong>ReLU</strong></li>
+      <li>↓</li>
+      <li><strong>Dropout:</strong> 0.4</li>
+      <li>↓</li>
+      <li><strong>Linear:</strong> 64 → 10</li>
+    </ul>
+
+    <p>The CNN achieved a <strong>test accuracy of 87.42%</strong>, improving upon the ANN baseline by <strong>3.25 percentage points</strong>.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — CNN Improvements over ANN</h4>
+
+    <p>The improvement over the ANN demonstrates the advantage of convolutional architectures for image data.</p>
+
+    <ul class="report-list">
+      <li>Convolutional filters learn local visual patterns.</li>
+      <li>Spatial relationships between neighboring pixels are preserved.</li>
+      <li>Pooling reduces spatial dimensions while retaining important features.</li>
+      <li>Batch Normalization supports more stable training.</li>
+      <li>Dropout helps reduce overfitting in the fully connected layers.</li>
+    </ul>
+
+    <p>The CNN therefore provides a more appropriate architecture for image data than simply flattening the input into a feature vector.</p>
+
+
+    <h4 class="report-subtitle">Stage 3 — VGG16 Transfer Learning</h4>
+
+    <p>The final model used transfer learning with the pretrained VGG16 architecture. Instead of training the complete visual representation from scratch, VGG16 was used as a pretrained feature extractor and its classifier was adapted for the ten Fashion-MNIST classes.</p>
+
+    <p>The custom classifier replaced the original classification layers with a new architecture suitable for the Fashion-MNIST task.</p>
+
+    <p>The classifier architecture was:</p>
+
+    <ul class="report-list">
+      <li><strong>Input Features:</strong> 25,088</li>
+      <li><strong>Linear:</strong> 25,088 → 1,024</li>
+      <li><strong>ReLU</strong></li>
+      <li><strong>Dropout:</strong> 0.5</li>
+      <li><strong>Linear:</strong> 1,024 → 512</li>
+      <li><strong>ReLU</strong></li>
+      <li><strong>Dropout:</strong> 0.5</li>
+      <li><strong>Linear:</strong> 512 → 10</li>
+    </ul>
+
+    <p>The VGG16 transfer-learning model achieved a <strong>test accuracy of 88.42%</strong>, producing the best result among the three evaluated approaches.</p>
+
+
+    <h4 class="report-subtitle">Stage 3 — Transfer Learning Approach</h4>
+
+    <p>The transfer-learning experiment demonstrated how pretrained convolutional features can be reused for a new classification task instead of learning all visual representations from scratch.</p>
+
+    <p>The original VGG16 classifier was replaced with a custom classifier designed for the ten Fashion-MNIST categories. This allowed the pretrained network to act as a feature extractor while adapting the final prediction layers to the target dataset.</p>
+
+
+    <h4 class="report-subtitle">Model Comparison</h4>
+
+    <p>The three models were evaluated using test accuracy:</p>
+
+    <ul class="report-list">
+      <li><strong>ANN:</strong> 84.17%</li>
+      <li><strong>Custom CNN:</strong> 87.42%</li>
+      <li><strong>VGG16 Transfer Learning:</strong> 88.42%</li>
+    </ul>
+
+    <p>The results demonstrate a gradual improvement as the architecture becomes more suitable for visual feature learning.</p>
+
+
+    <h4 class="report-subtitle">Performance Improvements</h4>
+
+    <ul class="report-list">
+      <li><strong>CNN vs ANN:</strong> +3.25 percentage points</li>
+      <li><strong>VGG16 vs ANN:</strong> +4.25 percentage points</li>
+      <li><strong>VGG16 vs CNN:</strong> +1.00 percentage point</li>
+    </ul>
+
+    <p>The VGG16 transfer-learning model achieved the highest test accuracy with an overall performance of <strong>88.42%</strong>.</p>
+
+
+    <h4 class="report-subtitle">Results Summary</h4>
+
+    <p>The progression of the evaluated models was:</p>
+
+    <ul class="report-list">
+      <li><strong>ANN → 84.17%</strong></li>
+      <li><strong>Custom CNN → 87.42%</strong></li>
+      <li><strong>VGG16 Transfer Learning → 88.42%</strong></li>
+    </ul>
+
+    <p>The experiment demonstrates that moving from a fully connected architecture to convolution-based feature extraction improves performance on image data, while transfer learning can provide an additional improvement by leveraging pretrained visual representations.</p>
+
+
+    <h4 class="report-subtitle">Evaluation Method</h4>
+
+    <p>Each model was evaluated using test-set classification accuracy. The primary objective was to compare the effectiveness of different neural network architectures on the same image classification task.</p>
+
+    <ul class="report-list">
+      <li><strong>Evaluation Metric:</strong> Test Accuracy</li>
+      <li><strong>Number of Classes:</strong> 10</li>
+      <li><strong>Baseline:</strong> ANN</li>
+      <li><strong>Improved Model:</strong> Custom CNN</li>
+      <li><strong>Transfer Learning Model:</strong> VGG16</li>
+      <li><strong>Best Result:</strong> 88.42%</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Technology Stack</h4>
+
+    <ul class="report-list">
+      <li><strong>Programming Language:</strong> Python</li>
+      <li><strong>Deep Learning Framework:</strong> PyTorch</li>
+      <li><strong>Computer Vision:</strong> TorchVision</li>
+      <li><strong>Models:</strong> ANN, Custom CNN, VGG16</li>
+      <li><strong>Learning Approach:</strong> Supervised Learning and Transfer Learning</li>
+      <li><strong>Dataset:</strong> Fashion-MNIST</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Key Learnings</h4>
+
+    <ul class="report-list">
+      <li>Building fully connected neural networks using PyTorch.</li>
+      <li>Understanding the limitations of flattening image data.</li>
+      <li>Designing custom CNN architectures.</li>
+      <li>Using convolutional layers for spatial feature extraction.</li>
+      <li>Understanding Batch Normalization.</li>
+      <li>Using Max Pooling for spatial dimensionality reduction.</li>
+      <li>Applying Dropout for regularization.</li>
+      <li>Implementing multi-class image classification.</li>
+      <li>Using pretrained VGG16 for transfer learning.</li>
+      <li>Replacing pretrained classifier layers for a custom dataset.</li>
+      <li>Comparing different deep learning architectures quantitatively.</li>
+      <li>Evaluating classification models using test accuracy.</li>
+      <li>Understanding the practical progression from ANN → CNN → Transfer Learning.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Conclusion</h4>
+
+    <p>This project demonstrated the progression from a basic fully connected neural network to convolutional and transfer-learning approaches for image classification.</p>
+
+    <p>The ANN established a baseline accuracy of <strong>84.17%</strong>, while the custom CNN improved performance to <strong>87.42%</strong> by preserving spatial information and learning local image patterns.</p>
+
+    <p>The final VGG16 transfer-learning model achieved the best performance at <strong>88.42% test accuracy</strong>, representing a 4.25 percentage-point improvement over the ANN baseline and a 1.00 percentage-point improvement over the custom CNN.</p>
+
+    <p>The experiment provided practical experience with neural network design, CNN architecture, regularization, transfer learning, PyTorch model implementation, and comparative model evaluation.</p>
+  `,
+
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Fashion%20Mnist%20CNN/fashion_mnist_ann_pytorch.ipynb"
     }
 ];
