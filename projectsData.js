@@ -1817,37 +1817,37 @@ const myProjects = [
     },
 
     {
-  id: "object-aware-media-editing-yolo",
-  category: "dl",
-  title: "Object-Aware Image & Video Editing using YOLO",
-  date: "2026-08-20",
-  topic: "Computer Vision & Object Detection",
-  algorithms: [
-    "YOLO11",
-    "Object Detection",
-    "Instance Segmentation",
-    "ByteTrack Object Tracking"
-  ],
-  datasetSize: "COCO dataset subset with 80 object classes",
-  images: [
-    "dl/Screenshot 2026-08-20 144425.png"
-  ],
-  tags: [
-    "Python",
-    "PyTorch",
-    "Ultralytics",
-    "YOLO",
-    "Object Detection",
-    "Instance Segmentation",
-    "Object Tracking",
-    "Computer Vision",
-    "Image Processing",
-    "Video Processing",
-    "OpenCV",
-    "Streamlit"
-  ],
-  summary: "An end-to-end computer vision project that uses YOLO-based object detection and instance segmentation to build a practical object-aware media editing system. The project progresses from YOLO fundamentals and custom object detection to segmentation, object-specific image editing, video tracking, and a local Streamlit interface for interactive use.",
-  "detailedReport": `
+        id: "object-aware-media-editing-yolo",
+        category: "dl",
+        title: "Object-Aware Image & Video Editing using YOLO",
+        date: "2026-08-20",
+        topic: "Computer Vision & Object Detection",
+        algorithms: [
+            "YOLO11",
+            "Object Detection",
+            "Instance Segmentation",
+            "ByteTrack Object Tracking"
+        ],
+        datasetSize: "COCO dataset subset with 80 object classes",
+        images: [
+            "dl/Screenshot 2026-08-20 144425.png"
+        ],
+        tags: [
+            "Python",
+            "PyTorch",
+            "Ultralytics",
+            "YOLO",
+            "Object Detection",
+            "Instance Segmentation",
+            "Object Tracking",
+            "Computer Vision",
+            "Image Processing",
+            "Video Processing",
+            "OpenCV",
+            "Streamlit"
+        ],
+        summary: "An end-to-end computer vision project that uses YOLO-based object detection and instance segmentation to build a practical object-aware media editing system. The project progresses from YOLO fundamentals and custom object detection to segmentation, object-specific image editing, video tracking, and a local Streamlit interface for interactive use.",
+        "detailedReport": `
     <h4 class="report-subtitle">Project Overview</h4>
     <p>The objective of this project was to move beyond basic YOLO object detection and build a practical computer vision system that can understand objects in images and videos and perform object-specific editing operations.</p>
 
@@ -1960,6 +1960,421 @@ const myProjects = [
     <h4 class="report-subtitle">Conclusion</h4>
     <p>This project developed an end-to-end object-aware media processing system rather than stopping at basic object detection. Starting from YOLO fundamentals, the project progressed through object detection, instance segmentation, image editing, video tracking, and interactive application development. The final system demonstrates how object detection and segmentation can be transformed into practical tools for image and video editing, including object extraction, highlighting, privacy blurring, and tracked video processing.</p>
   `,
-  githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Object%20detection%20%26%20segmentation/Notebooks/object_ware_editing_segmentation.ipynb"
-}
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Object%20detection%20%26%20segmentation/Notebooks/object_ware_editing_segmentation.ipynb"
+    },
+
+    {
+        id: "cnn-face-recognition-yunet-resnet50",
+        category: "dl",
+        title: "Real-Time Face Recognition using CNN, ResNet-50 & YuNet",
+        date: "2026-09-09",
+        topic: "Computer Vision, Face Detection & Face Recognition",
+
+        algorithms: [
+            "CNN",
+            "ResNet-50",
+            "Transfer Learning",
+            "YuNet Face Detection",
+            "512-D Face Embeddings",
+            "Multi-Class Classification",
+            "OpenCV Face Enhancement",
+            "Face Preprocessing",
+            "Real-Time Face Detection",
+            "Video Face Recognition"
+        ],
+
+        datasetSize: "LFW DeepFunneled dataset subset with 10 public-figure identities + 28 personal face images, organized into 11 classes",
+
+        images: [
+            "dl/face recognition.png"
+        ],
+
+        tags: [
+            "Python",
+            "PyTorch",
+            "TorchVision",
+            "ResNet-50",
+            "CNN",
+            "Transfer Learning",
+            "Computer Vision",
+            "Face Recognition",
+            "Face Detection",
+            "YuNet",
+            "OpenCV",
+            "Deep Learning",
+            "Image Processing",
+            "Video Processing",
+            "Real-Time AI",
+            "Face Embedding",
+            "Streamlit",
+            "CUDA",
+            "GPU Acceleration"
+        ],
+
+        summary: "An end-to-end deep learning face recognition system built using PyTorch, a pretrained ResNet-50 CNN, YuNet face detection, OpenCV-based face enhancement, and 512-dimensional face embeddings. The project processes images, video frames, and live webcam input through a consistent face detection and preprocessing pipeline before performing identity classification. A Streamlit interface was also developed to provide an interactive environment for image-based recognition and experimental video/webcam workflows.",
+
+        "detailedReport": `
+    <h4 class="report-subtitle">Project Overview</h4>
+
+    <p>The objective of this project was to build a complete computer vision system capable of detecting and recognizing human faces from images, videos, and live webcam streams rather than relying only on a simple image classification model.</p>
+
+    <p>The project was developed as a deep learning and CNN-based experimentation pipeline. It combines a pretrained ResNet-50 backbone with transfer learning, YuNet for face detection, OpenCV-based image enhancement, standardized face preprocessing, CNN feature extraction, and a custom classification head for identity recognition.</p>
+
+    <p>The final system was also integrated into a local Streamlit application to provide an interactive interface for testing the trained face recognition pipeline.</p>
+
+
+    <h4 class="report-subtitle">Project Goals</h4>
+
+    <ul class="report-list">
+      <li>Detect human faces reliably from real-world images.</li>
+      <li>Extract a standardized face region from the original image.</li>
+      <li>Improve low-quality face crops using lightweight OpenCV enhancement techniques.</li>
+      <li>Use transfer learning with ResNet-50 to learn discriminative facial representations.</li>
+      <li>Generate compact 512-dimensional face embeddings.</li>
+      <li>Recognize faces belonging to the trained identity classes.</li>
+      <li>Return an Unknown result when the recognition confidence is insufficient.</li>
+      <li>Extend the recognition pipeline toward image, video, and live webcam applications.</li>
+      <li>Build an interactive Streamlit interface for practical experimentation.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Stage 1 — Dataset Preparation & Face Preprocessing</h4>
+
+    <p>The first stage established a consistent preprocessing pipeline so that training images and real-world inference images would pass through the same major processing steps.</p>
+
+    <p>The project uses the Labeled Faces in the Wild (LFW) DeepFunneled dataset as the primary public dataset. Instead of using all identities, a manageable subset of identities was selected for the custom recognition experiment. A separate personal face class was also added to test recognition using the developer's own images.</p>
+
+    <ul class="report-list">
+      <li><strong>Base Dataset:</strong> LFW DeepFunneled</li>
+      <li><strong>Selected Public Identities:</strong> 10</li>
+      <li><strong>Personal Identity:</strong> My_Face</li>
+      <li><strong>Total Classes:</strong> 11</li>
+      <li><strong>Personal Images:</strong> 28 original images</li>
+      <li><strong>Training Samples:</strong> 1,191</li>
+      <li><strong>Validation Samples:</strong> 293</li>
+      <li><strong>Input Resolution:</strong> 224 × 224 pixels</li>
+    </ul>
+
+    <p>The selected public identities were George W. Bush, Colin Powell, Tony Blair, Donald Rumsfeld, Gerhard Schroeder, Ariel Sharon, Hugo Chavez, Junichiro Koizumi, Jean Chretien, and John Ashcroft, together with the custom My_Face class.</p>
+
+
+    <h4 class="report-subtitle">Stage 1 — YuNet Face Detection</h4>
+
+    <p>Instead of sending the complete image directly into the recognition network, the system first detects the actual face region using OpenCV's YuNet face detector.</p>
+
+    <p>This was an important architectural improvement over the initial Haar Cascade based approach because real-world images can contain large backgrounds, multiple objects, small faces, and distracting regions. YuNet provides a bounding box and detection confidence for each detected face.</p>
+
+    <ul class="report-list">
+      <li>Input image is passed to YuNet.</li>
+      <li>Multiple candidate faces can be detected.</li>
+      <li>The most relevant/largest face is selected for the recognition pipeline.</li>
+      <li>A face bounding box is extracted from the original image.</li>
+      <li>Detection confidence is recorded separately from recognition confidence.</li>
+    </ul>
+
+    <p>The separation between detection confidence and recognition confidence is important. A high face-detection score does not mean that the identity prediction is correct.</p>
+
+
+    <h4 class="report-subtitle">Stage 1 — OpenCV Face Enhancement</h4>
+
+    <p>A lightweight Level-1 enhancement pipeline was implemented using OpenCV rather than introducing a separate super-resolution or image-restoration neural network.</p>
+
+    <p>The objective was to improve the visual quality of detected face crops before they were passed to the CNN.</p>
+
+    <ul class="report-list">
+      <li>Face crop extraction.</li>
+      <li>Local contrast enhancement.</li>
+      <li>Illumination improvement.</li>
+      <li>Sharpening/detail enhancement.</li>
+      <li>Noise-aware processing.</li>
+      <li>Final resizing to the model input resolution.</li>
+    </ul>
+
+    <p>This preprocessing stage was particularly useful for low-light and distant faces where the detected face contained limited visual detail. The enhancement process was deliberately kept lightweight so that it could also be used during real-time inference.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — CNN Transfer Learning Model</h4>
+
+    <p>The recognition model was developed using a pretrained ResNet-50 convolutional neural network. ResNet-50 was selected as the feature extraction backbone because it provides a strong convolutional representation while remaining practical for GPU-based experimentation.</p>
+
+    <p>The pretrained ImageNet classification layer was replaced with a custom face-recognition architecture. Instead of using the original ImageNet classes, the network was adapted to learn representations for the project's 11 identity classes.</p>
+
+    <ul class="report-list">
+      <li><strong>Backbone:</strong> ResNet-50</li>
+      <li><strong>Framework:</strong> PyTorch / TorchVision</li>
+      <li><strong>Pretraining:</strong> ImageNet</li>
+      <li><strong>Input:</strong> 224 × 224 RGB face images</li>
+      <li><strong>Feature Representation:</strong> 512-dimensional embedding</li>
+      <li><strong>Output:</strong> 11 identity classes</li>
+      <li><strong>Training:</strong> Transfer learning with a custom recognition head</li>
+      <li><strong>Hardware:</strong> NVIDIA CUDA GPU when available</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Stage 2 — Training Preprocessing</h4>
+
+    <p>The training pipeline was designed so that the same fundamental preprocessing philosophy could be reproduced during inference.</p>
+
+    <p>The processing flow is:</p>
+
+    <ul class="report-list">
+      <li>Original image</li>
+      <li>YuNet face detection</li>
+      <li>Face crop</li>
+      <li>OpenCV enhancement</li>
+      <li>Resize to 224 × 224</li>
+      <li>Training-time augmentation</li>
+      <li>Tensor conversion</li>
+      <li>Normalization</li>
+      <li>ResNet-50 feature extraction</li>
+      <li>512-dimensional embedding generation</li>
+      <li>Identity classification</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Stage 2 — Data Augmentation</h4>
+
+    <p>Because the dataset contains a significant difference in the number of images available for different identities, training-time augmentation was incorporated to expose the model to additional variations of the available training faces.</p>
+
+    <ul class="report-list">
+      <li>Small geometric variations.</li>
+      <li>Image appearance and illumination variations.</li>
+      <li>Controlled image transformations.</li>
+      <li>Variation in face presentation while preserving identity.</li>
+    </ul>
+
+    <p>Augmentation was applied only to training data. Validation images were kept separate so that model performance could be measured on unseen examples.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — Model Evaluation</h4>
+
+    <p>The trained model was evaluated on a separate validation set containing 293 samples. The best checkpoint achieved a validation accuracy of 70.31%.</p>
+
+    <ul class="report-list">
+      <li><strong>Best Validation Accuracy:</strong> 70.31%</li>
+      <li><strong>Validation Samples:</strong> 293</li>
+      <li><strong>Macro Precision:</strong> 0.71</li>
+      <li><strong>Macro Recall:</strong> 0.69</li>
+      <li><strong>Macro F1-Score:</strong> 0.68</li>
+      <li><strong>Weighted Precision:</strong> 0.74</li>
+      <li><strong>Weighted Recall:</strong> 0.70</li>
+      <li><strong>Weighted F1-Score:</strong> 0.71</li>
+    </ul>
+
+    <p>The training and validation curves were also monitored through loss and accuracy plots to identify learning behavior and potential overfitting.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — Class-Wise Evaluation</h4>
+
+    <p>The confusion matrix and classification report were used to understand how individual identities performed rather than relying only on overall accuracy.</p>
+
+    <p>The custom My_Face class achieved 100% precision, 100% recall, and 100% F1-score on its five validation samples. However, this result should be interpreted carefully because the number of validation samples for the personal class was very small.</p>
+
+    <p>The evaluation also demonstrated the effect of class imbalance. Larger classes such as George_W_Bush and Colin_Powell had considerably more validation examples than smaller identities, resulting in different precision and recall characteristics across classes.</p>
+
+
+    <h4 class="report-subtitle">Stage 3 — Complete Face Recognition Pipeline</h4>
+
+    <p>The third stage connected the trained CNN model with the complete preprocessing and detection system.</p>
+
+    <p>The final image inference pipeline follows:</p>
+
+    <ul class="report-list">
+      <li><strong>Input:</strong> Original image</li>
+      <li><strong>Detection:</strong> YuNet</li>
+      <li><strong>Localization:</strong> Face bounding box</li>
+      <li><strong>Enhancement:</strong> OpenCV processing</li>
+      <li><strong>Preprocessing:</strong> Resize and normalization</li>
+      <li><strong>Feature Extraction:</strong> ResNet-50</li>
+      <li><strong>Embedding:</strong> 512-dimensional vector</li>
+      <li><strong>Recognition:</strong> Custom identity classifier</li>
+      <li><strong>Decision:</strong> Known identity or Unknown</li>
+    </ul>
+
+    <p>The system reports detection confidence independently from recognition confidence and displays the top identity predictions when required.</p>
+
+
+    <h4 class="report-subtitle">Stage 3 — Unknown Person Handling</h4>
+
+    <p>The recognition pipeline does not automatically assume that every detected face belongs to one of the trained identities.</p>
+
+    <p>A confidence threshold is used to distinguish between a sufficiently confident known prediction and an Unknown result. This is particularly important for real-world usage because the system may encounter people who were never present in the training dataset.</p>
+
+    <p>For example, a detected face may receive the following ranking:</p>
+
+    <ul class="report-list">
+      <li>My_Face — highest predicted probability</li>
+      <li>Colin_Powell — second prediction</li>
+      <li>George_W_Bush — third prediction</li>
+      <li>Other identities — remaining predictions</li>
+    </ul>
+
+    <p>If the top prediction does not reach the required recognition confidence, the system reports the face as <strong>Unknown</strong> rather than forcing an identity.</p>
+
+
+    <h4 class="report-subtitle">Real-World Recognition Testing</h4>
+
+    <p>The model was tested using personal photographs captured under substantially different conditions, including outdoor environments, sunglasses, different distances, lighting conditions, poses, and backgrounds.</p>
+
+    <p>These experiments exposed an important limitation of the current model: although the personal identity frequently appeared as the top prediction, the probability distribution could remain low in difficult real-world images. This demonstrated the difference between closed-set validation performance and robust real-world face recognition.</p>
+
+    <p>The project therefore served not only as a recognition implementation but also as an experiment in understanding dataset imbalance, preprocessing consistency, transfer learning limitations, and the challenges of open-world face recognition.</p>
+
+
+    <h4 class="report-subtitle">Stage 4 — Interactive Streamlit Application</h4>
+
+    <p>A local Streamlit web interface was developed to make the face recognition system easier to test without directly executing individual Python functions.</p>
+
+    <p>The application was designed around three major input modes:</p>
+
+    <ul class="report-list">
+      <li><strong>Image:</strong> Upload an image and process detected faces.</li>
+      <li><strong>Video:</strong> Upload a video for frame-by-frame face processing.</li>
+      <li><strong>Live Webcam:</strong> Use the connected camera for real-time face detection and recognition experiments.</li>
+    </ul>
+
+    <p>The application integrates the YuNet detector, preprocessing pipeline, enhancement system, trained PyTorch model, and recognition logic into a single interface.</p>
+
+
+    <h4 class="report-subtitle">Video & Real-Time Processing Architecture</h4>
+
+    <p>The video and webcam workflows were designed around frame-level processing rather than treating the complete video as a single input.</p>
+
+    <ul class="report-list">
+      <li>Capture video frame.</li>
+      <li>Run face detection.</li>
+      <li>Extract detected face region.</li>
+      <li>Apply the same preprocessing pipeline.</li>
+      <li>Generate CNN representation.</li>
+      <li>Predict identity.</li>
+      <li>Draw bounding box and recognition information.</li>
+      <li>Repeat for subsequent frames.</li>
+    </ul>
+
+    <p>This architecture provides the foundation for real-time recognition and future multi-object/person tracking improvements.</p>
+
+
+    <h4 class="report-subtitle">Model & File Structure</h4>
+
+    <p>The project was organized into separate components for data, models, detection, preprocessing, notebooks, and the Streamlit application.</p>
+
+    <ul class="report-list">
+      <li><strong>Dataset:</strong> LFW DeepFunneled + custom My_Face images</li>
+      <li><strong>Detection Model:</strong> YuNet ONNX model</li>
+      <li><strong>Recognition Model:</strong> face_recognition_resnet50.pth</li>
+      <li><strong>Deep Learning Framework:</strong> PyTorch</li>
+      <li><strong>Computer Vision:</strong> OpenCV</li>
+      <li><strong>Application:</strong> Streamlit</li>
+      <li><strong>Development:</strong> Jupyter/VS Code notebooks and Python modules</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">System Architecture</h4>
+
+    <p>The complete architecture can be represented as:</p>
+
+    <ul class="report-list">
+      <li><strong>Image:</strong> Image → YuNet → Face Crop → OpenCV Enhancement → Preprocessing → ResNet-50 → 512-D Embedding → Classifier → Identity / Unknown</li>
+      <li><strong>Video:</strong> Video → Frame Extraction → YuNet → Face Crop → Preprocessing → ResNet-50 → Identity Prediction → Annotated Frame</li>
+      <li><strong>Webcam:</strong> Camera → Live Frames → YuNet → Face Crop → Preprocessing → ResNet-50 → Identity Prediction → Real-Time Visualization</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Confidence & Recognition Analysis</h4>
+
+    <p>The project explicitly separates three concepts that are often incorrectly treated as the same metric:</p>
+
+    <ul class="report-list">
+      <li><strong>Detection Confidence:</strong> How confidently YuNet believes a region contains a face.</li>
+      <li><strong>Recognition Confidence:</strong> How strongly the recognition model favors the predicted identity.</li>
+      <li><strong>Validation Accuracy:</strong> How often the trained classifier predicts the correct class on the held-out validation dataset.</li>
+    </ul>
+
+    <p>This distinction became particularly important during real-world testing. A face could be detected with high YuNet confidence while the recognition model remained uncertain about the person's identity.</p>
+
+
+    <h4 class="report-subtitle">Technical Challenges & Lessons</h4>
+
+    <ul class="report-list">
+      <li>Handling differences between training images and real-world camera images.</li>
+      <li>Maintaining consistent preprocessing between training and inference.</li>
+      <li>Detecting small or poorly illuminated faces.</li>
+      <li>Reducing false face detections from complex backgrounds.</li>
+      <li>Handling class imbalance in the LFW subset.</li>
+      <li>Understanding the difference between classification confidence and genuine identity similarity.</li>
+      <li>Loading custom PyTorch checkpoints with matching architecture definitions.</li>
+      <li>Integrating ONNX-based YuNet detection with a PyTorch recognition model.</li>
+      <li>Using CUDA acceleration for CNN inference.</li>
+      <li>Building an interactive application around the trained model.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Key Applications</h4>
+
+    <ul class="report-list">
+      <li>Experimental face recognition from photographs.</li>
+      <li>Real-time webcam face recognition research.</li>
+      <li>Video-based identity detection.</li>
+      <li>Face dataset and preprocessing experimentation.</li>
+      <li>Computer vision model evaluation.</li>
+      <li>Real-time AI interface development.</li>
+      <li>Foundation for future person-search and tracking systems.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Future Improvements</h4>
+
+    <p>The current system provides a strong foundation, but robust real-world face recognition requires improvements beyond simple multi-class classification.</p>
+
+    <ul class="report-list">
+      <li>Increase the number of genuine images for each identity.</li>
+      <li>Use stronger balanced data augmentation.</li>
+      <li>Apply class-balanced sampling during training.</li>
+      <li>Experiment with weighted loss functions.</li>
+      <li>Improve face alignment before recognition.</li>
+      <li>Use a face-specific pretrained representation model.</li>
+      <li>Move from closed-set classification toward embedding-based face similarity.</li>
+      <li>Use cosine similarity or distance-based identity matching.</li>
+      <li>Implement robust multi-face tracking across video frames.</li>
+      <li>Improve small and distant face recognition.</li>
+      <li>Explore advanced image enhancement and super-resolution techniques.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Key Learnings</h4>
+
+    <ul class="report-list">
+      <li>Convolutional neural network fundamentals.</li>
+      <li>Transfer learning with ResNet-50.</li>
+      <li>Face detection using YuNet.</li>
+      <li>Face cropping and preprocessing.</li>
+      <li>OpenCV image enhancement.</li>
+      <li>Training-time data augmentation.</li>
+      <li>512-dimensional feature embeddings.</li>
+      <li>Multi-class face identity classification.</li>
+      <li>Confusion matrix analysis.</li>
+      <li>Precision, recall, F1-score, and validation accuracy.</li>
+      <li>PyTorch checkpoint management.</li>
+      <li>CUDA/GPU accelerated inference.</li>
+      <li>Real-time video frame processing.</li>
+      <li>Streamlit AI application development.</li>
+      <li>Practical limitations of small and imbalanced datasets.</li>
+      <li>Difference between face detection and face recognition.</li>
+      <li>Difference between closed-set classification and open-world recognition.</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Conclusion</h4>
+
+    <p>This project developed an end-to-end CNN-based face recognition system combining YuNet face detection, OpenCV enhancement, ResNet-50 transfer learning, 512-dimensional facial representations, identity classification, and an interactive Streamlit interface.</p>
+
+    <p>The model achieved 70.31% overall validation accuracy across the 11-class experiment, while the custom My_Face validation class achieved perfect metrics on its small five-image validation subset. Real-world testing, however, revealed that strong validation performance does not automatically translate into robust recognition under changes in lighting, pose, distance, accessories, and background.</p>
+
+    <p>This limitation became an important part of the project rather than simply an error: it demonstrated why modern face-recognition systems generally require stronger face-specific representations, balanced datasets, alignment, augmentation, and similarity-based embedding matching rather than relying solely on closed-set classification.</p>
+
+    <p>The resulting system provides a practical foundation for future development toward a more advanced real-time AI vision system capable of recognizing and tracking known individuals across images, videos, and live camera streams.</p>
+  `,
+
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/CNN/Face%20Recognition%20Model"
+    }
 ];
