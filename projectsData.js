@@ -3,6 +3,156 @@
 
 const myProjects = [
     {
+        id: "aapl-stock-eda-technical-analysis",
+        category: "dl",
+        title: "AAPL Stock Market EDA & Technical Analysis Dashboard",
+        date: "2026-09-XX",
+        topic: "Time Series Data Analysis & Financial Technical Indicators",
+
+        algorithms: [
+            "Exploratory Data Analysis (EDA)",
+            "RSI (Relative Strength Index)",
+            "MACD (Moving Average Convergence Divergence)",
+            "Bollinger Bands",
+            "Moving Average Crossover (Golden Cross / Death Cross)",
+            "Support & Resistance Detection",
+            "Drawdown & Volatility Analysis"
+        ],
+
+        datasetSize: "Live market data via yfinance, ~4,200+ daily records (2010–2026)",
+
+        images: [
+            "eda/appl stock eda.png"
+        ],
+
+        tags: [
+            "Python",
+            "yfinance",
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Seaborn",
+            "Time Series Analysis",
+            "Financial Data",
+            "Technical Analysis",
+            "Data Visualization",
+            "Exploratory Data Analysis",
+            "Stock Market",
+            "Volatility Analysis",
+            "Risk Metrics"
+        ],
+
+        summary: "A comprehensive exploratory data analysis and technical analysis project on 16 years of live AAPL stock data, covering price growth, volatility, drawdowns, seasonality, and four industry-standard technical indicators (RSI, MACD, Bollinger Bands, Moving Average crossovers). Built as the analytical foundation for a larger stock trading toolkit, this notebook focuses purely on understanding market behavior through statistics and visualization before any modeling was attempted.",
+
+        "detailedReport": `
+    <h4 class="report-subtitle">Project Overview</h4>
+
+    <p>The objective of this project was to conduct a rigorous, statistically grounded exploratory analysis of Apple Inc. (AAPL) stock, using live market data rather than a static historical dataset. The analysis was designed to answer the questions a trader or investor genuinely cares about: how has the stock grown, how volatile has it been, how far has it ever fallen from its peak, are there seasonal patterns, and what do standard technical indicators say about its current positioning.</p>
+
+    <p>This notebook was intentionally kept separate from the model-building notebook, following proper project structure — EDA and analysis first, modeling second, each in its own dedicated workspace.</p>
+
+
+    <h4 class="report-subtitle">Dataset</h4>
+
+    <ul class="report-list">
+      <li><strong>Source:</strong> Live data via yfinance (Yahoo Finance API)</li>
+      <li><strong>Ticker:</strong> AAPL (Apple Inc.)</li>
+      <li><strong>Date Range:</strong> January 2010 – September 2026</li>
+      <li><strong>Total Trading Days:</strong> ~4,206</li>
+      <li><strong>Columns:</strong> Date, Open, High, Low, Close, Volume</li>
+      <li><strong>Data Quality:</strong> No missing values; verified complete before analysis</li>
+    </ul>
+
+    <p>Using a live data pipeline instead of a static Kaggle CSV ensures the analysis and any downstream tools always reflect current market conditions, rather than becoming stale.</p>
+
+
+    <h4 class="report-subtitle">Stage 1 — Price, Volume & Risk Analysis</h4>
+
+    <p>The first stage established the core statistical profile of the stock:</p>
+
+    <ul class="report-list">
+      <li><strong>Price Growth:</strong> ~$8 (2010) → ~$337 (2026), approximately 42x growth over 16 years</li>
+      <li><strong>Annualized Volatility:</strong> 28.11%</li>
+      <li><strong>Maximum Drawdown Ever:</strong> approximately -44% from an all-time high</li>
+      <li><strong>Volume Trend:</strong> structurally declining over time as share price increased</li>
+    </ul>
+
+    <p>A dedicated drawdown chart was built to visualize every historical decline from peak, clearly showing that long-term growth was accompanied by real, sometimes severe, short-term corrections — critical context often missing from simple price charts.</p>
+
+
+    <h4 class="report-subtitle">Stage 2 — Seasonality Analysis</h4>
+
+    <p>Daily returns were grouped by calendar month across the full 16-year history to test for recurring seasonal patterns.</p>
+
+    <ul class="report-list">
+      <li><strong>Historically Strongest Months:</strong> July, August, October</li>
+      <li><strong>Historically Weakest Months:</strong> January, December, September</li>
+    </ul>
+
+    <p>This analysis was presented with an explicit statistical caveat: these are historical averages across many years, not guaranteed future patterns — a distinction often glossed over in casual market commentary.</p>
+
+
+    <h4 class="report-subtitle">Stage 3 — Technical Indicator Suite</h4>
+
+    <p>Four widely-used technical indicators were implemented from scratch and visualized:</p>
+
+    <ul class="report-list">
+      <li><strong>RSI (14-day):</strong> momentum oscillator identifying overbought (&gt;70) / oversold (&lt;30) conditions</li>
+      <li><strong>MACD:</strong> 12/26/9 EMA-based trend and momentum indicator with signal line crossover detection</li>
+      <li><strong>Bollinger Bands:</strong> 20-day SMA with 2-standard-deviation bands to identify volatility-adjusted price extremes</li>
+      <li><strong>MA50 / MA200 Crossover:</strong> Golden Cross / Death Cross detection for long-term trend direction</li>
+      <li><strong>Support &amp; Resistance:</strong> rolling local minima/maxima detection over a 20-day window</li>
+    </ul>
+
+    <p>A combined "technical snapshot" function was built to summarize all indicators into a single, easy-to-read current market read — the kind of quick-glance summary a trader checks daily.</p>
+
+
+    <h4 class="report-subtitle">Key Statistical Findings</h4>
+
+    <ul class="report-list">
+      <li>AAPL grew approximately 42x over the studied period, with an annualized volatility of 28.11%</li>
+      <li>The stock experienced a maximum historical drawdown of approximately -44% from peak</li>
+      <li>Mid-to-late calendar year months have historically outperformed year-start/year-end months</li>
+      <li>At the time of analysis, all four major technical indicators were simultaneously aligned in bullish territory (Golden Cross active, MACD bullish, RSI neutral, price mid-Bollinger-range)</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Technology Stack</h4>
+
+    <ul class="report-list">
+      <li><strong>Programming Language:</strong> Python</li>
+      <li><strong>Data Source:</strong> yfinance (live market data API)</li>
+      <li><strong>Data Manipulation:</strong> Pandas, NumPy</li>
+      <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
+      <li><strong>Domain:</strong> Quantitative Finance / Technical Analysis</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Key Learnings</h4>
+
+    <ul class="report-list">
+      <li>Building a live, self-updating financial data pipeline instead of relying on static datasets</li>
+      <li>Implementing industry-standard technical indicators (RSI, MACD, Bollinger Bands) from first principles</li>
+      <li>Quantifying risk using drawdown and annualized volatility, not just returns</li>
+      <li>Detecting trend signals via moving average crossovers and support/resistance levels</li>
+      <li>Presenting statistical findings with appropriate caveats to avoid overstating certainty</li>
+      <li>Structuring a data science project with clean separation between analysis and modeling</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Conclusion</h4>
+
+    <p>This project delivered a rigorous, statistically grounded understanding of AAPL's market behavior — growth trajectory, risk profile, seasonal tendencies, and current technical positioning — using live data and industry-standard financial analysis techniques.</p>
+
+    <p>Rather than jumping straight to prediction, this EDA-first approach established the honest, evidence-based foundation needed before any modeling work, and directly informed the feature engineering and validation strategy used in the subsequent trend-classification project.</p>
+  `,
+
+        githubLink: "https://github.com/suyash2356/EDA-Project/blob/main/EDA%20(Appl%20stock%20price%20data%20analysis).ipynb"
+    },
+
+
+
+    {
         id: "sentinel2-crop-classification-eda",
         category: "eda",
         title: "Sentinel-2 Crop Classification Dataset Analysis",
@@ -2705,5 +2855,169 @@ const myProjects = [
   `,
 
         githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/blob/main/CNN/Fashion%20Mnist%20CNN/fashion_mnist_ann_pytorch.ipynb"
+    },
+    {
+        id: "aapl-trend-signal-lstm-trader-toolkit",
+        category: "dl",
+        title: "AAPL Trend Signal System — LSTM with Walk-Forward Validation",
+        date: "2026-09-XX",
+        topic: "Time Series Forecasting & Financial Trend Classification",
+
+        algorithms: [
+            "LSTM (Long Short-Term Memory)",
+            "XGBoost",
+            "Binary Trend Classification",
+            "Walk-Forward Validation",
+            "Confidence-Based Signal Filtering",
+            "Feature Engineering (Technical + Market-Context Indicators)"
+        ],
+
+        datasetSize: "Live yfinance data, ~2,979–4,185 daily records depending on stage (AAPL, 2010–2026), plus S&P 500 and VIX index data for market-context features",
+
+        images: [
+            "dl/aapl stock price/Screenshot 2026-09-24 180227.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 180250.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 180324.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 180350.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 180433.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 180456.png",
+            "dl/aapl stock price/Screenshot 2026-09-24 181514.png",
+        ],
+
+        tags: [
+            "Python",
+            "TensorFlow",
+            "Keras",
+            "XGBoost",
+            "LSTM",
+            "yfinance",
+            "Streamlit",
+            "Time Series Forecasting",
+            "Financial Machine Learning",
+            "Walk-Forward Validation",
+            "Model Evaluation",
+            "Quantitative Finance",
+            "Trend Classification",
+            "Deployment"
+        ],
+
+        summary: "A rigorously validated stock trend-classification system for AAPL, built with an LSTM binary classifier and benchmarked against XGBoost and naive baselines using walk-forward validation across 16 years and multiple market regimes. Rather than overselling predictive accuracy, this project systematically tests price regression, multi-class and binary classification, market-context features, and alternative model families — arriving at an honest, well-documented conclusion — before shipping a confidence-filtered signal inside a full Streamlit trading toolkit with live EDA, technical analysis, and risk analytics.",
+
+        "detailedReport": `
+    <h4 class="report-subtitle">Project Overview</h4>
+
+    <p>The goal of this project was to build a genuinely useful, real-world stock analysis system for AAPL — not a toy "AI predicts stock price" demo, but a rigorously tested tool that is explicit about what machine learning can and cannot reliably deliver in single-stock price forecasting.</p>
+
+    <p>The project evolved through multiple honest iterations: starting with raw price regression, moving to trend classification, expanding features with market-context data, comparing model families, and finally validating everything using walk-forward testing across 16 years of live market data spanning multiple economic regimes (2018 selloff, COVID crash, 2022 bear market, 2023–2026 recovery).</p>
+
+
+    <h4 class="report-subtitle">Dataset &amp; Pipeline</h4>
+
+    <ul class="report-list">
+      <li><strong>Source:</strong> Live data via yfinance (self-updating, no static file dependency)</li>
+      <li><strong>Primary Ticker:</strong> AAPL</li>
+      <li><strong>Additional Market Context:</strong> S&amp;P 500 (^GSPC) and VIX (^VIX) indices</li>
+      <li><strong>Date Range:</strong> 2010–2026</li>
+      <li><strong>Feature Set:</strong> OHLCV, Return, MA7/MA21/MA50/MA200, RSI, MACD, MACD Signal, 21-day Volatility, 10-day Momentum, S&amp;P 500 Relative Strength, VIX level and change</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Iteration 1 — Price Regression</h4>
+
+    <p>An LSTM was first trained to predict next-day closing price. The initial version appeared visually accurate but was found to simply lag the previous day's price. After fixing data leakage (scaler fit strictly on training data) and switching the target to predicted percentage return, the model's reconstructed price RMSE ($1.42) matched — but did not beat — a naive "tomorrow equals today" baseline, revealing the near-random-walk nature of daily price movement.</p>
+
+
+    <h4 class="report-subtitle">Iteration 2 — Trend Classification</h4>
+
+    <p>The problem was reframed as directional trend classification (10-day horizon) rather than exact price prediction — a more realistic and industry-standard framing.</p>
+
+    <ul class="report-list">
+      <li><strong>3-Class (Down/Flat/Up):</strong> 42.19% accuracy, below the 42.44% majority baseline; model failed to predict the "Down" class entirely</li>
+      <li><strong>Class-Weighted 3-Class:</strong> Model collapsed to a single class (30.74% accuracy) — a worse outcome</li>
+      <li><strong>Binary (Up/Down only):</strong> 61.41% accuracy, exactly matching the majority baseline</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Iteration 3 — Walk-Forward Validation</h4>
+
+    <p>Recognizing that a single train/test split can misrepresent real performance, a 5-fold expanding-window walk-forward validation was implemented across 1997–2026, covering the dot-com crash, 2008 financial crisis, COVID crash, and multiple bull/bear cycles.</p>
+
+    <ul class="report-list">
+      <li><strong>Result:</strong> Model beat the majority-class baseline in only 1 of 5 folds</li>
+      <li><strong>Average Accuracy:</strong> ~60.7%, versus average majority baseline of ~61.4%</li>
+    </ul>
+
+    <p>This confirmed, with rigor rather than a single lucky split, that no consistent directional edge existed using price/volume-derived features alone.</p>
+
+
+    <h4 class="report-subtitle">Iteration 4 — Market-Context Features &amp; Model Comparison</h4>
+
+    <p>To rule out feature poverty as the cause, S&amp;P 500 relative strength and VIX (volatility index) were added as genuinely new, non-derived information sources. An XGBoost classifier was also trained on identical features as a non-deep-learning comparison — standard practice before trusting a deep learning result.</p>
+
+    <ul class="report-list">
+      <li><strong>LSTM with market-context features:</strong> 64.9% average accuracy vs 65.3% baseline (1/5 folds beaten) — no improvement over the simpler feature set</li>
+      <li><strong>XGBoost:</strong> 49.1% average accuracy — underperformed both the LSTM and the majority baseline, including a fold with only 19.4% accuracy</li>
+    </ul>
+
+    <p>This systematic comparison — across feature sets, class strategies, and model families — provided strong, well-supported evidence that no combination reliably captured a directional edge for this stock and horizon, consistent with established weak-form market efficiency findings in financial literature.</p>
+
+
+    <h4 class="report-subtitle">Final Production Decision</h4>
+
+    <p>Rather than force a misleading "high accuracy" claim, the LSTM binary classifier (best-performing of all tested approaches) was selected and shipped with two key honesty mechanisms:</p>
+
+    <ul class="report-list">
+      <li><strong>Confidence-Based Filtering:</strong> the model only surfaces a directional signal when its confidence exceeds 65%; otherwise it explicitly reports "No Clear Signal" rather than forcing a guess</li>
+      <li><strong>Transparent Accuracy Disclosure:</strong> the live application always displays the model's real, walk-forward-validated accuracy alongside its naive baseline for direct comparison</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Full Application — Streamlit Trader Toolkit</h4>
+
+    <p>The validated model was deployed inside a complete Streamlit application with five sections:</p>
+
+    <ul class="report-list">
+      <li><strong>Overview:</strong> live price, volume, drawdown, and seasonality analytics</li>
+      <li><strong>Technical Analysis:</strong> interactive RSI, MACD, Bollinger Bands, and Moving Average crossover tabs</li>
+      <li><strong>Trend Signal:</strong> confidence-filtered AI signal with full accuracy transparency</li>
+      <li><strong>Risk Analytics:</strong> annualized volatility, Sharpe ratio, Value-at-Risk, rolling volatility, and return distribution</li>
+      <li><strong>About:</strong> an explicit statement of what the tool does well and what it deliberately does not overclaim</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Technology Stack</h4>
+
+    <ul class="report-list">
+      <li><strong>Programming Language:</strong> Python</li>
+      <li><strong>Deep Learning:</strong> TensorFlow / Keras (LSTM)</li>
+      <li><strong>Machine Learning Comparison:</strong> XGBoost</li>
+      <li><strong>Data Source:</strong> yfinance (live data)</li>
+      <li><strong>Deployment:</strong> Streamlit</li>
+      <li><strong>Model Persistence:</strong> Keras model files, joblib-saved scalers, versioned JSON configs</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Key Learnings</h4>
+
+    <ul class="report-list">
+      <li>Identifying and fixing data leakage in time-series scaling pipelines</li>
+      <li>Reframing an unreliable regression problem as a more realistic classification task</li>
+      <li>Implementing proper walk-forward validation instead of trusting a single train/test split</li>
+      <li>Diagnosing class collapse under class-weighting and correcting model strategy accordingly</li>
+      <li>Benchmarking deep learning against classical ML (XGBoost) before trusting either</li>
+      <li>Engineering market-context features (index correlation, volatility regime) beyond price-derived indicators</li>
+      <li>Building confidence-based abstention logic for honest, real-world model deployment</li>
+      <li>Designing and shipping a full multi-page Streamlit financial analytics application</li>
+    </ul>
+
+
+    <h4 class="report-subtitle">Conclusion</h4>
+
+    <p>After systematically testing price regression, multi-class and binary trend classification, extended market-context features, and an alternative model family — all validated through rigorous walk-forward testing across 16 years and multiple market regimes — this project reached a well-supported conclusion: no combination produced a consistent, regime-independent directional edge from historical price, volume, and technical/market-context data alone for AAPL.</p>
+
+    <p>Rather than treating this as a failure, the project pivoted the product's real value toward what it could honestly deliver — rigorous live analytics, industry-standard technical analysis, transparent risk metrics, and a confidence-filtered trend signal that openly states its own limitations. This distinguishes the tool from typical "AI beats the market" projects by prioritizing methodological rigor and honest communication over inflated claims.</p>
+  `,
+
+        githubLink: "https://github.com/suyash2356/Deep-Learning-Projects/tree/main/LSTM/Appl%20stock%20analysis%20and%20predictor"
     }
 ];
