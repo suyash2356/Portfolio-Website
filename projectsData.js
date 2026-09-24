@@ -4,7 +4,7 @@
 const myProjects = [
     {
         id: "aapl-stock-eda-technical-analysis",
-        category: "dl",
+        category: "eda",
         title: "AAPL Stock Market EDA & Technical Analysis Dashboard",
         date: "2026-09-XX",
         topic: "Time Series Data Analysis & Financial Technical Indicators",
