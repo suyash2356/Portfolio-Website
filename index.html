@@ -160,39 +160,26 @@
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio-section">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-header-wrap">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-desc">Production-grade web apps, AI systems, and interactive software platforms</p>
+            </div>
 
-            <div class="portfolio-grid">
-
-                <div class="portfolio-card" data-tilt>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Project 1" />
-                    <div class="card-overlay">
-                        <h3>Exploratory Data Analysis</h3>
-                        <p>In-depth EDA using Python to uncover insights and trends.</p>
-                        <a href="projects.html?filter=eda" class="btn-view">View Project</a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card" data-tilt>
-                    <img src="healthcare logo.webp" alt="Project 2" />
-                    <div class="card-overlay">
-                        <h3>Sehat Sathi – Rural Healthcare Bot</h3>
-                        <p>AI bot providing accessible healthcare guidance to rural communities.</p>
-                        <a href="https://sehat-sathi-main.netlify.app/" class="btn-view">View Project</a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card" data-tilt>
-                    <img src="concept-recommendation-business-technology-internet_220873-67088.webp" alt="Project 3" />
-                    <div class="card-overlay">
-                        <h3>Skill Metrics – AI Learning Assistant</h3>
-                        <p>Personalized AI-driven learning recommendation platform.</p>
-                        <a href="#" class="btn-view">In development</a>
-                    </div>
-                </div>
-
+            <!-- Dynamic Grid populated via projectsData.js -->
+            <div class="portfolio-grid" id="featured-portfolio-grid">
+                <!-- Dynamically rendered -->
             </div>
         </section>
+
+        <!-- Featured Project Interactive Detail Modal -->
+        <div id="featured-project-modal" class="featured-modal" role="dialog" aria-modal="true">
+            <div class="featured-modal-content">
+                <button type="button" class="close-featured-modal" id="closeFeaturedModal" aria-label="Close modal">&times;</button>
+                <div id="featured-modal-body">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </div>
 
         <!-- Skills -->
         <section id="skills" class="skills-section">
@@ -270,6 +257,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="projectsData.js"></script>
     <script src="script.js"></script>
 
 </body>
