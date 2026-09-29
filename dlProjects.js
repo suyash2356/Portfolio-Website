@@ -306,13 +306,13 @@ const dlProjects = [
         ],
         "datasetSize": "Live yfinance data, ~2,979–4,185 daily records depending on stage (AAPL, 2010–2026), plus S&P 500 and VIX index data for market-context features",
         "images": [
-            "dl/aapl stock price/Screenshot 2026-09-24 180227.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180250.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180324.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180350.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180433.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180456.png",
-            "dl/aapl stock price/Screenshot 2026-09-24 180514.png"
+            "dl/appl stock price/Screenshot 2026-09-24 180227.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180250.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180324.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180350.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180433.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180456.png",
+            "dl/appl stock price/Screenshot 2026-09-24 180514.png"
         ],
         "tags": [
             "Python",
