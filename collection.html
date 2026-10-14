@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The collection | Suyash Anil Babad</title>
+    <meta name="description" content="Every machine learning, deep learning and data analysis project by Suyash Anil Babad, filterable by topic.">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script>
+        try {
+            var d = document.documentElement;
+            d.dataset.theme = localStorage.getItem('theme') || 'dark';
+            if (sessionStorage.getItem('nav')) { d.classList.add('arrive'); sessionStorage.removeItem('nav'); }
+        } catch (e) { }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="studio.css" />
+</head>
+
+<body>
+    <a class="skip" href="#results">Skip to the projects</a>
+    <div class="curtain" id="curtain" aria-hidden="true"><span>SB</span></div>
+
+    <header class="site-header" id="site-header">
+        <div class="wrap hd">
+            <a href="index.html" data-transition class="brand"><span class="brand-mark">SB</span><span>Suyash Babad</span></a>
+
+            <nav class="nav" id="nav" aria-label="Main">
+                <a href="index.html#workshop" data-transition>Workshop</a>
+                <a href="index.html#toolbox" data-transition>Toolbox</a>
+                <a href="collection.html" class="active" aria-current="page">Collection</a>
+                <a href="index.html#credentials" data-transition>Credentials</a>
+                <a href="index.html#contact" data-transition>Contact</a>
+            </nav>
+
+            <div class="hd-tools">
+                <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to light theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8" /><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" /></svg>
+                </button>
+                <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16" /></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="col-hero">
+            <div class="wrap">
+                <div class="col-hero-grid">
+                    <h1 data-decode>Collection</h1>
+                    <div class="col-hero-side">
+                        <p><b data-count id="col-total">0</b> projects across <b data-count id="col-topics">0</b> topics. Every analysis, model and experiment I have made, kept on record. Pick a topic, or search for a tool or an idea.</p>
+                        <div class="big-search">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                            <input id="search" type="search" placeholder="Search by tool, topic or idea" aria-label="Search the collection" autocomplete="off" />
+                            <kbd aria-hidden="true">/</kbd>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters">
+                    <div class="f-row">
+                        <span class="f-label">Topic</span>
+                        <div class="chips" id="topics"></div>
+                    </div>
+                    <div class="f-bar">
+                        <div class="seg" id="kinds" role="group" aria-label="Filter by kind of work"></div>
+                        <div class="f-right">
+                            <label class="f-count" for="sort"><b id="f-num">0</b> of <span id="f-total">0</span> shown</label>
+                            <select class="sort" id="sort" aria-label="Sort projects">
+                                <option value="new">Newest first</option>
+                                <option value="old">Oldest first</option>
+                                <option value="az">A to Z</option>
+                            </select>
+                            <div class="seg" id="views" role="group" aria-label="Choose a view"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results" id="results">
+            <div class="wrap">
+                <div class="ix" id="view-index">
+                    <ul class="ix-list" id="ix-list" aria-label="Projects"></ul>
+                    <aside class="ix-preview" id="ix-preview" aria-live="polite"></aside>
+                </div>
+
+                <div id="view-wall" hidden>
+                    <div class="wall" id="wall"></div>
+                    <nav class="pager" id="pager" aria-label="Pages"></nav>
+                </div>
+
+                <div class="empty" id="empty" hidden>
+                    <p>Nothing matches that yet. Try a tool name like PyTorch, or a topic like recommendation.</p>
+                    <p style="margin-top:18px"><button type="button" class="btn btn-ghost" id="clear">Clear all filters</button></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>&copy; <span id="year">2026</span> Suyash Anil Babad</span>
+            <a class="link" data-transition href="index.html">Back to the studio</a>
+        </div>
+    </footer>
+
+    <div class="overlay" id="plate-modal" role="dialog" aria-modal="true" aria-label="Project details"><div class="sheet" id="plate-sheet"></div></div>
+
+    <script src="edaProjects.js"></script>
+    <script src="mlProjects.js"></script>
+    <script src="dlProjects.js"></script>
+    <script src="projectsData.js"></script>
+    <script src="studio-core.js"></script>
+    <script src="studio-collection.js"></script>
+</body>
+
+</html>

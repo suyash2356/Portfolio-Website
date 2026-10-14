@@ -1,581 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Data Science Gallery - Suyash Anil Babad</title>
-    <meta name="description" content="Exploratory Data Analysis and Machine Learning Project Gallery.">
+    <title>AI & ML Project Archive | Suyash Anil Babad</title>
+    <meta name="description" content="Explore 30+ Deep Learning, Machine Learning, and Exploratory Data Analysis experiments and open-source notebooks by Suyash Anil Babad." />
+    <meta name="author" content="Suyash Anil Babad" />
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
 
+    <!-- Master Stylesheet -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+
+    <!-- Avoid Theme Flash -->
+    <script>
+        try {
+            document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
+        } catch (e) { }
+    </script>
 </head>
 
 <body>
-
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader"></div>
+    <!-- Top Progress Line -->
+    <div class="hud-progress">
+        <div class="hud-progress-bar" id="hud-progress-bar"></div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <!-- Neural Network Background Canvas VFX -->
+    <canvas id="neural-canvas"></canvas>
+    <div class="ambient-glow"></div>
 
-    <!-- Particle Background -->
-    <canvas id="particle-canvas"></canvas>
+    <!-- ===== Header Navigation ===== -->
+    <header class="site-header" id="site-header">
+        <div class="wrap">
+            <div class="header-container">
+                <a href="index.html" class="brand" aria-label="Suyash Anil Babad Home">
+                    <span class="brand-badge">SB</span>
+                    <div class="brand-info">
+                        <span class="brand-title">Suyash Babad</span>
+                        <span class="brand-status"><span class="status-dot"></span> Project Archive</span>
+                    </div>
+                </a>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">Suyash.</a>
+                <nav class="nav-menu" aria-label="Gallery Navigation">
+                    <a href="index.html#home" class="nav-link">← Main Portfolio</a>
+                    <a href="index.html#products" class="nav-link">Featured Apps</a>
+                    <a href="index.html#skills" class="nav-link">Skills</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </nav>
 
-            <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#portfolio">Featured Projects</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+                <div class="header-tools">
+                    <a href="index.html" class="archive-pill-btn" style="border-color:var(--border-subtle);background:var(--bg-elevated);color:var(--text-primary);">
+                        <span>← Back to Home</span>
+                    </a>
 
-            <div class="theme-toggle" id="theme-toggle">
-                <div class="toggle-icon"></div>
+                    <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light theme">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </button>
+                </div>
             </div>
-
-            <div class="menu-icon" id="menu-icon">&#9776;</div>
-        </nav>
+        </div>
     </header>
 
     <main>
-        <!-- Dashboard Header -->
-        <section class="dashboard-header">
-            <h1 class="hero-title" style="font-size: 3rem;">My Project Gallery</h1>
-            <p class="hero-subtitle">Explore my open-source data science contributions.</p>
-            
-            <div class="stats-row">
-                <div class="stat-box">
-                    <h3 id="stat-total">0</h3>
-                    <p>Total Projects</p>
-                </div>
-                <div class="stat-box">
-                    <h3 id="stat-eda">0</h3>
-                    <p>EDA Projects</p>
-                </div>
-                <div class="stat-box">
-                    <h3 id="stat-ml">0</h3>
-                    <p>ML Models</p>
-                </div>
-                <div class="stat-box">
-                    <h3 id="stat-dl">0</h3>
-                    <p>DL Architectures</p>
-                </div>
-            </div>
+        <!-- ===== Gallery Header & Live Stats ===== -->
+        <section class="gallery-hero-header">
+            <div class="wrap">
+                <span class="section-tag">Empirical Lab & Experiment Registry</span>
+                <h1 class="section-title" style="font-size: 3.4rem; margin-top: 10px;">
+                    AI & Machine Learning <span class="text-gradient">Archive</span>
+                </h1>
+                <p class="section-desc" style="max-width: 780px; margin: 0 auto;">
+                    Every model, exploratory analysis, and deep vision architecture built with documented findings, mathematical formulations, and reproducible Jupyter notebooks.
+                </p>
 
-            <div class="heatmap-container">
-                <h3>Contribution Activity</h3>
-                <div class="heatmap-scroll">
-                    <div id="github-heatmap"></div>
+                <!-- Live Metrics Strip -->
+                <div class="gallery-stats-strip">
+                    <div class="gallery-stat-pill">
+                        <strong id="stat-total-projects">30</strong>
+                        <span>Total Experiments</span>
+                    </div>
+                    <div class="gallery-stat-pill">
+                        <strong id="stat-dl-projects">11</strong>
+                        <span>Deep Learning</span>
+                    </div>
+                    <div class="gallery-stat-pill">
+                        <strong id="stat-ml-projects">9</strong>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="gallery-stat-pill">
+                        <strong id="stat-eda-projects">10</strong>
+                        <span>Data Analysis</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio Content -->
-        <section id="gallery" class="portfolio-content">
-            
-            <div class="project-tabs-container">
-                <div class="project-tabs">
-                    <button class="tab-btn active" data-tab="eda">EDA</button>
-                    <button class="tab-btn" data-tab="ml">Machine Learning</button>
-                    <button class="tab-btn" data-tab="dl">Deep Learning</button>
-                </div>
-            </div>
+        <!-- ===== Filter Command Center & Gallery Grid ===== -->
+        <section class="sec" style="padding-top: 20px;">
+            <div class="wrap">
 
-            <!-- Tab Content: EDA -->
-            <div class="tab-content active" id="tab-eda">
-                <div class="horizontal-filters">
-                    <input type="text" class="search-input" data-target="eda" placeholder="Search EDA projects..." />
-                    <div class="range-filter">
-                        <label>Dataset Size: <span class="range-value" id="range-val-eda">All</span></label>
-                        <div class="dual-slider-container">
-                            <div class="slider-track" id="slider-track-eda"></div>
-                            <input type="range" class="dataset-slider-min" data-target="eda" min="0" max="100" value="0" step="1" />
-                            <input type="range" class="dataset-slider-max" data-target="eda" min="0" max="100" value="100" step="1" />
+                <!-- Sticky Filter Command Center -->
+                <div class="gallery-control-center">
+                    <!-- Row 1: Categories & Search Bar -->
+                    <div class="control-row-primary">
+                        <div class="category-pills-row" id="category-pills-row">
+                            <!-- Populated dynamically via gallery.js -->
+                        </div>
+
+                        <!-- Real-Time Search -->
+                        <div class="search-input-wrapper">
+                            <span class="search-icon-inside">🔍</span>
+                            <input type="text" id="gallery-search-input" class="search-input" placeholder="Search by model, algorithm, topic, dataset..." aria-label="Search projects" />
                         </div>
                     </div>
-                </div>
-                <div class="advanced-grid" id="grid-eda"></div>
-            </div>
 
-            <!-- Tab Content: ML -->
-            <div class="tab-content" id="tab-ml">
-                <div class="horizontal-filters">
-                    <input type="text" class="search-input" data-target="ml" placeholder="Search ML projects..." />
-                    <div class="range-filter">
-                        <label>Dataset Size: <span class="range-value" id="range-val-ml">All</span></label>
-                        <div class="dual-slider-container">
-                            <div class="slider-track" id="slider-track-ml"></div>
-                            <input type="range" class="dataset-slider-min" data-target="ml" min="0" max="100" value="0" step="1" />
-                            <input type="range" class="dataset-slider-max" data-target="ml" min="0" max="100" value="100" step="1" />
-                        </div>
+                    <!-- Row 2: Topic & Skill Filters with Project Counts beside each -->
+                    <div class="topic-filters-row" id="topic-filters-row" aria-label="Filter by Topic & Skill">
+                        <!-- Populated dynamically via gallery.js with live counts -->
                     </div>
                 </div>
-                <div class="advanced-grid" id="grid-ml"></div>
-            </div>
 
-            <!-- Tab Content: DL -->
-            <div class="tab-content" id="tab-dl">
-                <div class="horizontal-filters">
-                    <input type="text" class="search-input" data-target="dl" placeholder="Search DL projects..." />
-                    <div class="range-filter">
-                        <label>Dataset Size: <span class="range-value" id="range-val-dl">All</span></label>
-                        <div class="dual-slider-container">
-                            <div class="slider-track" id="slider-track-dl"></div>
-                            <input type="range" class="dataset-slider-min" data-target="dl" min="0" max="100" value="0" step="1" />
-                            <input type="range" class="dataset-slider-max" data-target="dl" min="0" max="100" value="100" step="1" />
-                        </div>
-                    </div>
+                <!-- Bento Project Cards Grid (Widescreen, Compact, High-Density) -->
+                <div class="gallery-projects-grid" id="gallery-projects-grid">
+                    <!-- Dynamically rendered via gallery.js -->
                 </div>
-                <div class="advanced-grid" id="grid-dl"></div>
-            </div>
 
+            </div>
         </section>
-
-        <!-- Project Modal -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div id="modal-body"></div>
-            </div>
-        </div>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Suyash Babad. All Rights Reserved.</p>
+    <!-- ===== Site Footer ===== -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-content">
+                <span>&copy; 2026 Suyash Anil Babad. All Rights Reserved.</span>
+                <a href="index.html" style="color:var(--accent-cyan);">Return to Main Portfolio ↑</a>
+            </div>
+        </div>
     </footer>
 
-    <a href="#" class="back-to-top">&#8593;</a>
+    <!-- ===== Full-Screen Interactive Project Inspector Modal ===== -->
+    <div class="overlay-backdrop" id="project-modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-dialog-sheet" id="project-modal-sheet">
+            <!-- Populated dynamically via gallery.js -->
+        </div>
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <!-- Data Sources (Keep existing data intact) -->
     <script src="edaProjects.js"></script>
     <script src="mlProjects.js"></script>
     <script src="dlProjects.js"></script>
     <script src="projectsData.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Helper to parse dataset size to number
-            function parseDatasetSize(sizeStr, category) {
-                if (!sizeStr) return 0;
-                let str = sizeStr.toLowerCase().trim();
-                let tokens = str.split(/\s+/);
-                let firstToken = tokens[0]; // Only check the first token (e.g., "150+", "16k+", "700000")
-                let num = parseFloat(firstToken.replace(/[^0-9.]/g, ''));
-                if (isNaN(num)) return 0;
-                
-                if (firstToken.includes('k')) {
-                    num *= 1000;
-                } else if (firstToken.includes('m')) {
-                    num *= 1000000;
-                } else if (firstToken.endsWith('l') || firstToken.includes('lakh') || (tokens.length > 1 && tokens[1].startsWith('lakh'))) {
-                    num *= 100000;
-                }
-                return num;
-            }
 
-            // Prepare project objects with raw dataset value
-            myProjects.forEach(p => {
-                p.datasetValue = parseDatasetSize(p.datasetSize, p.category);
-            });
-
-            // Initialize Stats
-            function initDashboard() {
-                let counts = { total: 0, eda: 0, ml: 0, dl: 0 };
-                myProjects.forEach(p => {
-                    counts.total++;
-                    if (counts[p.category] !== undefined) counts[p.category]++;
-                });
-                document.getElementById('stat-total').innerText = counts.total;
-                document.getElementById('stat-eda').innerText = counts.eda;
-                document.getElementById('stat-ml').innerText = counts.ml;
-                document.getElementById('stat-dl').innerText = counts.dl;
-            }
-
-            // Render projects to specific container
-            function renderProjects(projects, containerId) {
-                const container = document.getElementById(containerId);
-                container.innerHTML = ''; 
-                if(projects.length === 0) {
-                    container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--secondary-text-color);">No projects match your filters.</p>';
-                    return;
-                }
-                
-                projects.forEach(project => {
-                    const tagsHTML = (project.tags || []).slice(0,3).map(tag => `<span class="tag compact-tag">${tag}</span>`).join('');
-                    const mediaList = project.images && project.images.length > 0 ? project.images : ['placeholder.png'];
-                    const mainMedia = mediaList[0];
-                    const isVideo = isVideoFile(mainMedia);
-                    
-                    let mediaHTML = '';
-                    if (isVideo) {
-                        mediaHTML = `
-                            <div class="card-media-wrapper">
-                                <video src="${mainMedia}" class="compact-card-img" autoplay loop muted playsinline></video>
-                                <span class="card-media-badge video-badge">▶ Video</span>
-                            </div>
-                        `;
-                    } else {
-                        mediaHTML = `
-                            <div class="card-media-wrapper">
-                                <img src="${mainMedia}" alt="${project.title}" class="compact-card-img" loading="lazy" />
-                                ${mediaList.length > 1 ? `<span class="card-media-badge media-count-badge">📷 ${mediaList.length}</span>` : ''}
-                            </div>
-                        `;
-                    }
-                    
-                    const cardHTML = `
-                        <div class="compact-card" data-id="${project.id}">
-                            ${mediaHTML}
-                            <div class="compact-card-body">
-                                <h4>${project.title}</h4>
-                                <p class="dataset-info">${project.datasetSize ? '📦 ' + project.datasetSize : ''}</p>
-                                <div class="project-tags">${tagsHTML}</div>
-                            </div>
-                        </div>
-                    `;
-                    container.innerHTML += cardHTML;
-                });
-
-                // Re-attach Modal Events
-                document.querySelectorAll(`#${containerId} .compact-card`).forEach(card => {
-                    card.addEventListener('click', () => openModal(card.getAttribute('data-id')));
-                });
-            }
-
-            // Set up sliders min/max dynamically per category
-            const categories = ['eda', 'ml', 'dl'];
-            const filterState = {
-                eda: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 },
-                ml: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 },
-                dl: { search: '', minRange: 0, maxRange: 100, maxDataVal: 100 }
-            };
-
-            categories.forEach(cat => {
-                const catProjects = myProjects.filter(p => p.category === cat);
-                let maxVal = 0;
-                catProjects.forEach(p => {
-                    if (p.datasetValue > maxVal) maxVal = p.datasetValue;
-                });
-                
-                // Ensure maxVal is at least 1 to avoid slider issues if tab is empty
-                if (maxVal === 0) maxVal = 1;
-                
-                filterState[cat].maxDataVal = maxVal;
-                filterState[cat].minRange = 0;
-                filterState[cat].maxRange = maxVal; // Default to max
-                
-                const sliderMin = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
-                const sliderMax = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
-                if (sliderMin && sliderMax) {
-                    sliderMin.max = maxVal;
-                    sliderMax.max = maxVal;
-                    sliderMin.value = 0;
-                    sliderMax.value = maxVal;
-                    
-                    updateSliderTrack(cat);
-                    updateSliderLabel(cat);
-                }
-            });
-
-            function formatNumber(num, cat) {
-                return num.toLocaleString();
-            }
-
-            function updateSliderTrack(cat) {
-                const sliderMin = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
-                const sliderMax = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
-                const track = document.getElementById(`slider-track-${cat}`);
-                if(!sliderMin || !sliderMax || !track) return;
-                
-                const minVal = parseInt(sliderMin.value, 10);
-                const maxVal = parseInt(sliderMax.value, 10);
-                const maxAllowed = parseInt(sliderMin.max, 10);
-                
-                const percent1 = (minVal / maxAllowed) * 100;
-                const percent2 = (maxVal / maxAllowed) * 100;
-                
-                track.style.left = percent1 + "%";
-                track.style.width = (percent2 - percent1) + "%";
-            }
-
-            function updateSliderLabel(cat) {
-                const label = document.getElementById(`range-val-${cat}`);
-                if (!label) return;
-                
-                const minVal = filterState[cat].minRange;
-                const maxVal = filterState[cat].maxRange;
-                
-                if (minVal === 0 && maxVal >= filterState[cat].maxDataVal) {
-                    label.innerText = 'All';
-                } else {
-                    label.innerText = `${formatNumber(minVal, cat)} - ${formatNumber(maxVal, cat)}`;
-                }
-            }
-
-            // Apply Filters for a specific category
-            function applyFilters(cat) {
-                const searchVal = filterState[cat].search.toLowerCase();
-                const minVal = filterState[cat].minRange;
-                const maxVal = filterState[cat].maxRange;
-
-                const filtered = myProjects.filter(p => {
-                    if (p.category !== cat) return false;
-                    const matchSearch = p.title.toLowerCase().includes(searchVal) || p.summary.toLowerCase().includes(searchVal);
-                    // For range: check both lower and upper bounds
-                    const matchUpper = maxVal >= filterState[cat].maxDataVal ? true : (p.datasetValue <= maxVal);
-                    const matchLower = p.datasetValue >= minVal;
-                    return matchSearch && matchUpper && matchLower;
-                });
-
-                renderProjects(filtered, `grid-${cat}`);
-            }
-
-            // Event Listeners for Filters
-            document.querySelectorAll('.search-input').forEach(input => {
-                input.addEventListener('input', (e) => {
-                    const cat = e.target.getAttribute('data-target');
-                    filterState[cat].search = e.target.value;
-                    applyFilters(cat);
-                });
-            });
-
-            document.querySelectorAll('.dataset-slider-min').forEach(slider => {
-                slider.addEventListener('input', (e) => {
-                    const cat = e.target.getAttribute('data-target');
-                    const maxSlider = document.querySelector(`.dataset-slider-max[data-target="${cat}"]`);
-                    let minVal = parseInt(e.target.value, 10);
-                    let maxVal = parseInt(maxSlider.value, 10);
-                    
-                    if (minVal >= maxVal) {
-                        e.target.value = maxVal - (e.target.max * 0.01);
-                        minVal = parseInt(e.target.value, 10);
-                    }
-                    
-                    filterState[cat].minRange = minVal;
-                    updateSliderTrack(cat);
-                    updateSliderLabel(cat);
-                    applyFilters(cat);
-                });
-            });
-
-            document.querySelectorAll('.dataset-slider-max').forEach(slider => {
-                slider.addEventListener('input', (e) => {
-                    const cat = e.target.getAttribute('data-target');
-                    const minSlider = document.querySelector(`.dataset-slider-min[data-target="${cat}"]`);
-                    let maxVal = parseInt(e.target.value, 10);
-                    let minVal = parseInt(minSlider.value, 10);
-                    
-                    if (maxVal <= minVal) {
-                        e.target.value = minVal + (e.target.max * 0.01);
-                        maxVal = parseInt(e.target.value, 10);
-                    }
-                    
-                    filterState[cat].maxRange = maxVal;
-                    updateSliderTrack(cat);
-                    updateSliderLabel(cat);
-                    applyFilters(cat);
-                });
-            });
-
-            // Tab Switching Logic
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active from all
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabContents.forEach(c => c.classList.remove('active'));
-                    
-                    // Add active to clicked
-                    btn.classList.add('active');
-                    const targetCat = btn.getAttribute('data-tab');
-                    document.getElementById(`tab-${targetCat}`).classList.add('active');
-                });
-            });
-
-            // Helper to check if file path is video
-            function isVideoFile(path) {
-                if (!path) return false;
-                const clean = path.split('?')[0].split('#')[0].toLowerCase();
-                return /\.(mp4|webm|ogg|mov|mkv|avi|m4v)$/i.test(clean);
-            }
-
-            // Modal Logic
-            const modal = document.getElementById('project-modal');
-            const closeBtn = document.querySelector('.close-modal');
-            const modalBody = document.getElementById('modal-body');
-
-            function openModal(projectId) {
-                const project = myProjects.find(p => p.id === projectId);
-                if(!project) return;
-
-                const mediaList = project.images && project.images.length > 0 ? project.images : ['placeholder.png'];
-                const hasMultipleMedia = mediaList.length > 1;
-
-                const mediaSlidesHTML = mediaList.map((item, idx) => {
-                    const isVideo = isVideoFile(item);
-                    return `
-                        <div class="carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
-                            ${isVideo 
-                                ? `<video src="${item}" controls playsinline preload="metadata"></video>`
-                                : `<img src="${item}" alt="${project.title} - ${idx + 1}" loading="lazy" />`
-                            }
-                        </div>
-                    `;
-                }).join('');
-
-                const dotsHTML = hasMultipleMedia ? `
-                    <div class="carousel-nav-bar">
-                        <button type="button" class="carousel-arrow prev" title="Previous media">&#10094;</button>
-                        <div class="carousel-dots">
-                            ${mediaList.map((item, idx) => `
-                                <button type="button" class="carousel-dot ${idx === 0 ? 'active' : ''}" data-goto="${idx}" title="${isVideoFile(item) ? 'Video ' + (idx + 1) : 'Image ' + (idx + 1)}"></button>
-                            `).join('')}
-                        </div>
-                        <button type="button" class="carousel-arrow next" title="Next media">&#10095;</button>
-                        <span class="carousel-counter">1 / ${mediaList.length}</span>
-                    </div>
-                ` : '';
-
-                const thumbnailsHTML = hasMultipleMedia ? `
-                    <div class="carousel-thumbnails">
-                        ${mediaList.map((item, idx) => {
-                            const isVid = isVideoFile(item);
-                            return `
-                                <div class="thumb-item ${idx === 0 ? 'active' : ''}" data-goto="${idx}">
-                                    ${isVid 
-                                        ? `<div class="thumb-video-badge">▶ Video</div><video src="${item}#t=0.5" preload="metadata"></video>`
-                                        : `<img src="${item}" alt="thumb ${idx + 1}" />`
-                                    }
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                ` : '';
-
-                const tagsHTML = (project.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('');
-
-                modalBody.innerHTML = `
-                    <h2>${project.title}</h2>
-                    <div class="modal-carousel" id="modalCarousel">
-                        <div class="carousel-slides-wrapper">
-                            ${mediaSlidesHTML}
-                        </div>
-                        ${dotsHTML}
-                        ${thumbnailsHTML}
-                    </div>
-                    <div class="project-tags" style="margin: 20px 0;">${tagsHTML}</div>
-                    <div class="modal-meta">
-                        <p><strong>Topic:</strong> ${project.topic || 'N/A'}</p>
-                        <p><strong>Algorithms:</strong> ${project.algorithms ? project.algorithms.join(', ') : 'N/A'}</p>
-                        <p><strong>Dataset:</strong> ${project.datasetSize || 'N/A'}</p>
-                    </div>
-                    <p class="project-summary" style="margin: 20px 0; font-size:1.1rem;">${project.summary || ''}</p>
-                    <div class="detailed-report expanded" style="display:block;">
-                        ${project.detailedReport || ''}
-                    </div>
-                    ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="btn btn-primary" style="margin-top:20px;">View Code on GitHub</a>` : ''}
-                `;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-
-                // Setup carousel event listeners if multiple items
-                if (hasMultipleMedia) {
-                    initModalCarousel();
-                }
-            }
-
-            function initModalCarousel() {
-                const carousel = document.getElementById('modalCarousel');
-                if (!carousel) return;
-                const slides = carousel.querySelectorAll('.carousel-slide');
-                const dots = carousel.querySelectorAll('.carousel-dot');
-                const thumbs = carousel.querySelectorAll('.thumb-item');
-                const counter = carousel.querySelector('.carousel-counter');
-                const prevBtn = carousel.querySelector('.carousel-arrow.prev');
-                const nextBtn = carousel.querySelector('.carousel-arrow.next');
-                let currentIndex = 0;
-
-                function setSlide(idx) {
-                    // Pause any currently playing video
-                    const currentVideo = slides[currentIndex].querySelector('video');
-                    if (currentVideo && !currentVideo.paused) {
-                        currentVideo.pause();
-                    }
-
-                    currentIndex = (idx + slides.length) % slides.length;
-                    slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
-                    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-                    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
-                    if (counter) {
-                        counter.textContent = `${currentIndex + 1} / ${slides.length}`;
-                    }
-
-                    // Autoplay new slide if video and desired
-                    const newVideo = slides[currentIndex].querySelector('video');
-                    if (newVideo) {
-                        newVideo.play().catch(() => {});
-                    }
-                }
-
-                if (prevBtn) prevBtn.addEventListener('click', () => setSlide(currentIndex - 1));
-                if (nextBtn) nextBtn.addEventListener('click', () => setSlide(currentIndex + 1));
-                dots.forEach(dot => {
-                    dot.addEventListener('click', () => setSlide(parseInt(dot.getAttribute('data-goto'), 10)));
-                });
-                thumbs.forEach(thumb => {
-                    thumb.addEventListener('click', () => setSlide(parseInt(thumb.getAttribute('data-goto'), 10)));
-                });
-            }
-
-            function closeModalWindow() {
-                // Pause any video playing in modal
-                const videos = modal.querySelectorAll('video');
-                videos.forEach(v => v.pause());
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-
-            closeBtn.addEventListener('click', closeModalWindow);
-            window.addEventListener('click', (e) => {
-                if (e.target == modal) {
-                    closeModalWindow();
-                }
-            });
-
-            // Initialize Dashboard & Projects
-            initDashboard();
-            categories.forEach(cat => applyFilters(cat));
-            
-            // Init Real GitHub Heatmap
-            if (typeof GitHubCalendar !== 'undefined') {
-                GitHubCalendar("#github-heatmap", "suyash2356", { responsive: true, tooltips: true });
-            }
-        });
-    </script>
+    <!-- Dedicated Gallery Application Controller -->
+    <script src="gallery.js"></script>
 </body>
 
 </html>
