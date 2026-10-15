@@ -22,16 +22,16 @@
                 issuer: 'DeepLearning.AI and Stanford Online',
                 platform: 'Coursera',
                 instructor: 'Andrew Ng',
-                image: 'certs/machine-learning-specialization.jpg',
-                link: '#'
+                image: 'certs/Coursera 9JAUVYG97QYH.pdf',
+                link: 'https://coursera.org/share/194703259fa988949fffa7aa99f6a27e'
             },
             {
                 title: 'Deep Learning Specialization',
                 issuer: 'DeepLearning.AI',
                 platform: 'Coursera',
                 instructor: 'Andrew Ng',
-                image: 'certs/deep-learning-specialization.jpg',
-                link: '#'
+                image: 'certs/neural network and deep learning.pdf',
+                link: 'https://coursera.org/share/da185fe6918664b0210d9e320b946e69'
             }
         ]
     };
@@ -42,7 +42,7 @@
         {
             years: '2024 to 2027', status: 'Final year, in progress',
             title: 'Bachelor of Computer Applications', focus: 'Full Stack Development', school: 'Ajeenkya DY Patil University',
-            stats: [{ label: 'Current CGPA', value: '9.45' }],
+            stats: [{ label: 'Current CGPA', value: '9.43' }],
             topics: ['Computer science fundamentals', 'Data structures', 'Java programming', 'Databases (SQL and NoSQL)', 'Web development']
         },
         {
@@ -55,19 +55,27 @@
 
     // Each tile: [symbol, name, keywords used to count your real projects]
     const BANDS = [
-        { id: 'core', name: 'Foundations', blurb: 'Languages, data tools and the habits underneath everything.', items: [
-            ['Py', 'Python', ['python']], ['Pd', 'Pandas', ['pandas']], ['Np', 'NumPy', ['numpy']], ['Mp', 'Matplotlib', ['matplotlib']],
-            ['Sn', 'Seaborn', ['seaborn']], ['Sq', 'SQL', ['sql']], ['Mg', 'MongoDB', ['mongodb']], ['Jv', 'Java', ['java']], ['Gt', 'Git', ['git']]] },
-        { id: 'ml', name: 'Machine learning', blurb: 'Classical models and honest evaluation.', items: [
-            ['Sk', 'Scikit-learn', ['scikit']], ['Xg', 'XGBoost', ['xgboost']], ['Rf', 'Random forest', ['random forest']], ['Rg', 'Regression', ['regression']],
-            ['Km', 'Clustering', ['clustering', 'k-means']], ['An', 'Anomaly detection', ['anomaly']], ['Rc', 'Recommenders', ['recommend']], ['Pc', 'PCA', ['pca']]] },
-        { id: 'dl', name: 'Deep learning', blurb: 'Networks that see, read and remember.', items: [
-            ['Pt', 'PyTorch', ['pytorch']], ['Tf', 'TensorFlow', ['tensorflow']], ['Ke', 'Keras', ['keras']], ['Cn', 'CNNs', ['cnn', 'convolutional']],
-            ['Ls', 'LSTM', ['lstm']], ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg']], ['Yo', 'YOLO', ['yolo']],
-            ['Em', 'Embeddings', ['glove', 'embedding']], ['Rl', 'Reinforcement learning', ['reinforcement', 'dqn']]] },
-        { id: 'ship', name: 'Build and ship', blurb: 'Turning models into things people can use.', items: [
-            ['St', 'Streamlit', ['streamlit']], ['Fl', 'Flask', ['flask']], ['Nx', 'Next.js', ['next.js']], ['Re', 'React', ['react']],
-            ['Ts', 'TypeScript', ['typescript']], ['Fb', 'Firebase', ['firebase']], ['Sb', 'Supabase', ['supabase']], ['Cv', 'OpenCV', ['opencv']]] }
+        {
+            id: 'core', name: 'Foundations', blurb: 'Languages, data tools and the habits underneath everything.', items: [
+                ['Py', 'Python', ['python']], ['Pd', 'Pandas', ['pandas']], ['Np', 'NumPy', ['numpy']], ['Mp', 'Matplotlib', ['matplotlib']],
+                ['Sn', 'Seaborn', ['seaborn']], ['Sq', 'SQL', ['sql']], ['Mg', 'MongoDB', ['mongodb']], ['Jv', 'Java', ['java']], ['Gt', 'Git', ['git']]]
+        },
+        {
+            id: 'ml', name: 'Machine learning', blurb: 'Classical models and honest evaluation.', items: [
+                ['Sk', 'Scikit-learn', ['scikit']], ['Xg', 'XGBoost', ['xgboost']], ['Rf', 'Random forest', ['random forest']], ['Rg', 'Regression', ['regression']],
+                ['Km', 'Clustering', ['clustering', 'k-means']], ['An', 'Anomaly detection', ['anomaly']], ['Rc', 'Recommenders', ['recommend']], ['Pc', 'PCA', ['pca']]]
+        },
+        {
+            id: 'dl', name: 'Deep learning', blurb: 'Networks that see, read and remember.', items: [
+                ['Pt', 'PyTorch', ['pytorch']], ['Tf', 'TensorFlow', ['tensorflow']], ['Ke', 'Keras', ['keras']], ['Cn', 'CNNs', ['cnn', 'convolutional']],
+                ['Ls', 'LSTM', ['lstm']], ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg']], ['Yo', 'YOLO', ['yolo']],
+                ['Em', 'Embeddings', ['glove', 'embedding']], ['Rl', 'Reinforcement learning', ['reinforcement', 'dqn']]]
+        },
+        {
+            id: 'ship', name: 'Build and ship', blurb: 'Turning models into things people can use.', items: [
+                ['St', 'Streamlit', ['streamlit']], ['Fl', 'Flask', ['flask']], ['Nx', 'Next.js', ['next.js']], ['Re', 'React', ['react']],
+                ['Ts', 'TypeScript', ['typescript']], ['Fb', 'Firebase', ['firebase']], ['Sb', 'Supabase', ['supabase']], ['Cv', 'OpenCV', ['opencv']]]
+        }
     ];
 
     const isLive = (p) => p.liveUrl && p.liveUrl !== '#';
