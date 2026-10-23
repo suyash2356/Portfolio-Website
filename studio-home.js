@@ -48,8 +48,14 @@
         {
             years: '2022 to 2024', status: 'Completed',
             title: 'Higher Secondary, Science', focus: 'Physics, Chemistry and Mathematics', school: 'HPT Arts and RYK Science',
-            stats: [{ label: '12th, PCM', value: '72.33%', v: 0.7233 }, { label: '10th', value: '90.00%', v: 0.9 }],
+            stats: [{ label: '12th, PCM', value: '72.33%', v: 0.7233 }],
             topics: []
+        },
+        {
+            years: '2016 to 2022', status: 'Completed',
+            title: 'Secondary School Certificate (10th)', focus: 'General Studies & Science', school: 'Shree Nityanand English Medium School',
+            stats: [{ label: '10th', value: '90.00%', v: 0.9 }],
+            topics: ['Communication', 'Science', 'Maths', 'History']
         }
     ];
 
@@ -615,7 +621,7 @@
             { h: 'Classical machine learning', p: 'Regression, tree ensembles, XGBoost, clustering, anomaly detection and recommenders.', tag: `${c('ml')} projects` },
             { h: 'Deep learning', p: 'CNNs, transfer learning, LSTMs, YOLO and word embeddings.', tag: `${c('dl')} projects` },
             { h: 'Shipped products', p: `${live} live and ${featured.length - live} in active development, built end to end.`, tag: `${featured.length} products` },
-            { h: 'Now, then next', p: 'Now: sequence models and more rigorous validation. Next: finish my BCA, study an MCA, and work as an ML engineer.', tag: 'Still building', now: true }
+            { h: 'Now, then next', p: 'Now: deep diving into Natural Language Processing (NLP) & Large Language Models (LLMs). Next: mastering MLOps to deploy, monitor, and scale models in production.', tag: 'Still building', now: true }
         ];
         box.innerHTML = '<div class="road-line"></div><div class="road-fill"></div><div class="road-probe"></div>' +
             stages.map((s, i) => `<div class="ms ${i % 2 ? 'down' : 'up'} ${s.now ? 'now' : ''}"><span class="ms-dot"></span><div class="ms-card"><h3>${esc(s.h)}</h3><p>${esc(s.p)}</p><span class="tag">${esc(s.tag)}</span></div></div>`).join('');
