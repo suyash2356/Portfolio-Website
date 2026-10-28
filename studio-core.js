@@ -286,6 +286,9 @@
                 : `<img src="${src(m.url)}" alt="${esc(m.caption || 'Project image ' + (i + 1))}" ${i ? 'loading="lazy"' : ''} onerror="this.closest('.car-slide').innerHTML='<p style=&quot;padding:24px;color:#9DB1AE&quot;>Image not found</p>'" />`}
                 ${m.caption ? `<div class="car-cap">${esc(m.caption)}</div>` : ''}</div>`;
         }).join('');
+        const prevNextNav = many
+            ? `<button type="button" class="ex-nav-btn prev" data-dir="-1" aria-label="Previous slide"></button><button type="button" class="ex-nav-btn next" data-dir="1" aria-label="Next slide"></button><span class="ex-nav-hint prev" aria-hidden="true">‹</span><span class="ex-nav-hint next" aria-hidden="true">›</span>`
+            : '';
         const thumbs = many ? `<div class="thumbs">${items.map((m, i) => {
             const vid = m.type === 'video' || isVideo(m.url);
             return `<button type="button" class="thumb ${i === 0 ? 'on' : ''}" data-i="${i}" aria-label="Show media ${i + 1}">${vid ? `<video src="${src(m.url)}#t=0.5" preload="metadata" muted></video>` : `<img src="${src(m.url)}" alt="" loading="lazy" />`}</button>`;
@@ -293,7 +296,7 @@
         const navBar = many ? `<div class="car-nav"><span class="car-count">1 of ${items.length}</span><div class="car-btns">
             <button type="button" class="icon-btn" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
             <button type="button" class="icon-btn" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button></div></div>` : '';
-        return `<div class="car"><div class="car-stage">${slides}</div>${navBar}${thumbs}</div>`;
+        return `<div class="car"><div class="car-stage">${slides}${prevNextNav}</div>${navBar}${thumbs}</div>`;
     }
     function mountCarousel(scope) {
         const car = $('.car', scope);
@@ -308,7 +311,10 @@
             thumbs.forEach((t, k) => t.classList.toggle('on', k === i));
             if (count) count.textContent = `${i + 1} of ${slides.length}`;
         };
-        $$('[data-dir]', car).forEach((b) => b.addEventListener('click', () => go(i + +b.dataset.dir)));
+        $$('[data-dir]', car).forEach((b) => b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            go(i + +b.dataset.dir);
+        }));
         thumbs.forEach((t) => t.addEventListener('click', () => go(+t.dataset.i)));
     }
 

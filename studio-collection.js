@@ -112,8 +112,20 @@
         const box = $('#ix-preview');
         if (!p) { box.innerHTML = ''; return; }
         const link = p.githubLink ? `<a class="link" href="${esc(p.githubLink)}" target="_blank" rel="noopener noreferrer">${/\/tree\//.test(p.githubLink) ? 'View the code' : 'Open the notebook'}${EXT}</a>` : '';
+        const imgs = p.images && p.images.length ? p.images : [];
+        const hasImgs = imgs.length > 0;
+        const many = imgs.length > 1;
+        const slides = hasImgs ? imgs.map((u, i) => {
+            const vid = isVideo(u);
+            return `<div class="slide ${i === 0 ? 'on' : ''}">${vid
+                ? `<video src="${src(u)}" muted loop playsinline preload="metadata"></video>`
+                : `<img src="${src(u)}" alt="${esc(p.title)}" ${i ? 'loading="lazy"' : ''} onerror="this.parentElement.classList.add('noimg');this.remove()" />`}</div>`;
+        }).join('') : '';
+        const prevNextNav = many
+            ? `<button type="button" class="ex-nav-btn prev" data-dir="-1" aria-label="Previous image"></button><button type="button" class="ex-nav-btn next" data-dir="1" aria-label="Next image"></button><span class="ex-nav-hint prev" aria-hidden="true">‹</span><span class="ex-nav-hint next" aria-hidden="true">›</span>`
+            : '';
         box.innerHTML = `
-            <div class="pv-media ${p.images[0] ? '' : 'noimg'}" id="pv-media"><span class="pv-no">No. ${pad(p._no)}</span>${mediaTag(p)}</div>
+            <div class="pv-media ${hasImgs ? '' : 'noimg'}" id="pv-media"><span class="pv-no">No. ${pad(p._no)}</span>${slides}${prevNextNav}</div>
             <div class="pv-body">
                 <h2>${esc(p.title)}</h2>
                 <p>${esc(p.summary || '')}</p>
@@ -135,6 +147,23 @@
             m.style.setProperty('--sx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
             m.style.setProperty('--sy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
         });
+        if (many) {
+            const pvSlides = $$('.slide', m);
+            let cur = 0;
+            const showPv = (n) => {
+                cur = (n + pvSlides.length) % pvSlides.length;
+                pvSlides.forEach((s, idx) => {
+                    const on = idx === cur;
+                    s.classList.toggle('on', on);
+                    const v = $('video', s);
+                    if (v) { if (on) v.play().catch(() => {}); else v.pause(); }
+                });
+            };
+            $$('.ex-nav-btn', m).forEach((b) => b.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showPv(cur + +b.dataset.dir);
+            }));
+        }
     }
 
     function renderWall(list) {
