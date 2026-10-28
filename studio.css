@@ -300,6 +300,11 @@ ul, ol { list-style: none; }
 .sk-panel.pop { animation: pop .45s var(--ease); }
 @keyframes pop { from { transform: translateY(10px); opacity: .4; } }
 .sk-note { margin-top: 18px; font-size: .85rem; color: var(--ink2); }
+.sk-topics { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.sk-topics h5, .sk-projects h5 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; color: var(--ink2); margin-bottom: 10px; font-family: var(--f-mono); }
+.sk-projects h5 { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.sk-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.sk-tags span { font-size: .78rem; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--tone, var(--accent)) 12%, transparent); border: 1px solid color-mix(in srgb, var(--tone, var(--accent)) 35%, transparent); color: var(--ink); font-weight: 500; }
 
 /* ---------- The road ---------- */
 .road { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); min-height: 560px; --p: 0; }

@@ -74,7 +74,9 @@
         {
             id: 'dl', name: 'Deep learning', blurb: 'Networks that see, read and remember.', items: [
                 ['Pt', 'PyTorch', ['pytorch']], ['Tf', 'TensorFlow', ['tensorflow']], ['Ke', 'Keras', ['keras']], ['Cn', 'CNNs', ['cnn', 'convolutional']],
-                ['Ls', 'LSTM', ['lstm']], ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg']], ['Yo', 'YOLO', ['yolo']],
+                ['Rn', 'RNN', ['rnn', 'lstm', 'gru', 'recurrent'], ['Vanilla RNN', 'LSTM (Long Short-Term Memory)', 'GRU (Gated Recurrent Unit)', 'Bidirectional RNNs', 'Hidden State & Cell Memory', 'Sequential Time-Series Modeling']],
+                ['Tr', 'Transformer', ['transformer', 'attention', 'encoder', 'decoder'], ['Encoder Architecture', 'Decoder Architecture', 'Multi-Head Self-Attention', 'Cross-Attention Mechanism', 'Positional Encoding (Sinusoidal)', 'Masked Language & Causal Attention', 'BPE Tokenization (Byte-Pair)']],
+                ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg']], ['Yo', 'YOLO', ['yolo']],
                 ['Em', 'Embeddings', ['glove', 'embedding']], ['Rl', 'Reinforcement learning', ['reinforcement', 'dqn']]]
         },
         {
@@ -574,10 +576,10 @@
         box.innerHTML = BANDS.map((b) => `
             <div class="band tone-${b.id} io" >
                 <div><h3>${b.name}</h3><p>${b.blurb}</p></div>
-                <div class="tiles">${b.items.map(([sym, name, kws], i) => {
+                <div class="tiles">${b.items.map(([sym, name, kws, topics], i) => {
             const res = kws.map(reOf);
             const hits = works.filter((w) => res.some((r) => r.test(w.hay)));
-            const idx = tiles.push({ sym, name, kws, hits, band: b }) - 1;
+            const idx = tiles.push({ sym, name, kws, topics, hits, band: b }) - 1;
             return `<button type="button" class="tile" data-k="${idx}" style="--i:${i}" aria-label="${name}, ${hits.length} projects"><em>${hits.length || '-'}</em><strong>${sym}</strong><span>${name}</span></button>`;
         }).join('')}</div>
             </div>`).join('');
@@ -590,13 +592,25 @@
             const t = tiles[k];
             const list = t.hits.slice(0, 5).map((h) => `<li>${esc(h.title)}</li>`).join('');
             const more = t.hits.length > 5 ? `<li class="none">and ${t.hits.length - 5} more</li>` : '';
+            const topicsHTML = t.topics && t.topics.length ? `
+                <div class="sk-topics">
+                    <h5>Topics & concepts covered</h5>
+                    <div class="sk-tags">${t.topics.map((tp) => `<span>${esc(tp)}</span>`).join('')}</div>
+                </div>` : '';
+            const projectsHTML = t.hits.length ? `
+                <div class="sk-projects">
+                    ${t.topics ? `<h5>Projects built with ${esc(t.name)}</h5>` : ''}
+                    <ul>${list}${more}</ul>
+                    <a class="btn btn-ghost" data-transition href="collection.html?q=${encodeURIComponent(t.kws[0])}">See them in the collection</a>
+                </div>` : '<p class="none">I learned this through college and my own practice.</p>';
+
             panel.className = 'sk-panel pop tone-' + t.band.id;
             panel.innerHTML = `
                 <div class="sym">${t.sym}</div>
                 <h4>${esc(t.name)}</h4>
                 <p class="meta">${t.hits.length ? `Used in ${t.hits.length} ${t.hits.length === 1 ? 'project' : 'projects'}` : 'Studied, not yet in a project here'}</p>
-                ${t.hits.length ? `<ul>${list}${more}</ul><a class="btn btn-ghost" data-transition href="collection.html?q=${encodeURIComponent(t.kws[0])}">See them in the collection</a>`
-                    : '<p class="none">I learned this through college and my own practice.</p>'}`;
+                ${topicsHTML}
+                ${projectsHTML}`;
         }
         idle();
         $$('.tile', box).forEach((el) => {
