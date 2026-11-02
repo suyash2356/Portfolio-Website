@@ -15,16 +15,16 @@
                 issuer: 'DeepLearning.AI and Stanford Online',
                 platform: 'Coursera',
                 instructor: 'Andrew Ng',
-                image: 'certs/machine-learning-specialization.jpg',
-                link: '#'
+                image: 'certs/Screenshot 2026-11-02 175326.png',
+                link: 'https://coursera.org/share/194703259fa988949fffa7aa99f6a27e'
             },
             {
                 title: 'Deep Learning Specialization',
                 issuer: 'DeepLearning.AI',
                 platform: 'Coursera',
                 instructor: 'Andrew Ng',
-                image: 'certs/deep-learning-specialization.jpg',
-                link: '#'
+                image: 'certs/Screenshot 2026-11-02 175025.png',
+                link: 'https://coursera.org/share/90e16fee946208d7bcf98784b2b369ed'
             }
         ],
 
