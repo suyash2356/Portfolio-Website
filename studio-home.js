@@ -59,30 +59,58 @@
         }
     ];
 
-    // Each tile: [symbol, name, keywords used to count your real projects]
+    // Each tile: [symbol, name, keywords used to count your real projects, topics/capabilities]
     const BANDS = [
         {
             id: 'core', name: 'Foundations', blurb: 'Languages, data tools and the habits underneath everything.', items: [
-                ['Py', 'Python', ['python']], ['Pd', 'Pandas', ['pandas']], ['Np', 'NumPy', ['numpy']], ['Mp', 'Matplotlib', ['matplotlib']],
-                ['Sn', 'Seaborn', ['seaborn']], ['Sq', 'SQL', ['sql']], ['Mg', 'MongoDB', ['mongodb']], ['Jv', 'Java', ['java']], ['Gt', 'Git', ['git']]]
+                ['Py', 'Python', ['python'], ['OOP & Classes', 'Data Structures (Dict, List, Set)', 'File I/O & JSON', 'List Comprehensions', 'Generators & Iterators', 'Virtual Environments']],
+                ['Pd', 'Pandas', ['pandas'], ['DataFrames & Series', 'Handling Missing Values', 'GroupBy & Aggregations', 'Merging & Joining', 'Data Cleaning & Filtering', 'Time Series Indexing']],
+                ['Np', 'NumPy', ['numpy'], ['N-Dimensional Arrays', 'Vectorized Operations', 'Broadcasting Rules', 'Matrix Multiplication & Dot Product', 'Array Slicing & Reshaping', 'Statistical Functions']],
+                ['Mp', 'Matplotlib', ['matplotlib'], ['Subplots & Figure Layouts', 'Histograms & Density Plots', 'Scatter & Line Plots', 'Customizing Axes & Legends', 'Heatmaps & Colorbars']],
+                ['Sn', 'Seaborn', ['seaborn'], ['Distribution & Pair Plots', 'Heatmaps & Correlation Matrices', 'Categorical Plots (Box, Violin)', 'FacetGrids & Multi-Plots', 'Statistical Data Visualization']],
+                ['Sq', 'SQL', ['sql'], ['Complex SELECT Queries', 'INNER & LEFT JOINs', 'GROUP BY & Aggregations', 'Subqueries & CTEs', 'Schema Design & Indexing', 'CRUD Operations']],
+                ['Mg', 'MongoDB', ['mongodb'], ['BSON Document Modeling', 'CRUD Operations', 'Aggregation Pipelines', 'Query Operators ($match, $group)', 'Collections & Indexing']],
+                ['Jv', 'Java', ['java'], ['OOP Principles (Encapsulation, Inheritance)', 'Collections Framework (List, Map, Set)', 'Exception Handling', 'Algorithms & Data Structures']],
+                ['Gt', 'Git', ['git'], ['Branching & Merging', 'Commit History & Log', 'Remote Repositories (Push, Pull)', 'Resolving Merge Conflicts', 'Git Stash & Rebase Basics']]
+            ]
         },
         {
             id: 'ml', name: 'Machine learning', blurb: 'Classical models and honest evaluation.', items: [
-                ['Sk', 'Scikit-learn', ['scikit']], ['Xg', 'XGBoost', ['xgboost']], ['Rf', 'Random forest', ['random forest']], ['Rg', 'Regression', ['regression']],
-                ['Km', 'Clustering', ['clustering', 'k-means']], ['An', 'Anomaly detection', ['anomaly']], ['Rc', 'Recommenders', ['recommend']], ['Pc', 'PCA', ['pca']]]
+                ['Sk', 'Scikit-learn', ['scikit'], ['Pipelines & ColumnTransformer', 'Model Selection (Train-Test Split, K-Fold CV)', 'Hyperparameter Tuning (GridSearchCV)', 'Feature Scaling & Encoders', 'Evaluation Metrics (ROC-AUC, F1, RMSE)']],
+                ['Xg', 'XGBoost', ['xgboost'], ['Gradient Boosting Framework', 'Tree Pruning & Max Depth', 'Regularization (L1/L2 on Weights)', 'Handling Missing Values Internally', 'Early Stopping & Learning Rate']],
+                ['Rf', 'Random forest', ['random forest'], ['Bagging & Bootstrap Sampling', 'Ensemble Averaging & Voting', 'Feature Importance Analysis', 'Out-of-Bag (OOB) Evaluation', 'Hyperparameter Tuning (n_estimators, max_depth)']],
+                ['Rg', 'Regression', ['regression'], ['Linear Regression (Simple & Multiple)', 'Logistic Regression (Classification)', 'Ridge (L2) & Lasso (L1) Regularization', 'Polynomial Regression', 'Cost Function (MSE, Gradient Descent)', 'Model Evaluation (R², RMSE, MAE)']],
+                ['Km', 'Clustering', ['clustering', 'k-means'], ['K-Means Algorithm', 'Elbow Method & WCSS', 'Silhouette Score Analysis', 'K-Means++ Initialization', 'Centroid Convergence & Distance Metrics']],
+                ['An', 'Anomaly detection', ['anomaly'], ['Isolation Forest', 'Unsupervised Outlier Detection', 'Contamination Threshold Tuning', 'Anomaly Scoring', 'Credit Card Fraud & Outlier Filtering']],
+                ['Rc', 'Recommenders', ['recommend'], ['Collaborative Filtering (User-Item, Item-Item)', 'Pearson Correlation Matrix', 'Content-Based Filtering (TF-IDF)', 'Cosine Similarity Metrics', 'Cold Start & Sparsity Handling']],
+                ['Pc', 'PCA', ['pca'], ['Dimensionality Reduction', 'Eigenvectors & Eigenvalues', 'Covariance Matrix Decomposition', 'Explained Variance Ratio', 'Feature Compression & Visualization']]
+            ]
         },
         {
             id: 'dl', name: 'Deep learning', blurb: 'Networks that see, read and remember.', items: [
-                ['Pt', 'PyTorch', ['pytorch']], ['Tf', 'TensorFlow', ['tensorflow']], ['Ke', 'Keras', ['keras']], ['Cn', 'CNNs', ['cnn', 'convolutional']],
+                ['Pt', 'PyTorch', ['pytorch'], ['Tensors & Autograd', 'torch.nn.Module & Custom Layers', 'Dataset & DataLoader', 'Training Loop & Backpropagation', 'Loss Functions & Optimizers (Adam, SGD)', 'GPU Acceleration (CUDA)']],
+                ['Tf', 'TensorFlow', ['tensorflow'], ['Keras Sequential & Functional APIs', 'GradientTape & Backprop', 'tf.data Input Pipelines', 'Callbacks (ModelCheckpoint, EarlyStopping)', 'Model Serialization & Loading']],
+                ['Ke', 'Keras', ['keras'], ['Model Compilation (Loss, Metric, Optimizer)', 'Dense & Sequential Layers', 'Activation Functions (ReLU, Sigmoid, Softmax)', 'Dropout & Batch Normalization', 'Model History & Training Curves']],
+                ['Cn', 'CNNs', ['cnn', 'convolutional'], ['Convolutional Layers (Conv2D)', 'Max Pooling & Average Pooling', 'Stride, Padding & Receptive Field', 'Feature Map Extraction', 'Flattening & Dense Classification Head', 'Image Classification Architectures']],
                 ['Rn', 'RNN', ['rnn', 'lstm', 'gru', 'recurrent'], ['Vanilla RNN', 'LSTM (Long Short-Term Memory)', 'GRU (Gated Recurrent Unit)', 'Bidirectional RNNs', 'Hidden State & Cell Memory', 'Sequential Time-Series Modeling']],
                 ['Tr', 'Transformer', ['transformer', 'attention', 'encoder', 'decoder'], ['Encoder Architecture', 'Decoder Architecture', 'Multi-Head Self-Attention', 'Cross-Attention Mechanism', 'Positional Encoding (Sinusoidal)', 'Masked Language & Causal Attention', 'BPE Tokenization (Byte-Pair)']],
-                ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg']], ['Yo', 'YOLO', ['yolo']],
-                ['Em', 'Embeddings', ['glove', 'embedding']], ['Rl', 'Reinforcement learning', ['reinforcement', 'dqn']]]
+                ['Tl', 'Transfer learning', ['transfer learning', 'efficientnet', 'resnet', 'vgg'], ['Pretrained Backbones (ResNet, VGG, EfficientNet)', 'Freezing & Unfreezing Base Layers', 'Fine-Tuning Strategies', 'Custom Classification Heads', 'Feature Extraction on Custom Datasets']],
+                ['Yo', 'YOLO', ['yolo'], ['Single-Shot Object Detection', 'Bounding Box Regression & Class Scores', 'Non-Maximum Suppression (NMS)', 'Intersection over Union (IoU)', 'Anchor Boxes & Real-Time Inference']],
+                ['Em', 'Embeddings', ['glove', 'embedding'], ['Word2Vec (CBOW & Skip-Gram)', 'GloVe Pre-trained Vectors', 'Embedding Layers in Neural Networks', 'Cosine Similarity & Semantic Distance', 'High-Dimensional Vector Spaces']],
+                ['Rl', 'Reinforcement learning', ['reinforcement', 'dqn'], ['Markov Decision Process (MDP)', 'Q-Learning & Bellman Equation', 'Deep Q-Networks (DQN)', 'Epsilon-Greedy Exploration vs Exploitation', 'Experience Replay & Target Networks']]
+            ]
         },
         {
             id: 'ship', name: 'Build and ship', blurb: 'Turning models into things people can use.', items: [
-                ['St', 'Streamlit', ['streamlit']], ['Fl', 'Flask', ['flask']], ['Nx', 'Next.js', ['next.js']], ['Re', 'React', ['react']],
-                ['Ts', 'TypeScript', ['typescript']], ['Fb', 'Firebase', ['firebase']], ['Sb', 'Supabase', ['supabase']], ['Cv', 'OpenCV', ['opencv']]]
+                ['St', 'Streamlit', ['streamlit'], ['Deploying interactive ML web apps', 'Real-time prediction dashboards', 'Model parameter tweaking controls', 'Plotting live metrics & charts', 'Fast client demos & prototypes']],
+                ['Fl', 'Flask', ['flask'], ['Building lightweight REST API endpoints', 'Serving serialized/pickled ML models', 'Handling incoming JSON POST requests', 'Returning real-time inference responses', 'Connecting ML backend with frontend UI']],
+                ['Nx', 'Next.js', ['next.js'], ['Building responsive portfolio & app interfaces', 'Server-side rendering & fast page loads', 'API routes for backend logic', 'Routing & layout architecture', 'Deploying modern web applications']],
+                ['Re', 'React', ['react'], ['Interactive UI components for AI apps', 'Client-side state management', 'Dynamic search & filter controls', 'Responsive layouts & seamless UX', 'Connecting frontends to ML API backends']],
+                ['Ts', 'TypeScript', ['typescript'], ['Type-safe frontend code structure', 'Strict data contracts for project data', 'Preventing runtime interface errors', 'Clean & maintainable web codebases']],
+                ['Fb', 'Firebase', ['firebase'], ['User authentication & session management', 'Real-time database & document sync', 'Hosting static web assets', 'Serverless cloud backend for apps']],
+                ['Sb', 'Supabase', ['supabase'], ['PostgreSQL backend integration', 'User auth & table-level security', 'Relational database schema for web apps', 'Real-time data queries via client SDK']],
+                ['Cv', 'OpenCV', ['opencv'], ['Real-time webcam video stream capture', 'Image resizing & preprocessing for models', 'Color space conversions (BGR to RGB/HSV)', 'Drawing bounding boxes & prediction labels', 'Frame-by-frame computer vision pipelines']]
+            ]
         }
     ];
 
@@ -592,9 +620,11 @@
             const t = tiles[k];
             const list = t.hits.slice(0, 5).map((h) => `<li>${esc(h.title)}</li>`).join('');
             const more = t.hits.length > 5 ? `<li class="none">and ${t.hits.length - 5} more</li>` : '';
+            const isShip = t.band.id === 'ship';
+            const topicsHeading = isShip ? 'How I use it in projects' : 'Topics & concepts covered';
             const topicsHTML = t.topics && t.topics.length ? `
                 <div class="sk-topics">
-                    <h5>Topics & concepts covered</h5>
+                    <h5>${topicsHeading}</h5>
                     <div class="sk-tags">${t.topics.map((tp) => `<span>${esc(tp)}</span>`).join('')}</div>
                 </div>` : '';
             const projectsHTML = t.hits.length ? `
@@ -602,13 +632,13 @@
                     ${t.topics ? `<h5>Projects built with ${esc(t.name)}</h5>` : ''}
                     <ul>${list}${more}</ul>
                     <a class="btn btn-ghost" data-transition href="collection.html?q=${encodeURIComponent(t.kws[0])}">See them in the collection</a>
-                </div>` : '<p class="none">I learned this through college and my own practice.</p>';
+                </div>` : (isShip ? '<p class="none">Integrated into workflow for application tooling and project deployment.</p>' : '<p class="none">I learned this through college and my own practice.</p>');
 
             panel.className = 'sk-panel pop tone-' + t.band.id;
             panel.innerHTML = `
                 <div class="sym">${t.sym}</div>
                 <h4>${esc(t.name)}</h4>
-                <p class="meta">${t.hits.length ? `Used in ${t.hits.length} ${t.hits.length === 1 ? 'project' : 'projects'}` : 'Studied, not yet in a project here'}</p>
+                <p class="meta">${t.hits.length ? `Used in ${t.hits.length} ${t.hits.length === 1 ? 'project' : 'projects'}` : (isShip ? 'Applied in tools and workflows' : 'Studied, not yet in a project here')}</p>
                 ${topicsHTML}
                 ${projectsHTML}`;
         }
