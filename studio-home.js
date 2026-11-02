@@ -704,12 +704,10 @@
     async function github() {
         const heat = $('#heat');
         if (!heat) return;
-        try {
-            const r = await fetch(`https://github-contributions-api.jogruber.de/v4/${CONFIG.githubUser}?y=last`);
-            if (!r.ok) throw new Error('bad status');
-            const j = await r.json();
+
+        function renderContributions(j) {
             const days = (j.contributions || []).slice().sort((a, b) => a.date.localeCompare(b.date));
-            if (!days.length) throw new Error('no data');
+            if (!days.length) return false;
 
             const total = days.reduce((s, d) => s + d.count, 0);
             let longest = 0, run = 0;
@@ -718,10 +716,26 @@
             if (days[k].count === 0) k--;
             while (k >= 0 && days[k].count > 0) { current++; k--; }
 
-            $('#gh-total').dataset.count = total;
-            $('#gh-current').dataset.count = current;
-            $('#gh-longest').dataset.count = longest;
-            $$('.tk-streak').forEach((e) => { e.textContent = current; });
+            const totalEl = $('#gh-total');
+            const currentEl = $('#gh-current');
+            const longestEl = $('#gh-longest');
+
+            if (totalEl) {
+                totalEl.dataset.count = total;
+                totalEl.textContent = total.toLocaleString();
+                if (S && S.countUp) S.countUp(totalEl);
+            }
+            if (currentEl) {
+                currentEl.dataset.count = current;
+                currentEl.textContent = String(current);
+                if (S && S.countUp) S.countUp(currentEl);
+            }
+            if (longestEl) {
+                longestEl.dataset.count = longest;
+                longestEl.textContent = String(longest);
+                if (S && S.countUp) S.countUp(longestEl);
+            }
+            $$('.tk-streak').forEach((e) => { e.textContent = String(current); });
 
             const first = new Date(days[0].date + 'T00:00:00').getDay();
             const cells = [];
@@ -742,10 +756,34 @@
             }).join('');
             heat.innerHTML = `<div class="heat-months" style="grid-template-columns:repeat(${weeks},1fr)">${months}</div><div class="heat-grid io" style="grid-template-columns:repeat(${weeks},1fr)">${cells.join('')}</div>`;
             S.fx($('#log'));
+            return true;
+        }
+
+        // 1. Restore from cache if available for instant display
+        let hasRendered = false;
+        try {
+            const cached = localStorage.getItem('studio_gh_activity_' + CONFIG.githubUser);
+            if (cached) {
+                hasRendered = renderContributions(JSON.parse(cached));
+            }
+        } catch (_) {}
+
+        // 2. Fetch fresh live data from GitHub API
+        try {
+            const r = await fetch(`https://github-contributions-api.jogruber.de/v4/${CONFIG.githubUser}?y=last`);
+            if (!r.ok) throw new Error('bad status');
+            const j = await r.json();
+            if (renderContributions(j)) {
+                try {
+                    localStorage.setItem('studio_gh_activity_' + CONFIG.githubUser, JSON.stringify(j));
+                } catch (_) {}
+            }
         } catch (e) {
-            ['#gh-total', '#gh-current', '#gh-longest'].forEach((s) => { const el = $(s); if (el) el.textContent = '-'; });
-            $$('.tk-streak').forEach((el) => { el.textContent = '-'; });
-            heat.innerHTML = '<p class="heat-note">The live activity could not load right now. You can see it on GitHub instead.</p>';
+            if (!hasRendered) {
+                ['#gh-total', '#gh-current', '#gh-longest'].forEach((s) => { const el = $(s); if (el) el.textContent = '-'; });
+                $$('.tk-streak').forEach((el) => { el.textContent = '-'; });
+                heat.innerHTML = '<p class="heat-note">The live activity could not load right now. You can see it on GitHub instead.</p>';
+            }
         }
     }
 
